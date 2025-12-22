@@ -9,8 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@stacks/connect": "^8.2.3",
-    "@stacks/transactions": "^8.0.0",
+    "@stacks/connect": "^8.2.4",
+    "@stacks/transactions": "^7.3.0",
     "@stacks/network": "^7.2.0",
     "next": "14.1.0",
     "react": "^18.2.0",
