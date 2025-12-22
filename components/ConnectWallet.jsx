@@ -7,46 +7,47 @@ export default function ConnectWallet() {
   const [mounted, setMounted] = useState(false);
   const [address, setAddress] = useState(null);
 
-  // Handle hydration to prevent mismatch between server/client HTML
   useEffect(() => {
     setMounted(true);
     if (isConnected()) {
       const data = getLocalStorage();
+      // Safely access the STX address from local storage
       setAddress(data?.addresses?.stx?.[0]?.address);
     }
   }, []);
 
   const handleConnect = async () => {
     try {
-      // In v8+, connect() is the primary method to trigger the wallet popup
-      const response = await connect();
+      // Configuration for WalletConnect integration
+      const response = await connect({
+        walletConnectProjectId: process.env.NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID,
+      });
       
-      // Update state with the newly connected address
       const stxAddress = response?.addresses?.stx?.[0]?.address;
       setAddress(stxAddress);
-      
-      console.log("Connected successfully:", stxAddress);
+      console.log("Connected:", stxAddress);
     } catch (error) {
-      console.error("Connection failed or user cancelled:", error);
+      console.error("Connection failed:", error);
     }
   };
 
   const handleDisconnect = () => {
-    disconnect();
+    disconnect(); // Clears local storage and wallet session
     setAddress(null);
-    window.location.reload(); // Ensures app state is fully reset
+    window.location.reload(); 
   };
 
-  // Prevent rendering on the server side to avoid hydration errors
   if (!mounted) return null;
 
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col items-center gap-4">
       {address ? (
-        <div className="flex flex-col items-center gap-2">
-          <p className="text-sm text-gray-400">Connected: {address.slice(0, 6)}...{address.slice(-4)}</p>
+        <div className="text-center">
+          <p className="text-sm text-gray-400 mb-2">
+            Wallet: {address.slice(0, 6)}...{address.slice(-4)}
+          </p>
           <button
-            className="px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded transition-colors"
+            className="px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded transition"
             onClick={handleDisconnect}
           >
             Disconnect
@@ -54,7 +55,7 @@ export default function ConnectWallet() {
         </div>
       ) : (
         <button
-          className="mt-6 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded transition-colors"
+          className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded shadow-lg transition"
           onClick={handleConnect}
         >
           Connect Wallet
