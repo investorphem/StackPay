@@ -11,28 +11,26 @@ export default function ConnectWallet() {
     setMounted(true);
     if (isConnected()) {
       const data = getLocalStorage();
-      // Safely access the STX address from local storage
-      setAddress(data?.addresses?.stx?.[0]?.address);
+      setAddress(data?.addresses?.stx?.address);
     }
   }, []);
 
   const handleConnect = async () => {
     try {
-      // Configuration for WalletConnect integration
+      // v8.2.3 handles WalletConnect automatically if project ID is provided
       const response = await connect({
-        walletConnectProjectId: process.env.NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID,
+        walletConnectProjectId: process.env.NEXT_PUBLIC_WC_PROJECT_ID,
       });
       
-      const stxAddress = response?.addresses?.stx?.[0]?.address;
+      const stxAddress = response?.addresses?.stx?.address;
       setAddress(stxAddress);
-      console.log("Connected:", stxAddress);
     } catch (error) {
-      console.error("Connection failed:", error);
+      console.error("Wallet connection failed:", error);
     }
   };
 
   const handleDisconnect = () => {
-    disconnect(); // Clears local storage and wallet session
+    disconnect();
     setAddress(null);
     window.location.reload(); 
   };
@@ -40,14 +38,14 @@ export default function ConnectWallet() {
   if (!mounted) return null;
 
   return (
-    <div className="flex flex-col items-center gap-4">
+    <div className="flex flex-col items-center">
       {address ? (
-        <div className="text-center">
-          <p className="text-sm text-gray-400 mb-2">
-            Wallet: {address.slice(0, 6)}...{address.slice(-4)}
+        <div className="flex flex-col items-center gap-2">
+          <p className="text-sm text-gray-400 font-mono">
+            {address.slice(0, 6)}...{address.slice(-4)}
           </p>
           <button
-            className="px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded transition"
+            className="px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded transition-all"
             onClick={handleDisconnect}
           >
             Disconnect
@@ -55,7 +53,7 @@ export default function ConnectWallet() {
         </div>
       ) : (
         <button
-          className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded shadow-lg transition"
+          className="mt-6 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg shadow-md transition-all"
           onClick={handleConnect}
         >
           Connect Wallet
