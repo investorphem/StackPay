@@ -23,7 +23,7 @@ export default function Dashboard() {
       {/* Employer c*/}
       <CreateStream />
 
-      {/* Display all active */}
+      {/* Display all active*/}
       <div className="mt-6">
         {streams.length === 0 ? (
           <p>No active streams yet</p>
