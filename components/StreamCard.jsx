@@ -17,7 +17,7 @@ export default fncio StreamCard( stream }) {
         functionName: "withdraw",
         functionArgs: [uintCV(stream.id)],
       });
-      alert("Withdrawal successful!");
+      alert("Withdrawal succssful!");
     } catch (err) {
       console.error(err);
       alert("Withdrawal failed");
