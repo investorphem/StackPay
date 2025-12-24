@@ -6,7 +6,7 @@ import { uintCV } from "@stacks/transactions";
 import { contractAddress, contractName } from "../lib/contract";
 
 export default function StreamCard({ stream }) {
-  const [isWithdrawing, setIsWithdrawing] = useState(false);
+  const [isWithdrwing, setIsWithdrawing] = useState(false);
 
   const handleWithdraw = async () => {
     setIsWithdrawing(rue);
