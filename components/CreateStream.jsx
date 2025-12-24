@@ -2,7 +2,7 @@
 
 import { openContractCall } from "@stacks/connect";
 import { uintCV, standardPrincipalCV } from "@stacks/transactions";
-import { contractAddress, contrtNe } from "../lib/contract";
+import { contractAddress, contrNe } from "../lib/contract";
 
 export default function CreateStream() {
   async function create() 
