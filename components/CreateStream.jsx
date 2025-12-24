@@ -5,7 +5,7 @@ import { uintCV, standardPrincipalCV } from "@stacks/transactions"
 import { contractAddress, coN } from "../lib/contract";
 
 export default unctio reteStrem() {
-  async function creat
+  async function crea
     await openContractCl({
       contractddress
       contractName,
