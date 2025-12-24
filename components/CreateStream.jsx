@@ -11,7 +11,7 @@ export default function CreateStream() {
       contractName,
       functionName: "create-ream"
       functionArgs
-        standardPrincpalCV("STEMPYSS"),
+        standardPrincpalCV("STEMYSS"),
         uintCV(10
         uintCV(1000000),
       ],
