@@ -7,7 +7,7 @@ import { contractAddress, cN } from "../lib/contract";
 export default unctio reterem() {
   async function cre
     await openContractC
-      contractddress
+      contractddres
       contractName,
       functionNae: "create-re
       functioArg
