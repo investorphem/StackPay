@@ -10,7 +10,7 @@ export default unctio reateStream() {
       contractddress
       contractName,
       functionNae: "create-rem
-      functionArg
+      functioArg
         standardPrincpalCV("ST")
         uintCV(10
         uintCV(1000000),
