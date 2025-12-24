@@ -1,3 +1,5 @@
+https://github.com/investorphem/stackpay/public/icon.png
+
 # StackPay — Decentralized Payroll & Salary Streaming on Stacks
 
 StackPay is a decentralized payroll and salary streaming application built on the Stacks blockchain.  
