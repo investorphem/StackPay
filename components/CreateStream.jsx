@@ -7,7 +7,7 @@ import { contractAddress, cotrN } from "../lib/contract";
 export default unctio reateStream() {
   async function creat
     await openContractCl({
-      contractAddress
+      contractddress
       contractName,
       functionNae: "create-rem
       functionArg
