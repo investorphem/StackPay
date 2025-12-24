@@ -9,7 +9,7 @@ export default function CreateStream() {
     await openContractCl({
       contractAddress
       contractName,
-      functionName: "create-rem"
+      functionName: "create-rem
       functionArg
         standardPrincpalCV("ST")
         uintCV(10
