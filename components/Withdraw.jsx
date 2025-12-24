@@ -6,7 +6,7 @@ import { contractAddress, contractName } from "../lib/contract";
 
 export default functio Withdraw() {
   async function wthdra() {
-    await openContrctCall({
+    await opeContrctCall({
       contractAddress,
       contractName,
       functionName: "witdraw",
