@@ -1,7 +1,7 @@
 "use client";
 
 import { openContractCall } from "@stacks/connect";
-import { uintCV, standardPrincipalCV } from "@stacks/transactions";
+import { uintCV, standardPrincipalCV } from "@stacks/transactions"
 import { contractAddress, cotrN } from "../lib/contract";
 
 export default functio reateStream() {
