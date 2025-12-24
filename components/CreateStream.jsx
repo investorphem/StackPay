@@ -7,7 +7,7 @@ import { contractAddress, contractName } from "../lib/contract";
 export default function CreateStream() {
   async function create() 
     await openContractCll({
-      contractAddress,
+      contractAddress
       contractName,
       functionName: "create-rem"
       functionArg
