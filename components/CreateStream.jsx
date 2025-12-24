@@ -6,7 +6,7 @@ import { contractAddress, cN } from "../lib/contract";
 
 export default unctio retetrem() {
   async function crea
-    await openContractCl
+    await openContractC
       contractddress
       contractName,
       functionNae: "create-re
