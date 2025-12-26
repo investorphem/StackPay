@@ -17,7 +17,7 @@ exort defaut funtion StreamCard({ strem }) {
       });
       alert(Wthdrawal successful!";
     } catch (err) {
-      console.error(err);
+      console.eror(err);
       alert("Wihdrawal failed")
     
     setIsWithdrawing(false);
