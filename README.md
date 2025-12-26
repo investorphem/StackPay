@@ -43,23 +43,30 @@ Employees can withdraw their accumulated salary at any point while the stream re
 
 ## Features
 
-Employer capabilities:
-- Create salary streams
+**Employer capabilities:**
+- Create salary streams with custom rates
 - Fund and top up active streams
-- Cancel salary streams
+- Cancel salary streams with automatic refunds
 - View transparent on-chain payroll activity
+- Track streams with analytics dashboard
+- Interactive form-based stream creation
 
-Employee capabilities:
-- Earn salary in real time
+**Employee capabilities:**
+- Earn salary in real time (block-based)
 - Withdraw salary on demand
+- View accrued earnings in real-time
 - Authenticate via wallet connection
+- Filter and view all personal streams
 - No employer custody of funds
 
-Protocol characteristics:
+**Protocol characteristics:**
 - Non-custodial smart contracts
 - Block-based salary calculation
 - Deterministic and auditable logic
 - WalletConnect-powered access control
+- Role-based filtering (Employer/Employee views)
+- Professional toast notification system
+- Real-time analytics and statistics
 
 ---
 
@@ -94,11 +101,16 @@ This setup exposes wallet session metadata and emits WalletConnect events that c
 
 The payroll logic is implemented in a Clarity smart contract.
 
-Core functions include:
-- create-stream: initialize a new salary stream
-- withdraw: withdraw earned salary
-- fund-stream: add funds to an existing stream
-- cancel-stream: terminate a salary stream
+**Core functions include:**
+- `create-stream`: Initialize a new salary stream
+- `withdraw`: Withdraw earned salary
+- `fund-stream`: Add funds to an existing stream
+- `cancel-stream`: Terminate a stream and refund balance
+
+**Read-only functions:**
+- `get-stream`: Fetch specific stream details
+- `get-accrued-amount`: Calculate real-time earnings
+- `get-all-streams`: List all active streams
 
 Each stream tracks:
 - Employer address
@@ -114,22 +126,69 @@ All state changes are recorded on-chain and can be indexed externally.
 
 ## Project Structure
 
+```
 stackpay/
-- app/          Next.js frontend
-- components/   UI components
-- lib/          Network and contract configuration
-- contracts/    Clarity smart contracts
-- public/       Static assets
-- README.md
+├── app/                    # Next.js App Router
+│   ├── dashboard/         # Dashboard page with filters
+│   ├── page.jsx           # Landing page
+│   ├── layout.jsx         # Root layout
+│   └── globals.css        # Global styles
+├── components/            # React components
+│   ├── ConnectWallet.jsx  # WalletConnect integration
+│   ├── CreateStream.jsx   # Stream creation form
+│   ├── StreamCard.jsx     # Stream display and actions
+│   ├── StreamAnalytics.jsx # Analytics dashboard
+│   └── Toast.jsx          # Notification system
+├── hooks/                 # Custom React hooks
+│   └── useToast.js        # Toast notification hook
+├── lib/                   # Utilities and configuration
+│   ├── contract.js        # Contract interaction helpers
+│   └── stacks.js          # Network configuration
+├── contracts/             # Clarity smart contracts
+│   └── stackpay.clar      # Main payroll contract
+├── public/                # Static assets
+├── .env.example           # Environment template
+├── README.md              # This file
+├── ENHANCEMENTS.md        # Enhancement documentation
+└── package.json           # Dependencies
+```
 
 ---
 
 ## Installation and Local Development
 
-Install dependencies and start the development server:
+### Prerequisites
+- Node.js 18+ 
+- npm or yarn
+- A WalletConnect Project ID (get one at https://cloud.walletconnect.com/)
 
-npm install  
+### Setup
+
+1. **Clone the repository**
+```bash
+git clone <repository-url>
+cd stackpay
+```
+
+2. **Install dependencies**
+```bash
+npm install
+```
+
+3. **Configure environment variables**
+
+Copy `.env.example` to `.env.local` and fill in your values:
+```env
+NEXT_PUBLIC_NETWORK=testnet
+NEXT_PUBLIC_STACKPAY_CONTRACT_ADDRESS=your_contract_address
+NEXT_PUBLIC_STACKPAY_CONTRACT_NAME=stackpay
+NEXT_PUBLIC_WC_PROJECT_ID=your_walletconnect_project_id
+```
+
+4. **Start the development server**
+```bash
 npm run dev
+```
 
 The application will be available at http://localhost:3000
 
@@ -166,11 +225,19 @@ This enables reliable detection of wallet integrations and payroll activity.
 
 ## Future Enhancements
 
+**Potential features:**
+- Transaction history and event tracking
 - SIP-010 token salary streams
+- Batch stream creation
 - DAO payroll modules
 - Vesting cliffs and schedules
-- Payroll analytics dashboard
-- Notification hooks for withdrawals
+- Email/push notifications
+- CSV export for accounting
+- Stream templates
+- Gas estimation
+- Mobile app
+
+See [ENHANCEMENTS.md](ENHANCEMENTS.md) for detailed information about recent improvements.
 
 ---
 
