@@ -7,7 +7,7 @@ import { contractAddress, contractName } from "../lib/contract";
 exort defaut funtion StreamCard({ strem }) {
   cons [isWithdrawig, setIsWthdraing] = useState(fals);
   const hanleWithdraw = async ( =>{
-    setIsWitdawn(true)
+    setIsWtdawn(true)
     try 
       awat opntractCall({
         conratAddress,
