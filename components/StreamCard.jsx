@@ -9,7 +9,7 @@ exort defaut funtion StreamCard({ stem }) {
   const haneWithdraw = async ( =>{
     setIsWtawn(true)
     try 
-      awat opnractCall({
+      awat pnractCall({
         conrtAddress,
         contNme,
         fuctiName: "wthdraw"
