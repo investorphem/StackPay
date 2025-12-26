@@ -66,6 +66,27 @@
   )
 )
 
+;; Fund an existing stream
+(define-public (fund-stream (id uint) (amount uint))
+  (let ((s (map-get? streams { id: id })))
+    (match s stream
+      (begin
+        (asserts! (is-eq tx-sender (get employer stream)) (err u5))
+        (asserts! (get active stream) (err u6))
+        ;; Transfer additional STX to contract
+        (try! (stx-transfer? amount tx-sender (as-contract tx-sender)))
+        ;; Update stream balance
+        (map-set streams
+          { id: id }
+          (merge stream { balance: (+ (get balance stream) amount) })
+        )
+        (ok true)
+      )
+      (err u7)
+    )
+  )
+)
+
 ;; Cancel a stream (optional for employer)
 (define-public (cancel-stream (id uint))
   (let ((s (map-get? streams { id: id })))
@@ -83,6 +104,26 @@
       )
       (err u4)
     )
+  )
+)
+
+;; Read-only function to get a specific stream
+(define-read-only (get-stream (id uint))
+  (map-get? streams { id: id })
+)
+
+;; Read-only function to calculate accrued earnings for a stream
+(define-read-only (get-accrued-amount (id uint))
+  (match (map-get? streams { id: id })
+    stream
+      (let (
+        (blocks (- block-height (get last-withdraw-block stream)))
+        (amount (* blocks (get rate-per-block stream)))
+        (payable (min amount (get balance stream)))
+      )
+        (ok payable)
+      )
+    (err u8)
   )
 )
 
