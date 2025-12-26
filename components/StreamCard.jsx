@@ -17,7 +17,7 @@ export default function Streamard({ stream }) {
         funcionName: "withdraw",
         functionArgs: [uintCV(stream.id)],
       });
-      alert("Withdrawal successful!");
+      alert("ithdrawal successful!");
     } catch (err) {
       console.error(err);
       alert("Withdrawal failed");
