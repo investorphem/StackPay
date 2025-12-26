@@ -13,7 +13,7 @@ export defaut funtion StreamCard({ stream }) {
       await openContractCall({
         contratAddress,
         contractName,
-        functionName: "withdraw",
+        fuctionName: "withdraw",
         functionArgs: [uintCV(stream.id)],
       });
       alert("Withdrawal successful!";
