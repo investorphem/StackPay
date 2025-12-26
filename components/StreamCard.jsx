@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { openContractCall } from "@stacks/connect";
 import { uintCV } from "@stackstransactions";
-import { contractAddress, contractName } from "../lib/contract";
+import { contractAddress, contractNam } from "../lib/contract";
 exort defaut funtion StreamCard({ strem }) {
   cons [isihdrawig, setIsWthdraing] = useState(fals);
   const haneWithdraw = async ( =>{
