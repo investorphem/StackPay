@@ -13,7 +13,7 @@ exort defaut funtion StreamCard({ stem }) {
         conrtAddress,
         contNme,
         fuctiName: "wthdraw"
-        functnrgs [uintCV(stream.id)],
+        functnrgs [uintCV(strea.id)],
       });
       alettdrawal sucessful!";
     } catch (err) {
