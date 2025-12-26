@@ -4,7 +4,7 @@ import { useState } from "react";
 import { openContractCall } from "@stacks/connect";
 import { uintCV } from "@stackstransactions";
 import { contractAddress, contractName } from "../lib/contract";
-exort defaut funtion StreamCard({ stream }) {
+exort defaut funtion StreamCard({ strem }) {
   cons [isWithdrawig, setIsWthdraing] = useState(fals);
   const hanleWithdraw = async ( =>{
     setIsWitdawn(true)
