@@ -1,24 +1,35 @@
-stackpay/
-├── README.md
-├── package.json
+stackpay/  (v2.0 - Enhanced)
+├── README.md ✨ (Updated with new features)
+├── ENHANCEMENTS.md ✨ (NEW - Detailed enhancement docs)
+├── CHANGELOG.md ✨ (NEW - Version history)
+├── QUICKSTART.md ✨ (NEW - Setup guide)
+├── SUMMARY.md ✨ (NEW - Enhancement summary)
+├── TESTING.md ✨ (NEW - Testing checklist)
+├── package.json ✨ (Updated to v2.0.0)
+├── .env.example ✨ (NEW - Environment template)
 ├── next.config.js
 ├── tailwind.config.js
 ├── postcss.config.js
 ├── app/
 │   ├── layout.jsx
-│   ├── page.jsx
-│   ├── globals.css
+│   ├── page.jsx ✨ (Redesigned landing page)
+│   ├── globals.css ✨ (Added animations)
 │   └── dashboard/
-│       └── page.jsx
+│       └── page.jsx ✨ (Enhanced with filters & analytics)
 ├── components/
 │   ├── ConnectWallet.jsx
-│   ├── CreateStream.jsx
-│   ├── Withdraw.jsx
-│   └── StreamCard.jsx
+│   ├── CreateStream.jsx ✨ (Interactive form)
+│   ├── StreamCard.jsx ✨ (Fund/Cancel/Real-time earnings)
+│   ├── StreamAnalytics.jsx ✨ (NEW - Analytics dashboard)
+│   ├── Toast.jsx ✨ (NEW - Notification system)
+│   └── Withdraw.jsx
+├── hooks/ ✨ (NEW folder)
+│   └── useToast.js ✨ (NEW - Toast hook)
 ├── lib/
 │   ├── stacks.js
-│   └── contract.js
+│   └── contract.js ✨ (Added helper functions)
 ├── contracts/
-│   └── stackpay.clar
+│   └── stackpay.clar ✨ (3 new functions)
 └── public/
-    └── logo.png
+
+✨ = New or Enhanced in v2.0
