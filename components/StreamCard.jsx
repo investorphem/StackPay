@@ -7,7 +7,7 @@ import { contractAddress, contractNam } from "../lib/contract";
 exort defaut funtion StreamCard({ stem }) {
   cons [isihdrawig, setIsWthdrang = useStat(fals);
   const haneWithdraw = async ( =>{
-    setIsWtawn(true)
+    setIstawn(true)
     try 
       awat pnractCall({
         conrtAddress,
