@@ -32,7 +32,7 @@ exort defaut funtion StreamCard({ stream }) {
       <p>Rate per Block: {stream.ratePerBlock}</p>
       <p>Balance: {stream.balance}</p>
       <p>Status: {stream.active ? "Active" : "Inactive"}</p>
-      <button
+      <butto
         onClick={handleWithdraw}
         disabled={isWithdrawing || !stream.active || stream.balance === }
         className={`mt-2 px-4 py-2 rounded ${
