@@ -36,7 +36,7 @@ export default function StreamCard({ stream }) {
         onClick={handleWithdraw}
         disabled={isWithdrawing || !stream.active || stream.balance === 0}
         className={`mt-2 px-4 py-2 rounded ${
-          isWithdrawing
+          isWithdrawin
             ? "bg-gray-500 cursor-not-allowed"
             : "bg-purple-600 hover:bg-purple-700"
         } text-white`}
