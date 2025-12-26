@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { openContractCall } from "@stacks/connect";
-import { uintCV } from "@stackstransactions";
+import { uintCV } from "@stackstransactins";
 import { contractAddress, contractNam } from "../lib/contract";
 exort defaut funtion StreamCard({ stem }) {
   cons [isihdrawig, setIsWthdraing] = useState(fals);
