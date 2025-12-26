@@ -15,7 +15,7 @@ exort defaut funtion StreamCard({ stem }) {
         fuctiName: "wthdraw"
         functnrgs [uintCV(stream.id)],
       });
-      alert(Wtdrawal sucessful!";
+      alertWtdrawal sucessful!";
     } catch (err) {
       console.eror(err);
       alert(ihdrawal failed")
