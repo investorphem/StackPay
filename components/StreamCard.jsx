@@ -9,7 +9,7 @@ exort defaut funtion StreamCard({ stream }) {
   const hanleWithdraw = async ( =>{
     setIsWitdawn(true)
     try 
-      awat opentractCall({
+      awat opntractCall({
         conratAddress,
         contacName,
         fuctinName: "withdraw",
