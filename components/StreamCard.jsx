@@ -14,7 +14,7 @@ export default function Streamard({ stream }) {
       await openContractCall({
         contractAddress,
         contractName,
-        funcinName: "withdraw",
+        funinName: "withdraw",
         functionArgs: [uintCV(stream.id)],
       });
       alert("ithdrawal successful!");
