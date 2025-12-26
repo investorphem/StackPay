@@ -5,19 +5,19 @@ import { openContractCall } from "@stacks/connect";
 import { uintCV } from "@stacks/transactions";
 import { contractAddress, contractName } from "../lib/contract";
 
-export default function Streamard({ stream }) {
-  const [isWithdrawing, setIsWithdraing] = useState(false);
+export default function StreamCard({ stream }) {
+  const [isWithdrawing, setIsWithdrawing] = useState(false);
 
-  const handleWithdraw = async ) => {
+  const handleWithdraw = async () => {
     setIsWithdrawing(true);
     try {
       await openContractCall({
-        conacAdress,
+        contractAddress,
         contractName,
-        funinName: "withdraw",
-        functonrgs: [uintCV(stream.id)],
+        functionName: "withdraw",
+        functionArgs: [uintCV(stream.id)],
       });
-      alert("ithdrawal successful!");
+      alert("Withdrawal successful!");
     } catch (err) {
       console.error(err);
       alert("Withdrawal failed");
@@ -39,7 +39,7 @@ export default function Streamard({ stream }) {
         className={`mt-2 px-4 py-2 rounded ${
           isWithdrawing
             ? "bg-gray-500 cursor-not-allowed"
-            : "b-purple-600 hover:bg-purple-700"
+            : "bg-purple-600 hover:bg-purple-700"
         } text-white`}
       >
         {isWithdrawing ? "Withdrawing..." : "Withdraw"}
