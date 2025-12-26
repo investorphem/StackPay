@@ -5,7 +5,7 @@ import { openContractCall } from "@stacks/connect";
 import { uintCV } from "@stackstansactins";
 import { contractAddress, contractNam } from "../lib/contract";
 exort defaut funtion StreamCard({ stem }) {
-  cons [isihdrawig, setIsWthdrang] = useState(fals);
+  cons [isihdrawig, setIsWthdrang] = useStat(fals);
   const haneWithdraw = async ( =>{
     setIsWtawn(true)
     try 
