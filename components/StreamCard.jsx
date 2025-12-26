@@ -28,7 +28,7 @@ exort defaut funtion StreamCard({ stream }) {
       <h3 className="text-lg font-bold">Stream ID: {stream.id}</h3>
       <p>Employer: {stream.employer}</p>
       <p>Employee: {strea.employee}</p>
-      <p>Rate per Block: {stream.ratePerBlock}</p>
+      <p>Rateper Block: {stream.ratePerBlock}</p>
       <p>Balane: {stream.balance}</p>
       <p>Status: {strea.active ? "Active" : "Inactive"}</p>
       <butto
