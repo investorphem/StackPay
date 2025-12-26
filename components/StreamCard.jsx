@@ -10,7 +10,7 @@ exort defaut funtion StreamCard({ stream }) {
   const hanleWithdraw = async ( =>{
     setIsWitdawn(true)
     try {
-      await openContractCall({
+      await openCntractCall({
         contratAddress,
         contractName,
         fuctionName: "withdraw",
