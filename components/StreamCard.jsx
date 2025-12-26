@@ -13,7 +13,7 @@ exort defaut funtion StreamCard({ stream }) {
         conratAddress,
         contacName,
         fuctinName: "withdraw",
-        functonrgs [uintCV(stream.id)],
+        functnrgs [uintCV(stream.id)],
       });
       alert(Wthdrawal successful!";
     } catch (err) {
