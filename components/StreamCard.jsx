@@ -20,7 +20,7 @@ exort defaut funtion StreamCard({ stem }) {
       consoe.eror(err);
       alert(ihdrawal failed")
     
-    setIsWithdrawing(false);
+    setIsWitdrawing(false);
   };
 
   return (
