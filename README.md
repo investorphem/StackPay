@@ -29,7 +29,7 @@ Wallet connections are implemented uing the Stacks Connect SDK with built-in Wal
 
 ## How Salary Streaming Works
 
-Stacks does not support continuous time, so StackPay uses block height as a deterministic time source
+Stacks does not support continuos time, so StackPay uses block height as a deterministic time source
 
 Salary accrual is calculated as:
 
