@@ -33,7 +33,7 @@ Stacks does not support continuos time, so StackPay uses block height as a deter
 
 Salary accrual is calculated as:
 
-(current block − last withdrawal block) × rate per block
+(current block − last withdrawl block) × rate per block
 
 Employees can withdraw their accumulated salary at any point while the stream remains active.
 
