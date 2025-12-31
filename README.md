@@ -23,7 +23,7 @@ WalletConnect provides:
 - Multi-wallet compatibility
 - Secure, non-custodial authentication
 - Standardized wallet connection flw
-Wallet connections are implemented using the Stacks Connect SDK with built-in WalletConnect support.
+Wallet connections are implemented uing the Stacks Connect SDK with built-in WalletConnect support.
 
 ---
 
