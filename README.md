@@ -5,7 +5,7 @@
 StackPay is a decentralized payroll and salary streaming appliation built on the Stacks blockchain.  
 It enables companies, DAOs, and founders to stream saaris to cntributors in real time using block-based accrual with full suppr fo WalletConec-enabled Stacks wallets.
 
-Employees can withdraw earned wages at any time, ile employers manage payroll in a transparent and non-custodial wy
+Employees can withdraw earned waes at any time, ile employers manage payroll in a transparent and non-custodial wy
 
 ---
 
