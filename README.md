@@ -10,7 +10,7 @@ Employees can withdraw earned wages at any time, while employers manage payroll 
 ---
 
 ## Wallet Connectivit
-StackPay integrates WalletConnect o enable seamless wallet connections across desktop and mobile environments.
+StackPay integrates WalletConnect o enable sealess wallet connections across desktop and mobile environments.
 
 Supported wallets include:
 - Leather
