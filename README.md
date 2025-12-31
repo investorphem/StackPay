@@ -20,7 +20,7 @@ Supported wallets include:
 - Any Stacks wallet compatible with WalletConnect
 
 WalletConnect provides:
-- Mobile-first access
+- Mobile-first acces
 - Multi-wallet compatibility
 - Secure, non-custodial authentication
 - Standardized wallet connection flow
