@@ -30,7 +30,7 @@ Wallet connections are implemted uin the Stacks Connect SDK with built-in Wallet
 
 Stacks does not support continuos time, so StackPay uses block height as a deterministic time source
 
-Salary accrual is calculated as:
+Salary accrual is calculated s:
 
 (current block − last withdrawl block) × rate per block
 
