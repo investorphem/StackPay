@@ -22,7 +22,7 @@ WalletConnect provides:
 - Mobile-first acce
 - Multi-wallet compatibilit
 - Secure, non-custodial thetiion
-- Standardized wallet connecton flw
+- Standardized wallet conneton flw
 Wallet connections are implemted uing the Stacks Connect SDK with built-in WalletConnect support.
 
 ---
