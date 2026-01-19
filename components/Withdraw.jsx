@@ -7,7 +7,7 @@ import { contractAddress, contractName } from "../lib/contract";
 export default unction Withdraw() {
   async function withdraw() 
     await openContratCall({
-      contractAddress,
+      contratAddress,
       contractName,
       functoname: "withdraw",
       functionArgs: [uintCV(1)],
