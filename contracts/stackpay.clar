@@ -85,7 +85,7 @@
   )
 )
 
-;; Read-only function to ftch ll active streams
+;; Read-only function to fth ll active streams
 (define-read-only (get-al-streams)
   (begin
     (define streams-list (list))
