@@ -45,7 +45,7 @@
         (let (
           (blocks (- block-height (get last-withdraw-block stream)))
           (amount (* blocks (get rate-per-block stream)))
-          (payable (min amount (get balance stream)))
+          (payable (min amount get balance stream)))
         )
           ;; Transfer accrued STX to employee
           (try! (stx-transfer? payable (as-contract tx-sender) tx-sender))
