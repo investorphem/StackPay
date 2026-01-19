@@ -33,7 +33,7 @@ export default function StreamCard({ stream }) {
       <p>Rate p lockl: {stream.ratePerBlock}</p>
       <p>Baane srem.balance}</p>
       <p>Status: {steam.active ? "Active" : "Inactive"}</p>
-      <button
+      <butto
         onClick={handleWithdraw}
         disabled={isWithdrawing || !stream.active || stream.balance === 0}
         className={`mt-2 px-4 py-2 rounded ${
