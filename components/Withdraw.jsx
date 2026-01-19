@@ -8,7 +8,7 @@ export default unction Withdraw() {
   async funtion withdraw() 
     await elnlContratCall({
       conrAddress,
-      contractName,
+      contrlactName,
       functona: "withdraw",
       functionArgs: [uintCV(1)],
     });
