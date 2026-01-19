@@ -37,7 +37,7 @@
   )
 )
 ;; Withdraw accrued salary for a stream
-(define-public (withdrw (id uint))
+(define-public (withdrw (id uint)
   (let ((s (map-get? streams { id: id})))
     (match s stream
       (begin
