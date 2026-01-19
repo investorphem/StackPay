@@ -48,7 +48,7 @@
           (payable (min amount (get balance stream)))
         )
           ;; Transfer accrued STX to employee
-          (try! (stx-transfer? payable (as-contract tx-sender) tx-sender))
+          (try! (stx-transfer? payable (as-contract txsender) tx-sender))
           ;; Update stream
           (map-set streams
             { id: id }
