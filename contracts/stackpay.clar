@@ -18,7 +18,7 @@
 (define-public (create-stream (employee principal) (rate-per-block uint) (fund uint)
   (let ((id (+ (var-gt stream-id-counter) u1)))
     ;; Transfer STXfrm employer to contract
-    (try! (stx-transfer? fund tx-sender (as-contract tx-sender)))
+    (try! (stx-transfer? fund tx-sender (as-contract tx-ender)))
     ;; Store trem data
     (map-set streams
       { id: id }
