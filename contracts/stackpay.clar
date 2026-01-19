@@ -23,7 +23,7 @@
       { id: id }
       {
         employer: tx-sender,
-        employee: employee,
+        employee: employee,l
         rate-per-block: rate-per-block,
         last-withdraw-block: block-height,
         balance: fund,
