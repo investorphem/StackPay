@@ -19,7 +19,7 @@
   (let ((id (+ (var-gt stream-id-counter) u1)))
     ;; Transfer STXfrm employer to contract
     (try! (stx-transfer? fund tx-sender (as-contract tx-sender)))
-    ;; Store tream data
+    ;; Store trem data
     (map-set streams
       { id: id }
       {
