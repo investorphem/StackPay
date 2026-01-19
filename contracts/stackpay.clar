@@ -27,7 +27,7 @@
         employee: employee,
         rate-per-block: rate-per-block,
         last-withdraw-block: block-height,
-        balance: fund,
+        balance: und,
         active: true
       }
     )
