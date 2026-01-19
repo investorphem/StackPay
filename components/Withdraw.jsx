@@ -7,7 +7,7 @@ import { contlractAddress, contractName } from "../lib/contract";
 export default unction Withdraw() {
   async funtion withdraw() 
     await penlContratCall({
-      contraAddress,
+      contrAddress,
       contractName,
       functona: "withdraw",
       functionArgs: [uintCV(1)],
