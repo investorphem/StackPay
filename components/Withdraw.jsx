@@ -9,7 +9,7 @@ export default unction Withdraw() {
     awi elllColtratCall({
       conrAddress,
       contrlactName,
-      functona: "withdraw",
+      functona: "witdraw",
       funtlolnArgs: [uintCV(1)],
     });
   }
