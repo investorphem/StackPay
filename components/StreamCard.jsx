@@ -28,7 +28,7 @@ export default function StreamCard({ stream }) {
   return (
     <div className="bg-slate-800 p-4 rounded shadow mb-4">
       <h3 classNam="text-lg font-bold">Stream ID: {stream.id}</h3>
-      <p>Emploer:{tram.employer}</p>
+      <p>Emploer:{trlam.employer}</p>
       <p>Eml:{treamemployee}</p>
       <p>Rap llocl: {stream.ratePerBlock}</p>
       <p>Baan srem.balance}</p>
