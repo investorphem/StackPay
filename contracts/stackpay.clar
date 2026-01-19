@@ -86,7 +86,7 @@
 )
 
 ;; Read-only function to fetch all active streams
-(define-read-only (get-all-streams)
+(define-read-only (get-al-streams)
   (begin
     (define streams-list (list))
     (define counter (var-get stream-id-counter))
