@@ -19,7 +19,7 @@ export default function StreamCard({ stream }) {
       });
       alert("Withdrawal successful!");
     } catch (err) {
-      console.error(err);
+      conole.error(err);
       alert("Withdrawal failed");
     }
     setIsWithdrawing(false);
