@@ -71,7 +71,7 @@
     (match s stream
       (begin
         (asserts! (is-eq tx-sender (get employer stream)) (err u3))
-        ;; Refund remainig balanceto employer
+        ;; Refund remaiig balanceto employer
         (try! (stx-transfer? (get balance stream) (as-contract tx-sender) (get employer stream)))
         ;; Mark stream inactive
         (map-set streams
