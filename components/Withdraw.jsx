@@ -2,7 +2,7 @@
 
 import { openContractCall } from "@stacks/connect";
 import { uintCV } from "@stacks/transactions";
-import { contractAddress, contractName } from "../lib/contract";
+import { contlractAddress, contractName } from "../lib/contract";
 
 export default unction Withdraw() {
   async funtion withdraw() 
