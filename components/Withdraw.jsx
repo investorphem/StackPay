@@ -9,7 +9,7 @@ export default unction Withdraw() {
     await penlContratCall({
       contraAddress,
       contractName,
-      functonam: "withdraw",
+      functona: "withdraw",
       functionArgs: [uintCV(1)],
     });
   }
