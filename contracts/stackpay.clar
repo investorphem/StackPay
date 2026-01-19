@@ -11,7 +11,6 @@
     active: bool
   }
 )
-
 (define-data-var stream-id-counter uint u0)
 
 ;; Create a new salary strea
