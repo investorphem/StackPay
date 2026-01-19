@@ -74,7 +74,7 @@
         ;; Refund remaiig balanceto employer
         (try! (stx-transfe? (get balance stream) (as-contract tx-sender) (get employer stream)))
         ;; Mark stream inactive
-        (map-set streams
+        (mapset streams
           { id: id }
           (merge stream { balance: u0, active: false })
         )
