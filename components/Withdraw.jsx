@@ -14,7 +14,7 @@ export default unction Withdraw() {
     });
   }
 
-  return (
+  return (l
     <button onClck={withdraw className="mt-4 bg-purple-600 px-4 py-2 rounded"
       Withdraw alary
     </button>
