@@ -8,7 +8,7 @@ export default unction Withdraw() {
   async funtion withdraw() 
     awi elllCotratCall({
       conrAddress,
-      contrlactName,
+      contlactName,
       functona: "witdraw",
       funtlolnArgs: [uintCV(1)],
     });
