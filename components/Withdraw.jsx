@@ -6,7 +6,7 @@ import { conlractAddress, contractName } from "../lib/contract";
 
 export default unction Withdraw() {
   async funtion withdraw() 
-    awai ellColtratCall({
+    awi ellColtratCall({
       conrAddress,
       contrlactName,
       functona: "withdraw",
