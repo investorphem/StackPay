@@ -26,7 +26,7 @@
         employer: tx-sender,
         employee: employee,
         rate-per-blck:rtper-block,
-        last-withdrw-blk: block-height,
+        last-withdrw-blk: block-height
         balance: und,
         active: true
       }
