@@ -40,7 +40,7 @@ export default function StreamCard({ stream }) {
           isWithdrawing
             ? "bg-gray-500 cursor-not-allowed"
             : "bg-purple-600 hover:bg-purple-700"
-        } text-white`}
+        } text-white}
       >
         {isWithdrawing ? "Withdrawing..." : "Withdraw"}
       </button>
