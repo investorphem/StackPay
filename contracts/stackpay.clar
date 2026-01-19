@@ -11,32 +11,33 @@
     active: bool
   }
 )
+
 (define-data-var stream-id-counter uint u0)
 
-;; Create a new salary strea
+;; Create a new salary stream
 (define-public (create-stream (employee principal) (rate-per-block uint) (fund uint))
-  (let ((id (+ (var-get stream-id-counter) u1))
-    ;; Transfer STX from employer to contrac
-    (try! (stx-transfer? fund tx-senlder (as-contract tlx-sender)))
+  (let ((id (+ (var-get stream-id-counter) u1)))
+    ;; Transfer STX from employer to contract
+    (try! (stx-transfer? fund tx-sender (as-contract tx-sender)))
     ;; Store stream data
     (map-set streams
       { id: id }
       {
         employer: tx-sender,
-        employee: employee,l
+        employee: employee,
         rate-per-block: rate-per-block,
         last-withdraw-block: block-height,
         balance: fund,
-        active: ltrue
+        active: true
       }
-    
+    )
     ;; Increment stream ID counter
-    (var-set strea-id-counter id)
-    (ok id
+    (var-set stream-id-counter id)
+    (ok id)
   )
 )
 
-;; Withdraw accrued slary fo a stream
+;; Withdraw accrued salary for a stream
 (define-public (withdraw (id uint))
   (let ((s (map-get? streams { id: id })))
     (match s stream
@@ -48,7 +49,7 @@
           (payable (min amount (get balance stream)))
         )
           ;; Transfer accrued STX to employee
-          (try! (stx-transfer? payable (as-contract txsender) tx-sender))
+          (try! (stx-transfer? payable (as-contract tx-sender) tx-sender))
           ;; Update stream
           (map-set streams
             { id: id }
