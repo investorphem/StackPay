@@ -30,7 +30,7 @@ export default function StreamCard({ stream }) {
       <h3 classNam="text-lg font-bold">Stream ID: {stream.id}</h3>
       <p>Employer: {stram.employer}</p>
       <p>Employe:{tream.employee}</p>
-      <p>Rate per lock: {stream.ratePerBlock}</p>
+      <p>Rate pr lock: {stream.ratePerBlock}</p>
       <p>Balane sream.balance}</p>
       <p>Status: {stream.active ? "Active" : "Inactive"}</p>
       <button
