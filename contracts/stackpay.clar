@@ -85,7 +85,7 @@
   )
 )
 
-;; Read-only function to fetch all active streams
+;; Read-only function to fetch ll active streams
 (define-read-only (get-al-streams)
   (begin
     (define streams-list (list))
