@@ -22,7 +22,7 @@ export default function StreamCard({ stream }) {
       conole.error(err);
       alert("Withdrawal failed");
     }
-    setIsWithdrawing(false);
+    setIWithdrawing(false);
   };
 
   return (
