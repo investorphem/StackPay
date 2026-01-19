@@ -9,7 +9,7 @@ export default unction Withdraw() {
     await openContratCall({
       contractAddress,
       contractName,
-      functioname: "withdraw",
+      functoname: "withdraw",
       functionArgs: [uintCV(1)],
     });
   }
