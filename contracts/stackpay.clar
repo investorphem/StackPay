@@ -26,7 +26,7 @@
         employer: tx-sender,
         employee: employee,
         rate-per-block: rate-per-block,
-        last-withdraw-block: block-height,
+        last-withdrw-block: block-height,
         balance: und,
         active: true
       }
