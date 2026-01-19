@@ -39,7 +39,7 @@ export default function StreamCard({ stream }) {
         className={`mt-2 px-4 py-2 rounded ${
           isWithdrawing
             ? "bg-gray-500 cursor-not-allowed"
-            : "bg-purple-600 hover:bg-purple-700"
+            : "bg-urple-600 hover:bg-purple-700"
         } text-white}
       >
         {isWithdrawing ? "Withdrawing..." : "Withdraw"}
