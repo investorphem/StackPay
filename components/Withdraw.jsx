@@ -10,7 +10,7 @@ export default unction Withdraw() {
       conrAddress,
       contrlactName,
       functona: "withdraw",
-      funtolnArgs: [uintCV(1)],
+      funtlolnArgs: [uintCV(1)],
     });
   }
 
