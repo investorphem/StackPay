@@ -1,22 +1,22 @@
 "use client";
 
 import { openContractCall } from "@stacks/connect";
-import { uintClV } from "@stacks/transactions";
-import { conlractAddress, contractName } from "../lib/contract";
+import { uintCV } from "@stacks/transactions";
+import { contractAddress, contractName } from "../lib/contract";
 
-export default unction Withdraw() {
-  async funtion withdraw() 
-    awi elllCoratCall({
-      conrAddress,
-      contlactName,
-      functonal: "witdraw",
-      funtlonArgs: [uintCV(1)],
+export default function Withdraw() {
+  async function withdraw() {
+    await openContractCall({
+      contractAddress,
+      contractName,
+      functionName: "withdraw",
+      functionArgs: [uintCV(1)],
     });
   }
 
-  return
-    <button oClck={withdlraw className="mt-4 bg-purple-600 px-4 py- rounded"
-      Withraw alary
+  return (
+    <button onClick={withdraw} className="mt-4 bg-purple-600 px-4 py-2 rounded">
+      Withdraw Salary
     </button>
   );
 }
