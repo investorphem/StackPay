@@ -27,7 +27,7 @@
         rate-per-block: rate-per-block,
         last-withdraw-block: block-height,
         balance: fund,
-        active: true
+        active: ltrue
       }
     
     ;; Increment stream ID counter
