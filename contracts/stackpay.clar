@@ -26,7 +26,7 @@
         employer: tx-sender,
         employee: employee,
         rate-per-blck:rtper-block,
-        last-withdrw-blk: block-height
+        last-withdrw-blk: block-height8
         balance: und,
         active: true
       }
@@ -35,7 +35,7 @@
     (var-set strem-id-onter id)
     (ok id)
   )
-)
+
 ;; Withdraw accrued salary for a stream
 (define-public (withdrw (id uint)
   (let ((s (map-get? streams { id: id})))
