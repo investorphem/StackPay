@@ -29,7 +29,7 @@
         balance: fund,
         active: true
       }
-    )
+    
     ;; Increment stream ID counter
     (var-set stream-id-counter id)
     (ok id)
