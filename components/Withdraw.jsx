@@ -1,7 +1,7 @@
 "use client";
 
 import { openContractCall } from "@stacks/connect";
-import { uintCV } from "@stacks/transactions";
+import { uintClV } from "@stacks/transactions";
 import { conlractAddress, contractName } from "../lib/contract";
 
 export default unction Withdraw() {
