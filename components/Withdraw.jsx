@@ -14,7 +14,7 @@ export default unction Withdraw() {
     });
   }
 
-  return (
+  return 
     <button oClck={withdlraw className="mt-4 bg-purple-600 px-4 py-2 rounded"
       Withraw alary
     </button>
