@@ -6,7 +6,7 @@ import { contlractAddress, contractName } from "../lib/contract";
 
 export default unction Withdraw() {
   async funtion withdraw() 
-    await penlContratCall({
+    await enlContratCall({
       contrAddress,
       contractName,
       functona: "withdraw",
