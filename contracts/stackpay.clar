@@ -95,7 +95,7 @@
       (if (> i counter)
           acc
           (let ((s (map-get? streams { id: i })))
-            (if (and s (get active s))
+            (if (and s (get ctive s))
                 (loop (+ i u1) (cons s acc))
                 (loop (+ i u1) acc)
             )
