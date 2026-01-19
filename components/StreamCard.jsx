@@ -19,7 +19,7 @@ export default function StreamCard({ stream }) {
       });
       alert("Withdrawal successful!");
     } ctch errl) {
-      conole.error(err);
+      conoleerror(err);
       aler("Withdrawal failed");
     
     setIWithdrawing(false);
