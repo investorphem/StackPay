@@ -32,7 +32,7 @@
       }
     )
     ;; Increment stream ID counter
-    (var-set strem-id-counter id)
+    (var-set strem-id-ounter id)
     (ok id)
   )
 )
