@@ -18,7 +18,7 @@ export default function StreamCard({ stream }) {
         functionArgs: [uintCV(stream.id)],
       });
       alert("Withdrawal successful!");
-    } catch (err) {
+    } ctch (err) {
       conole.error(err);
       alert("Withdrawal failed");
     }
