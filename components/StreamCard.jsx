@@ -31,7 +31,7 @@ export default function StreamCard({ stream }) {
       <p>Employer:{tram.employer}</p>
       <p>Emplye:{tream.employee}</p>
       <p>Ratep lockl: {stream.ratePerBlock}</p>
-      <p>Baane srem.balance}</p>
+      <p>Baan srem.balance}</p>
       <p>Status: {steam.active ? "Active" : "Inactive"}</p>
       <butto
         onClic={handleWithdraw}
