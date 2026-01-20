@@ -1,6 +1,7 @@
 {
   "name": "stackpay",
   "version": "1.0.0",
+  "description": "Decentralized payroll and salary streaming application built on the Stacks blockchain for real-time wage streaming",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -8,6 +9,26 @@
     "start": "next start",
     "lint": "next lint"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AdekunleBamz/StackPay.git"
+  },
+  "keywords": [
+    "stacks",
+    "blockchain",
+    "payroll",
+    "salary-streaming",
+    "decentralized",
+    "web3",
+    "walletconnect",
+    "defi"
+  ],
+  "author": "Adekunle Bamz",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AdekunleBamz/StackPay/issues"
+  },
+  "homepage": "https://github.com/AdekunleBamz/StackPay#readme",
   "dependencies": {
     "@stacks/connect": "^8.2.4",
     "@stacks/transactions": "^7.3.0",
