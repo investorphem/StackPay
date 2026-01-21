@@ -14,6 +14,19 @@
 
 (define-data-var stream-id-counter uint u0)
 
+;;Adding events
+
+(define-events
+  ;; Emitted when a new stream is created
+  (event (create-stream-emitted (stream-id uint) (employer principal) (employee principal) (rate-per-block uint) (fund uint)))
+  
+  ;; Emitted when funds are withdrawn
+  (event (withdraw-emitted (stream-id uint) (employee principal) (amount uint)))
+  
+  ;; Emitted when a stream is cancelled
+  (event (cancel-stream-emitted (stream-id uint) (employer principal) (refund-amount uint)))
+)
+
 ;; Create a new salary stream
 (define-public (create-stream (employee principal) (rate-per-block uint) (fund uint))
   (let ((id (+ (var-get stream-id-counter) u1)))
@@ -33,6 +46,7 @@
     )
     ;; Increment stream ID counter
     (var-set stream-id-counter id)
+    (emit-event (create-stream-emitted id tx-sender employee rate-per-block fund))
     (ok id)
   )
 )
@@ -58,6 +72,7 @@
               balance: (- (get balance stream) payable)
             })
           )
+            (emit-event (withdraw-emitted id tx-sender payable))
           (ok payable)
         )
       )
@@ -81,6 +96,10 @@
         )
         (ok true)
       )
+         ;; EMIT EVENT HERE
+       (emit-event (cancel-stream-emitted id tx-sender (get balance stream)))
+        (ok true)
+        )
       (err u4)
     )
   )
