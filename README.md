@@ -1,4 +1,4 @@
-
+<!-- StackPay contribution -->n
 
 # StackPay — Decentralized Payroll & Salary Streaming on Stacks
 
