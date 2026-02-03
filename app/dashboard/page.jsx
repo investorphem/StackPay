@@ -5,7 +5,6 @@ import StreamCard from "../../components/StreamCa
 import { fetchStreams } from "../../lib/contract"; // uses get-all-streams
 export default function Dashboard() {
   const [streams, setStreams] = useState([]);
-
   useEffect(() => {
     const getStreams = async () => {
       const data = await fetchStreams();
