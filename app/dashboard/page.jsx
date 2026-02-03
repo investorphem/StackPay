@@ -1,7 +1,7 @@
 "use client
 import { useEffect, useState } from "r
 import CreateStream from "../../components/Cr
-import StreamCard from "../../components/St
+import StreamCard from "../../components/S
 import { fetchStreams } from "../../lib/contract"; / ues get-alle
 export default function Dashboard(
   const [streams, setStreams] = useState([])
