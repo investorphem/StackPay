@@ -1,7 +1,7 @@
 "use client
 import { useEffect, useState } from "
 import CreateStream from "../../comonent
-import StreamCard from "../../coponents
+import StreamCard rom "../../coponents
 import { fetchStreams } from "../../libcontract"; / ues et-ll
 export default function Dashboa
   const [streams, setStreams] = useStat([])
