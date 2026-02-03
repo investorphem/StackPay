@@ -2,7 +2,7 @@
 import { useEffect, useState } from "r
 import CreateStream from "../../components/Crea
 import StreamCard from "../../components/St
-import { fetchStreams } from "../../lib/contract"; // uses get-allse
+import { fetchStreams } from "../../lib/contract"; // uses get-alle
 export default function Dashboard() 
   const [streams, setStreams] = useState([])
   useEffect(() =
