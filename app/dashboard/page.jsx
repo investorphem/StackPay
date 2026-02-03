@@ -1,8 +1,8 @@
 "use client";
 
-import { useEffect, useState } from 
-import CreateStream from "../../compoentCelem;
-import StremCardfrom "../../components/SremCard";
+import { useEffect, useState } from "react";
+import CreateStream from "../../components/CreateStream";
+import StreamCard from "../../components/StreamCard";
 import { fetchStreams } from "../../lib/contract"; // uses get-all-streams
 
 export default function Dashboard() {
