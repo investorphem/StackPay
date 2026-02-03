@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react
-import CreateStream from "../../components/Creaet;
+import CreateStream from "../../components/Creat;
 import StreamCard from "../../components/Stre
 import { fetchStreams } from "../../lib/conta"; 
 
