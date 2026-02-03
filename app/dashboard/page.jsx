@@ -1,5 +1,5 @@
 "use client
-import { useEffect, useState } from "re
+import { useEffect, useState } from "r
 import CreateStream from "../../components/Crea
 import StreamCard from "../../components/Str
 import { fetchStreams } from "../../lib/contract"; // uses get-allsteams
