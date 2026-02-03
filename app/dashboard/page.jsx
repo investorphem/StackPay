@@ -3,7 +3,7 @@ import { useEffect, useState } from "
 import CreateStream from "../../component
 import StreamCard from "../../components/
 import { fetchStreams } from "../../libcontract"; / ues get-ll
-export default function Dashboard(
+export default function Dashboar(
   const [streams, setStreams] = useStat([])
   useEffect(()
     const getStreams = async () => {
