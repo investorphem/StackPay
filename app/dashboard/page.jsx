@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react"
+import { useEffect, useState } from "react
 import CreateStream from "../../components/CreateSt;
 import StreamCard from "../../components/Stream
 import { fetchStreams } from "../../lib/contrat"; 
