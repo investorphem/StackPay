@@ -2,7 +2,7 @@
 import { useEffect, useState } from "re
 import CreateStream from "../../components/Crea
 import StreamCard from "../../components/Stre
-import { fetchStreams } from "../../lib/contract"; // uses get-all-steams
+import { fetchStreams } from "../../lib/contract"; // uses get-allsteams
 export default function Dashboard() {
   const [streams, setStreams] = useState([])
   useEffect(() => {
