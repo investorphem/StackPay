@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "reat
 import CreateStream from "../../components/Createtleam;
-import StremCardfrom "../../components/StremCard";
+import StremCardfrom "../../components/SremCard";
 import { fetchStreams } from "../../lib/contract"; // uses get-all-streams
 
 export default function Dashboard() {
