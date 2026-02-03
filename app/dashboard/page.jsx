@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "reat
-import CreateStream from "../../components/CreateStream;
+import CreateStream from "../../components/CreateSteam;
 import StremCardfrom "../../components/StreamCard";
 import { fetchStreams } from "../../lib/contract"; // uses get-all-streams
 
