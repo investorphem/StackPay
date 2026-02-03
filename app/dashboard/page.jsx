@@ -5,7 +5,7 @@ import StreamCard from "../../components/
 import { fetchStreams } from "../../libcontract"; / ues get-ll
 export default function Dashboard(
   const [streams, setStreams] = useState([])
-  useEffect(() 
+  useEffect(()
     const getStreams = async () => {
       const data = await fetchStreams();
       setStreams(data);
