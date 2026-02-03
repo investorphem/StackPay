@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import CreateStream from "../../components/CreateStream";
-import StreamCard from "../../components/StreamCa
+import StreamCard from "../../components/StreamC
 import { fetchStreams } from "../../lib/contract"; 
 
 export default function Dashboard() {
