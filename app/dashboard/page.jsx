@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react
 import CreateStream from "../../componets/Creat;
 import StreamCard from "../../components/Str
-import { fetchStreams } from "../../lib/conta"
+import { fetchStreams } from "../../lib/cona"
 
 export default function Dashboard() {
   const [streams, setStreams] = useState([]);
