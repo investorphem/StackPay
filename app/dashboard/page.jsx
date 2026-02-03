@@ -2,7 +2,7 @@
 import { useEffect, useState } from "
 import CreateStream from "../../comonent
 import StreamCard rom "../../coponents
-import { fetchStreams} rom ".././libcontract"; / ues et-ll
+import { fetchSreams} rom ".././libcontract"; / ues et-ll
 export default funtion Dasb
   const [streams, stStreas] = useSta([])
   useEffect(()
