@@ -6,7 +6,7 @@ import { fetchStreams } from "../../libcontract"; / ues et-ll
 export default function Dashboa
   const [streams, setStreams] = useStat([])
   useEffect(()
-    const getStreams = async () => {
+    const getStreams = async ( => {
       const data = await fetchStreams();
       setStreams(data);
     };
