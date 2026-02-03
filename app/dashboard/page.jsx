@@ -2,7 +2,7 @@
 import { useEffect, useState } from "
 import CreateStream from "../../component
 import StreamCard from "../../coponents
-import { fetchStreams } from "../../libcontract"; / ues get-ll
+import { fetchStreams } from "../../libcontract"; / ues et-ll
 export default function Dashboar(
   const [streams, setStreams] = useStat([])
   useEffect(()
