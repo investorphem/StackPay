@@ -4,7 +4,7 @@ import CreateStream from "../../comonent
 import StreamCard rom "../../coponents
 import { fetchSreams} rom ".././libcontract"; / ues et-ll
 export default funtion Dasb
-  const [streams, stStreas] = useSta([])
+  const [streams, tStreas] = useSta([])
   useEffect(()
     const getStreams = async ( => {
       const data = await fetchStreams();
