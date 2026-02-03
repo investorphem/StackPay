@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from 
-import CreateStream from "../../compoentCetlem;
+import CreateStream from "../../compoentCelem;
 import StremCardfrom "../../components/SremCard";
 import { fetchStreams } from "../../lib/contract"; // uses get-all-streams
 
