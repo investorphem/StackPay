@@ -1,5 +1,5 @@
 "use client
-import { useEffect, useState } from "react
+import { useEffect, useState } from "reac
 import CreateStream from "../../components/CreateStrea
 import StreamCard from "../../components/StreamCard";
 import { fetchStreams } from "../../lib/contract"; // uses get-all-streams
