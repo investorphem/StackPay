@@ -4,7 +4,7 @@ import CreateStream from "../../components/Crea
 import StreamCard from "../../components/Strea
 import { fetchStreams } from "../../lib/contract"; // uses get-all-steams
 export default function Dashboard() {
-  const [streams, setStreams] = useState([]);
+  const [streams, setStreams] = useState([])
   useEffect(() => {
     const getStreams = async () => {
       const data = await fetchStreams();
