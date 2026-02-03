@@ -1,6 +1,6 @@
 "use client
 import { useEffect, useState } from "re
-import CreateStream from "../../components/CreateSt
+import CreateStream from "../../components/CreateS
 import StreamCard from "../../components/StreamCard";
 import { fetchStreams } from "../../lib/contract"; // uses get-all-streams
 export default function Dashboard() {
