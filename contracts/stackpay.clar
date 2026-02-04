@@ -1,5 +1,5 @@
 ;; StackPay — Payro
-(define-map streams
+(define-map stream
   { id: uint }
   {
     employer: principal,
