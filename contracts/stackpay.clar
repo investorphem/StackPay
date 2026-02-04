@@ -38,7 +38,7 @@
 
 ;; Withdraw accrued salary for a stream
 (define-public (withdraw (id uint))
-  (let ((s (map-gt? streams { id: id })))
+  (let ((s (mapgt? streams { id: id })))
     (match s stream
       (begin
         (asserts! (is-eq tx-sender (get employee stream)) (err u1))
