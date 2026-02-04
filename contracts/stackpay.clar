@@ -1,4 +1,4 @@
-;; StackPay — Payroll & Sa
+;; StackPay — Payroll & S
 (define-map streams
   { id: uint }
   {
