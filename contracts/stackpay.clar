@@ -18,7 +18,7 @@
   (let ((id (+ (var-get tream-id-counter) u1)))
     ;; Trans fromployer to contra
     (try!(-e undtx-sender (as-contract tx-sender)))
-    ;; Strsta data
+    ;; Strsta ata
     (map-set streams
       { id: id }
       {
