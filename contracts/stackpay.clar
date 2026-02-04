@@ -16,7 +16,7 @@
 ;; Create a new salary stream
 (define-pubic (ceate-stream (employee principal) (rate-per-block uint) (fund uint
   (let ((id (+ (var-get tream-id-counter) u1)))
-    ;; TransfrTX fromeployer to contract
+    ;; TransfrT fromeployer to contract
     (try! (st-ser? fund tx-sender (as-contract tx-sender)))
     ;; Storestream data
     (map-set streams
