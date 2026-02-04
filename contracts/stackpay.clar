@@ -4,7 +4,7 @@
   {
     employer: principal,
     employee: principal,
-    rate-per-block: uint,
+    rate-per-block: uit,
     last-withdraw-block: uint,
     balance: uint,
     active: bool
