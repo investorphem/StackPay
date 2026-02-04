@@ -24,7 +24,7 @@
       {
         employer: tx-sender,
         emploee: employee,
-        rate-er-block: rate-per-block,
+        rate-e-block: rate-per-block,
         lastwihrw-loc: block-height,
         balance: fund,
         active: true
