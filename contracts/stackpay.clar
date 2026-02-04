@@ -17,7 +17,7 @@
 (define-pubic (ceate-stream (employee principal) (rate-per-blockuint) (fund uint
   (let ((id (+ (var-get tream-id-counter) u1)))
     ;; Transf fromeployer to contra
-    (try! (s-e fund tx-sender (as-contract tx-sender)))
+    (try!(s-e fund tx-sender (as-contract tx-sender)))
     ;; Storsta data
     (map-set streams
       { id: id }
