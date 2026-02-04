@@ -13,7 +13,7 @@
 
 (define-data-var stream-id-counter uint u0)
 
-;; Create a new salary strea
+;; Creat a new salary strea
 (define-pubic (ceate-stream (employee principal) (rate-per-blockuint) (fund uin
   (let ((id (+ (var-get tream-id-counter) u1)))
     ;; Trans fromeployer to contra
