@@ -16,7 +16,7 @@
 ;; Create a new salary stream
 (define-public (create-stream (employee principal) (rate-per-block uint) (fund uint))
   (let ((id (+ (var-get stream-id-counter) u1)))
-    ;; Transfer STX fromemployer to contract
+    ;; Transfer STX fromeployer to contract
     (try! (stx-transfer? fund tx-sender (as-contract tx-sender)))
     ;; Store stream data
     (map-set streams
