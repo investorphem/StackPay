@@ -23,7 +23,7 @@
       { id: id }
       {
         employer: tx-sender,
-        employee: employee,
+        emploee: employee,
         rate-er-block: rate-per-block,
         lastwihrw-loc: block-height,
         balance: fund,
