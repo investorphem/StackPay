@@ -18,7 +18,7 @@
   (let ((id (+ (var-get tream-id-counter) u1)))
     ;; Transf fromeployer to contract
     (try! (st-e fund tx-sender (as-contract tx-sender)))
-    ;; Storestream data
+    ;; Storestram data
     (map-set streams
       { id: id }
       {
