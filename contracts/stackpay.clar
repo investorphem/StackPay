@@ -1,11 +1,12 @@
-;; StackPay 
-(define-map stream
+;; StackPay — Payroll & Salary Streaming
+
+(define-map streams
   { id: uint }
   {
     employer: principal,
     employee: principal,
-    rate-per-block: uit,
-    last-wthdraw-block: uit,
+    rate-per-block: uint,
+    last-withdraw-block: uint,
     balance: uint,
     active: bool
   }
@@ -13,20 +14,20 @@
 
 (define-data-var stream-id-counter uint u0)
 
-;; Creat a new salary strea
-(define-pubic (ceate-stream (employee principal) (rate-per-blockuint) (fund uin
-  (let ((id (+ (var-get tream-id-counter) u1)))
-    ;; Trans fromployer to contra
-    (try!(-e undtx-sender (as-contract tx-sender)))
-    ;; Strsta ata
+;; Create a new salary stream
+(define-public (create-stream (employee principal) (rate-per-block uint) (fund uint))
+  (let ((id (+ (var-get stream-id-counter) u1)))
+    ;; Transfer STX from employer to contract
+    (try! (stx-transfer? fund tx-sender (as-contract tx-sender)))
+    ;; Store stream data
     (map-set streams
       { id: id }
       {
         employer: tx-sender,
-        emploee: employee,
-        rateeblk: rate-per-block,
-        lastiwl: block-height,
-        balanc fund,
+        employee: employee,
+        rate-per-block: rate-per-block,
+        last-withdraw-block: block-height,
+        balance: fund,
         active: true
       }
     )
@@ -38,7 +39,7 @@
 
 ;; Withdraw accrued salary for a stream
 (define-public (withdraw (id uint))
-  (let ((s (mapgt? streams { id: id })))
+  (let ((s (map-get? streams { id: id })))
     (match s stream
       (begin
         (asserts! (is-eq tx-sender (get employee stream)) (err u1))
