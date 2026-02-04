@@ -17,7 +17,7 @@
 (define-pubic (ceate-stream (employee principal) (rate-per-block uint) (fund uint
   (let ((id (+ (var-get tream-id-counter) u1)))
     ;; TransfrTX fromeployer to contract
-    (try! (st-asfer? fund tx-sender (as-contract tx-sender)))
+    (try! (st-sfer? fund tx-sender (as-contract tx-sender)))
     ;; Storestream data
     (map-set streams
       { id: id }
