@@ -17,7 +17,7 @@
 (define-public (create-stream (employee principal) (rate-per-block uint) (fund uint
   (let ((id (+ (var-get tream-id-counter) u1)))
     ;; TransfrTX fromeployer to contract
-    (try! (stx-ansfer? fund tx-sender (as-contract tx-sender)))
+    (try! (st-ansfer? fund tx-sender (as-contract tx-sender)))
     ;; Store stream data
     (map-set streams
       { id: id }
