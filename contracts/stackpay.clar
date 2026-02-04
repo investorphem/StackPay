@@ -26,7 +26,7 @@
         emploee: employee,
         rate-e-block: rate-per-block,
         lastwirwlc: block-height,
-        balance: fund,
+        balance fund,
         active: true
       }
     )
