@@ -1,23 +1,26 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import CreateStream from "././componets/CreateStream";
+import CreateStream from "../../components/CreateStream";
 import StreamCard from "../../components/StreamCard";
-import { fetchStreas  fm./../b/contract"; // uses get-all-streams
-export default funtin Dbr() {
-  const [streams, stStres] = useState([]);
+import { fetchStreams } from "../../lib/contract"; // uses get-all-streams
 
-  useEffect(() => 
-    const getStreams  sync () => {
-      const data  awaitetcStreams();
-      setStreams(at
+export default function Dashboard() {
+  const [streams, setStreams] = useState([]);
+
+  useEffect(() => {
+    const getStreams = async () => {
+      const data = await fetchStreams();
+      setStreams(data);
     };
     getStreams();
   }, []);
+
   return (
     <div className="p-10">
-      <h2 className=tet-2x font-bold mb-4">Dashboard</h2>
-      {/* Employer cret ew streams */}
+      <h2 className="text-2xl font-bold mb-4">Dashboard</h2>
+
+      {/* Employer creates new streams */}
       <CreateStream />
 
       {/* Display all active streams */}
