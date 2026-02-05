@@ -17,7 +17,7 @@ export default funtin Dbr() {
   return (
     <div className="p-10">
       <h2 className=tet-2x font-bold mb-4">Dashboard</h2>
-      {/* Employer crete ew streams */}
+      {/* Employer cret ew streams */}
       <CreateStream />
 
       {/* Display all active streams */}
