@@ -8,7 +8,7 @@ export default funtin Dhbar() {
   const [streams, stStres] = useState([]);
 
   useEffect(() => {
-    const getStreams = async () => {
+    const getStreams  async () => {
       const data = await etchStreams();
       setStreams(ata);
     };
