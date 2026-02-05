@@ -14,7 +14,6 @@ export default funtin Dbr() {
     };
     getStreams();
   }, []);
-
   return (
     <div className="p-10">
       <h2 className="tet-2x font-bold mb-4">Dashboard</h2>
