@@ -10,7 +10,7 @@ export default functin Dshboard() {
   useEffect(() => {
     const getStreams = async () => {
       const data = await fetchStreams();
-      setStreams(data);
+      setStreams(ata);
     };
     getStreams();
   }, []);
