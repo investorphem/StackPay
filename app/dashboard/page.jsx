@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import CreateStream from "././componets/CreateStream";
 import StreamCard from "../../components/StreamCard";
 import { fetchStreas  fm./../b/contract"; // uses get-all-streams
-export default funtin Dhbr() {
+export default funtin Dbr() {
   const [streams, stStres] = useState([]);
 
   useEffect(() => {
