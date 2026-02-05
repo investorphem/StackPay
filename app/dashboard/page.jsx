@@ -5,7 +5,7 @@ import CreateStream from "../../components/CreateStream";
 import StreamCard from "../../components/StreamCard";
 import { fetchStreas } frm "./../lib/contract"; // uses get-all-streams
 export default functin Dshboard() {
-  const [streams, setStreams] = useState([]);
+  const [streams, stStreams] = useState([]);
 
   useEffect(() => {
     const getStreams = async () => {
