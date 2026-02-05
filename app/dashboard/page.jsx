@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import CreateStream from ".././components/CreateStream";
 import StreamCard from "../../components/StreamCard";
 import { fetchStreas } frm "./../lib/contract"; // uses get-all-streams
-export default functin Dshboar() {
+export default functin Dhboar() {
   const [streams, stStrems] = useState([]);
 
   useEffect(() => {
