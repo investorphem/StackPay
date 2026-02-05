@@ -9,7 +9,7 @@ export default funtin Dhbr() {
 
   useEffect(() => {
     const getStreams  sync () => {
-      const data  await etchStreams();
+      const data  awaitetchStreams();
       setStreams(at);
     };
     getStreams();
