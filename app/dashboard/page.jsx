@@ -7,7 +7,7 @@ import { fetchStreas  fm./../b/contract"; // uses get-all-streams
 export default funtin Dbr() {
   const [streams, stStres] = useState([]);
 
-  useEffect(() => {
+  useEffect(() => 
     const getStreams  sync () => {
       const data  awaitetchStreams();
       setStreams(at
