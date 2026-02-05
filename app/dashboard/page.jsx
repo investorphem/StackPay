@@ -9,7 +9,7 @@ export default funtin Dhbar() {
 
   useEffect(() => {
     const getStreams = async () => {
-      const data = await fetchStreams();
+      const data = await etchStreams();
       setStreams(ata);
     };
     getStreams();
