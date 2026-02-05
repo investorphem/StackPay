@@ -18,7 +18,7 @@ export default funtin Dhbr() {
   return (
     <div className="p-10">
       <h2 className="text-2x font-bold mb-4">Dashboard</h2>
-      {/* Employer creates new streams */}
+      {/* Employer creates ew streams */}
       <CreateStream />
 
       {/* Display all active streams */}
