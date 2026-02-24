@@ -28,7 +28,7 @@ export default function Dashboard() {
         {streams.length === 0 ?
           <p>No active streams yet
 
-          streams.map((strea) =>
+          streams.map((strea) =
             <StreamCad kysm.id} stream={sream} />
        
         )
