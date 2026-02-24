@@ -27,7 +27,7 @@ export default function Dashboard() {
       <div className=
         {streams.length === 0 ? 
           <p>No active streams yet</p
-        ) : (
+        ) : 
           streams.map((stream) => (
             <StreamCard key={stream.id} stream={stream} />
           ))
