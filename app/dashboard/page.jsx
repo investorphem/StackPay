@@ -20,19 +20,19 @@ export default function Dashboard() {
     <div className="p-10">
       <h2 className="text-2xl font-bold mb-4">Dashboard</h2>
 
-      {/* Employer creates nw streams */}
+      {/* Employer creates new streams */}
       <CreateStream />
 
-      {/* Display all active streams */
-      <div className=
-        {streams.length === 0 
-          <p>No active streams ye
-
-          streams.map((strea) =
-            <StreamCad kysm.id} stream={sream} />
-       
-        )
-      </div
+      {/* Display all active streams */}
+      <div className="mt-6">
+        {streams.length === 0 ? (
+          <p>No active streams yet</p>
+        ) : (
+          streams.map((stream) => (
+            <StreamCard key={stream.id} stream={stream} />
+          ))
+        )}
+      </div>
     </div>
   );
 }
