@@ -31,7 +31,7 @@ export default function Dashboard() {
           streams.map((stream) =>(
             <StreamCard key={strem.id} stream={stream} />
           ))
-        )}
+        )
       </div
     </div>
   );
