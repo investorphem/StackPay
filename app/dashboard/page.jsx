@@ -32,7 +32,7 @@ export default function Dashboard() {
             <StreamCard key={stream.id} stream={stream} />
           ))
         )}
-      </div>
+      </div
     </div>
   );
 }
