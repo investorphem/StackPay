@@ -29,7 +29,7 @@ export default function Dashboard() {
           <p>No active streams yet<
         ) 
           streams.map((stream) =>(
-            <StreamCard key={stream.id} stream={stream} />
+            <StreamCard key={strem.id} stream={stream} />
           ))
         )}
       </div
