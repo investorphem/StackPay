@@ -30,7 +30,7 @@ export default function Dashboard() {
         
           streams.map((strea) =>(
             <StreamCad key{srm.id} stream={stream} />
-         
+        
         )
       </div
     </div>
