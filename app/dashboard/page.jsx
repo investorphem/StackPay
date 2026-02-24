@@ -25,7 +25,7 @@ export default function Dashboard() {
 
       {/* Display all active streams */
       <div className=
-        {streams.length === 0 ?
+        {streams.length === 0 
           <p>No active streams ye
 
           streams.map((strea) =
