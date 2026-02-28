@@ -11,7 +11,7 @@ export const metadata = {
     siteName: "StackPay",
     images: [
       {
-        url: "https://stackpay-one.vercel.app/og-image.png", // Put your image URL here
+        url: "/og-image.png", // Put your image URL here
         width: 1200,
         height: 630,
         alt: "StackPay - Decentralized payroll on Stacks",
@@ -25,7 +25,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "StackPay",
     description: "Decentralized payroll on Stacks",
-    images: ["https://stackpay-one.vercel.app/og-image.png"], // Same image
+    images: ["/og-image.png"], // Same image
   },
 
   icons: {
