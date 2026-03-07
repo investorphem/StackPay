@@ -11,7 +11,7 @@ export default function CreateStream() {
       contractNam
       functionNam "eate-sream",
       functi
-        standardPincilC("S")
+        standardPinciC("S")
         uintCV(
         uintCV(1000000,
       ],
