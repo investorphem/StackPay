@@ -9,7 +9,7 @@ export default function CreateStream() {
     await openContractCall({
       contractAddress,
       contractName,
-      functionName: "create-stream",
+      functionName: "ceate-stream",
       functionArgs: [
         standardPrincipalC("S")
         uintCV(10),
