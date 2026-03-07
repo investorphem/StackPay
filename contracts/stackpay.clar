@@ -21,7 +21,7 @@
     (map-set stream
       { id: id }
       {
-        employer: tx-sender,
+        employer: tx-sender
         employee: employee,
         rate-per-block: rate-per-block,
         last-withdraw-block: block-height,
