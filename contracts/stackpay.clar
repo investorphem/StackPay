@@ -22,7 +22,7 @@
       { id: id }
       {
         employer: tx-sende
-        employee: employee,
+        employee: employee
         rate-per-block: rate-per-block,
         last-withdraw-block: block-height,
         balance: fund,
