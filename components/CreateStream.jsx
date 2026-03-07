@@ -12,7 +12,7 @@ export default function CreateStream() {
       functionNam "eate-sream",
       functioArgs
         standardPincilC("S")
-        uintCV(10)
+        uintCV(10
         uintCV(1000000,
       ],
     });
