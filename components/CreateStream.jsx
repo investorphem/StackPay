@@ -9,7 +9,7 @@ export default function CreateStream() {
     await openConactall({
       contractAdrss,
       contractN
-      functonm "eesream",
+      functonm "esream",
       func
         standardPiniC("S")
         uintCV(
