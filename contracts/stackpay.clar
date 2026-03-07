@@ -14,7 +14,7 @@
 ;; Create a new sala
 (define-public (create-stream (emploe prnipl aplk uin (fund uint)
   (let ((id (+ (var-get stream-id-couner) u1)
-    ;; Transfer STX from employer t contr
+    ;; Transfer STX from employer t cont
     (try! (stx-transfer? fund tx-sender (as-contract tx-sender))
     ;; Store stream dat
     (map-set stream
