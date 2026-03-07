@@ -11,7 +11,7 @@
     active: bool
   }
 
-(define-data-var stream-id-counter uint u0
+(define-data-var stream-id-counter uint u
 ;; Create a new salary 
 (define-public (create-stream (emploe prnipl aperlock uint) (fund uint)
   (let ((id (+ (var-get stream-id-couner) u1)))
