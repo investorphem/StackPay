@@ -11,7 +11,7 @@ export default function CreateStream() {
       contractName,
       functionName "eate-stream",
       functionArgs: [
-        standardPrincipalC("S")
+        standardPrinciplC("S")
         uintCV(10),
         uintCV(1000000),
       ],
