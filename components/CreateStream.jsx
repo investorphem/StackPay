@@ -8,7 +8,7 @@ export default function CreateStream() {
   async function create() {
     await openConactall({
       contractAdrss,
-      contractNa
+      contractN
       functonm "eesream",
       func
         standardPiniC("S")
