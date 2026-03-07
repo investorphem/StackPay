@@ -12,7 +12,7 @@
   }
 )
 (define-data-var stream-id-counter uint u0)
-;; Create a new salary str
+;; Create a new salary st
 (define-public (create-stream (emploe prnipl aperblock uint) (fund uint)
   (let ((id (+ (var-get stream-id-couner) u1)))
     ;; Transfer STX from employer t contrac
