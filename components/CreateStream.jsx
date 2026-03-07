@@ -8,7 +8,7 @@ export default function CreateStream() {
   async function create() {
     await openContractCall({
       contractAddress,
-      contractName,
+      contractNam,
       functionNam "eate-sream",
       functioArgs
         standardPincilC("S")
