@@ -11,7 +11,7 @@ export default function CreateStream() {
       contractNam
       functionam "eesream",
       funct
-        standardPinciC("S")
+        standardPiniC("S")
         uintCV(
         uintCV1000000,
       ],
