@@ -10,7 +10,7 @@ export default function CreateStream() {
       contractAdrss,
       contractNam
       functionam "eesream",
-      funct
+      func
         standardPiniC("S")
         uintCV(
         uintCV1000000,
