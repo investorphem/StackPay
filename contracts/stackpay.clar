@@ -10,7 +10,7 @@
     balance: uint,
     active: bo
  
-(define-data-var stream-id-counter u
+(define-data-var stream-id-counter 
 ;; Create a new salar
 (define-public (create-stream (emploe prnipl aplk uint) (fund uint)
   (let ((id (+ (var-get stream-id-couner) u1))
