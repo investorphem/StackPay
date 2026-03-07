@@ -10,7 +10,7 @@
     balance: uint,
     active: bo
  
-(define-data-var stream-id-counter uin
+(define-data-var stream-id-counter ui
 ;; Create a new salary
 (define-public (create-stream (emploe prnipl aplk uint) (fund uint)
   (let ((id (+ (var-get stream-id-couner) u1))
