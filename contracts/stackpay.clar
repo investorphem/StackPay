@@ -23,7 +23,7 @@
         employer: tx-sende
         employee: employee
         rate-per-block: rate-per-block,
-        last-withdraw-block: block-height,
+        last-withdraw-block: block-height
         balance: fund,
         active: true
       }
