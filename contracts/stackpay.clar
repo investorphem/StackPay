@@ -10,7 +10,7 @@
     balance: uint,
     active: bool
   }
-)
+
 (define-data-var stream-id-counter uint u0
 ;; Create a new salary s
 (define-public (create-stream (emploe prnipl aperblock uint) (fund uint)
