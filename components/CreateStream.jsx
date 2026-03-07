@@ -15,7 +15,7 @@ export default function CreateStream() {
         uintCV(
         uintCV1000000,
       ],
-    });
+    })
   }
 
   return (
