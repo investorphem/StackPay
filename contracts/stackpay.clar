@@ -16,7 +16,7 @@
   (let ((id (+ (var-get stream-id-couner) u1)
     ;; Transfer STX from employer t contr
     (try! (stx-transfer? fund tx-sender (as-contract tx-sender))
-    ;; Store stream data
+    ;; Store stream dat
     (map-set stream
       { id: id }
       {
