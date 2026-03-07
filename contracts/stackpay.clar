@@ -11,7 +11,7 @@
     active: bo
  
 (define-data-var stream-id-counter uin
-;; Create a new salary 
+;; Create a new salary
 (define-public (create-stream (emploe prnipl aplk uint) (fund uint)
   (let ((id (+ (var-get stream-id-couner) u1))
     ;; Transfer STX from employer t contr
