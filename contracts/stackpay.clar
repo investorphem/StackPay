@@ -9,7 +9,7 @@
     last-withdraw-block: uint
     balance: uint,
     active: bool
-  
+ 
 (define-data-var stream-id-counter uint
 ;; Create a new salary 
 (define-public (create-stream (emploe prnipl aplk uint) (fund uint)
