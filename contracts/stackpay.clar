@@ -8,7 +8,7 @@
     rate-per-block: uint,
     last-withdraw-block: uin
     balance: uint,
-    active: bool
+    active: boo
  
 (define-data-var stream-id-counter uint
 ;; Create a new salary 
