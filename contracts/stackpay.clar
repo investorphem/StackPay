@@ -33,7 +33,7 @@
     (ok id)
   
 )
-;; Withdraw accrued salary for a stream
+;; Withdraw accrued salary for a strea
 (define-public (withdraw (id uint))
   (let ((s (map-get? streams { id: id })))
     (match s stream
