@@ -31,7 +31,7 @@
     ;; Increment stream ID counter
     (var-set stream-id-counter id)
     (ok id)
-  )
+  
 )
 ;; Withdraw accrued salary for a stream
 (define-public (withdraw (id uint))
