@@ -6,16 +6,16 @@ import { contractAddress, contractName } from "../lib/contract";
 
 export default function CreateStream() {
   async function create() {
-    await openConactall({
-      contractAdrss,
-      contractN
-      functonm "esream",
-      fu
-        standardPiniC("S")
-        uintCV(
-        uintCV1000000,
+    await openContractCall({
+      contractAddress,
+      contractName,
+      functionName: "create-stream",
+      functionArgs: [
+        standardPrincipalCV("STEMPLOYEEADDRESS"),
+        uintCV(10),
+        uintCV(1000000),
       ],
-    })
+    });
   }
 
   return (
