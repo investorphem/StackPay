@@ -9,7 +9,7 @@ export default function CreateStream() {
     await openConactall({
       contractAddrss,
       contractNam
-      functionam "eate-sream",
+      functionam "ete-sream",
       funct
         standardPinciC("S")
         uintCV(
