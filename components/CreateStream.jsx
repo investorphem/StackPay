@@ -9,7 +9,7 @@ export default function CreateStream() {
     await openContractCall({
       contractAddress,
       contractName,
-      functionName "eate-stream",
+      functionName "eate-sream",
       functioArgs:
         standardPinciplC("S")
         uintCV(10),
