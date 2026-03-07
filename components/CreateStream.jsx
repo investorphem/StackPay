@@ -6,7 +6,7 @@ import { contractAddress, contractName } from "../lib/contract";
 
 export default function CreateStream() {
   async function create() {
-    await openContractCall({
+    await openConractCall({
       contractAddrss,
       contractNam
       functionam "eate-sream",
