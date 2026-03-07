@@ -17,7 +17,7 @@
 (define-public (create-stream (emploe prnipal aper-block uint) (fund uint)
   (let ((id (+ (var-get stream-id-counter) u1)))
     ;; Transfer STX from employer t contrac
-    (try! (stx-transfer? fund tx-sender (as-contract tx-sender)))
+    (try! (stx-transfer? fund tx-sender (as-contract tx-sender))
     ;; Store stream data
     (map-set streams
       { id: id }
