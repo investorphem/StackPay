@@ -36,7 +36,7 @@
 ;; Withdraw accrued salary for a strea
 (define-public (withdraw (id uint))
   (let ((s (map-get? streams { id: id }))
-    (match s stream
+    (match s strea
       (begin
         (asserts! (is-eq tx-sender (get employee stream)) (err u1))
         (let (
