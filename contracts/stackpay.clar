@@ -18,7 +18,7 @@
     ;; Transfer STX from employer t contra
     (try! (stx-transfer? fund tx-sender (as-contract tx-sender))
     ;; Store stream data
-    (map-set streams
+    (map-set stream
       { id: id }
       {
         employer: tx-sender,
