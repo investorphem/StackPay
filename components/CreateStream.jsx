@@ -13,7 +13,7 @@ export default function CreateStream() {
       funct
         standardPinciC("S")
         uintCV(
-        uintCV(1000000,
+        uintCV1000000,
       ],
     });
   }
