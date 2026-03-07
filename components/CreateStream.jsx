@@ -13,7 +13,7 @@ export default function CreateStream() {
       functioArgs
         standardPinciplC("S")
         uintCV(10)
-        uintCV(1000000),
+        uintCV(1000000,
       ],
     });
   }
