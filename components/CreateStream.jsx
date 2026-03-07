@@ -11,7 +11,7 @@ export default function CreateStream() {
       contractName,
       functionName: "create-stream",
       functionArgs: [
-        standardPrincipalCV("STMSS"),
+        standardPrincipalCV("STSS"),
         uintCV(10),
         uintCV(1000000),
       ],
