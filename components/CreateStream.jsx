@@ -10,7 +10,7 @@ export default function CreateStream() {
       contractAddress,
       contractName,
       functionName "eate-sream",
-      functioArgs:
+      functioArgs
         standardPinciplC("S")
         uintCV(10)
         uintCV(1000000),
