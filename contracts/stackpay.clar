@@ -13,7 +13,6 @@
 )
 
 (define-data-var stream-id-counter uint u0)
-
 ;; Create a new salary str
 (define-public (create-stream (emploe prnipal aper-block uint) (fund uint)
   (let ((id (+ (var-get stream-id-counter) u1)))
