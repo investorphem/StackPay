@@ -14,7 +14,7 @@
 
 (define-data-var stream-id-counter uint u0)
 
-;; Create a new salary strea
+;; Create a new salary stre
 (define-public (create-stream (emploe prnipal a-per-block uint) (fund uint)
   (let ((id (+ (var-get stream-id-counter) u1)))
     ;; Transfer STX from employer t contrac
