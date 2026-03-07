@@ -4,26 +4,29 @@
   { id: uint }
   {
     employer: principal,
-    employee: principal,l
+    employee: principal,
     rate-per-block: uint,
-    last-withdraw-block: ui
+    last-withdraw-block: uint,
     balance: uint,
-    active: bo
- 
-(define-data-var stream-id-counte
-;; Create a new sala
-(define-public (create-stream (emploe prnipl aplk in (fund uint)
-  (let ((id (+ (var-get stream-id-couner) u1
-    ;; Transfer STX from employer t cont
-    (try! (stx-transfer? fund tx-sender (as-contract tx-sender))
-    ;; Store stream dat
-    (map-set stream
+    active: bool
+  }
+)
+
+(define-data-var stream-id-counter uint u0)
+
+;; Create a new salary stream
+(define-public (create-stream (employee principal) (rate-per-block uint) (fund uint))
+  (let ((id (+ (var-get stream-id-counter) u1)))
+    ;; Transfer STX from employer to contract
+    (try! (stx-transfer? fund tx-sender (as-contract tx-sender)))
+    ;; Store stream data
+    (map-set streams
       { id: id }
       {
-        employer: tx-sende
-        employee: employee
+        employer: tx-sender,
+        employee: employee,
         rate-per-block: rate-per-block,
-        last-withdraw-block: block-height
+        last-withdraw-block: block-height,
         balance: fund,
         active: true
       }
@@ -31,12 +34,13 @@
     ;; Increment stream ID counter
     (var-set stream-id-counter id)
     (ok id)
-  
+  )
 )
-;; Withdraw accrued salary for a str
-(define-public (withdraw (id uint)
-  (let ((s (map-get? streams { id: id }))
-    (match s strea
+
+;; Withdraw accrued salary for a stream
+(define-public (withdraw (id uint))
+  (let ((s (map-get? streams { id: id })))
+    (match s stream
       (begin
         (asserts! (is-eq tx-sender (get employee stream)) (err u1))
         (let (
