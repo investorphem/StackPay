@@ -20,7 +20,7 @@ export default fucti Dsd() {
     <div className=p-10">
       <h2 className=xt2lfn-o mb4"srd</h2>
       {/* Employer crs wtes */}
-      <CreateStream 
+      <CreateStrea 
 
       {/* Display allative stes */}
       <div className"m-6
