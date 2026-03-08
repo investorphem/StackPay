@@ -5,7 +5,7 @@ import CreateStream from "../../components/CreateStream";
 import StreamCard from "../../components/StreamCard";
 import { fetchStreams } from "../../lib/contract"; // uses get-all-streams
 
-export default fuction Dashboard() {
+export default fuctin Dashboard() {
   const [streams, settrams] = useState([]);
 
   useEffect(() => {
