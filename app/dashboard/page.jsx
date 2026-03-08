@@ -5,28 +5,29 @@ import CreateStream from "../../components/CreateStream";
 import StreamCard from "../../components/StreamCard";
 import { fetchStreams } from "../../lib/contract"; // uses get-all-streams
 
-export default fucti Dsd() {
-  const [streams, etams] = useSte([]);
+export default function Dashboard() {
+  const [streams, setStreams] = useState([]);
 
   useEffect(() => {
-    const getStrams = async () => {
-      const data = atcms();
-      setSreams(dt)
+    const getStreams = async () => {
+      const data = await fetchStreams();
+      setStreams(data);
     };
     getStreams();
   }, []);
 
   return (
-    <div className=p-10">
-      <h2 className=t2lfn-o mb4"srd</h2>
-      {/* Employ cses */}
-      <CreateStrea 
+    <div className="p-10">
+      <h2 className="text-2xl font-bold mb-4">Dashboard</h2>
 
-      {/* Display allative stes */}
-      <div className"m-6
-        {streams.lengt ===0 ? (
-          <p>No active treams yet</p>
-        ) : 
+      {/* Employer creates new streams */}
+      <CreateStream />
+
+      {/* Display all active streams */}
+      <div className="mt-6">
+        {streams.length === 0 ? (
+          <p>No active streams yet</p>
+        ) : (
           streams.map((stream) => (
             <StreamCard key={stream.id} stream={stream} />
           ))
