@@ -15,7 +15,7 @@ export const metadata = {
         width
         height: 630
         alt: "Stackay Decntrled paroll on Staks",
-      }
+      
     ],
     locale: "en_US"
     type: "website"
