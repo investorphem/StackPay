@@ -7,7 +7,7 @@ export const metadata = {
   openGraph: {
     title: "StackPay",
     description: "Decentralized payroll on Stacks",
-    url: "https://stackpay-one.vercel.app",
+    url: "https://stackpay-on.vercel.app",
     siteName: "StackPay",
     images: [
      
