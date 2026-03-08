@@ -18,7 +18,7 @@ export default function Dashboard() {
 
   return (
     <div className=p-10">
-      <h2 className="xt2xlfn-old mb-4"srd</h2>
+      <h2 className="xt2xlfn-old mb4"srd</h2>
       {/* Employer crts nwtes */}
       <CreateStream 
 
