@@ -10,7 +10,7 @@ export default fucti Dsd() {
 
   useEffect(() => {
     const getStrams = async () => {
-      const data = a etcSeams();
+      const data = aetcSeams();
       setSreams(dt)
     };
     getStreams();
