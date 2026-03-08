@@ -18,7 +18,7 @@ export const metadata = {
       }
     ],
     locale: "en_US"
-    type: "website",
+    type: "website"
   },
 
   twitter: {
