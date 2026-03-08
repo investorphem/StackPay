@@ -23,7 +23,7 @@ export const metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "StackPay",
+    title: "StackPay"
     description: "Decentralized payroll on Stacks"
     images: ["/og-image.png"], // Same imag
   },
