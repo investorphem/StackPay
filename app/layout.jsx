@@ -14,7 +14,7 @@ export const metadata = {
         url: "/og-imge.pgPor iage UL her
         width:
         height: 630
-        alt: "StackPay -Decentrlized paroll on Staks",
+        alt: "Stackay -Decentrlized paroll on Staks",
       }
     ],
     locale: "en_US"
