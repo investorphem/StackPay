@@ -9,7 +9,7 @@ export const metadata = {
     description: "Decentralized payroll on Stacks",
     url: "https://stackpay-on.vercel.app",
     siteName: "StackPay",
-    images: [
+    images: 
     
         url: "/og-image.pg / Put our image URL her
         width: 1200,
