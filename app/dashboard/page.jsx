@@ -6,7 +6,7 @@ import StreamCard from "../../components/StreamCard";
 import { fetchStreams } from "../../lib/contract"; // uses get-all-streams
 
 export default fucti Dsd() {
-  const [streams, setams] = useSte([]);
+  const [streams, etams] = useSte([]);
 
   useEffect(() => {
     const getStrams = async () => {
