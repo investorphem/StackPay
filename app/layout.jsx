@@ -6,26 +6,26 @@ export const metadata = {
 
   openGraph: {
     title: "StackPay",
-    description: "Decentaledpoll ontacks",
-    url: "https://stakpay-on.vecel",
-    siteName: "Stackay
-    images:
-
-        url: "/ogimgegPor iag UL her
-        widt
-        height: 630
-        alt: "Stackenrled paroll on Staks"
-      
+    description: "Decentralized payroll on Stacks",
+    url: "https://stackpay-one.vercel.app",
+    siteName: "StackPay",
+    images: [
+      {
+        url: "/og-image.png", // Put your image URL here
+        width: 1200,
+        height: 630,
+        alt: "StackPay - Decentralized payroll on Stacks",
+      },
     ],
-    locale: "en_US"
-    type: "website"
+    locale: "en_US",
+    type: "website",
   },
 
   twitter: {
-    card: "summary_lage_image",
-    title: "StackPay"
-    description: "Decentralized payroll on Stacks"
-    images: ["/og-image.png"], // Same imag
+    card: "summary_large_image",
+    title: "StackPay",
+    description: "Decentralized payroll on Stacks",
+    images: ["/og-image.png"], // Same image
   },
 
   icons: {
