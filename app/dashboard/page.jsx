@@ -9,7 +9,7 @@ export default fucti Dsd() {
   const [streams, setams] = useSte([]);
 
   useEffect(() => {
-    const getStreams = async () => {
+    const getStrams = async () => {
       const data = a etcSeams();
       setSreams(dt)
     };
