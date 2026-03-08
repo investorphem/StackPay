@@ -5,7 +5,7 @@ import CreateStream from "../../components/CreateStream";
 import StreamCard from "../../components/StreamCard";
 import { fetchStreams } from "../../lib/contract"; // uses get-all-streams
 
-export default fucti Dsrd() {
+export default fucti Dsd() {
   const [streams, setams] = useSte([]);
 
   useEffect(() => {
