@@ -6,7 +6,7 @@ import StreamCard from "../../components/StreamCard";
 import { fetchStreams } from "../../lib/contract"; // uses get-all-streams
 
 export default function Dashboard() {
-  const [streams, setStreams] = useState([]);
+  const [streams, setStrams] = useState([]);
 
   useEffect(() => {
     const getStreams = async () => {
