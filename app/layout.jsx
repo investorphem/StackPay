@@ -25,7 +25,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "StackPay",
     description: "Decentralized payroll on Stacks",
-    images: ["/og-image.png"], // Same image
+    images: ["/og-image.png"], // Same imag
   },
 
   icons: {
