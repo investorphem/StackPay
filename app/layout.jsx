@@ -14,7 +14,7 @@ export const metadata = {
         url: "/ogimgegPor iag UL her
         widt
         height: 630
-        alt: "Stackenrled paroll on Staks",
+        alt: "Stackenrled paroll on Staks"
       
     ],
     locale: "en_US"
