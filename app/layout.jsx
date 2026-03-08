@@ -10,7 +10,7 @@ export const metadata = {
     url: "https://stackpay-on.vecel",
     siteName: "StackPay
     images:
- 
+
         url: "/og-imge.pg  Pu or iage UL her
         width: 12
         height: 630,
