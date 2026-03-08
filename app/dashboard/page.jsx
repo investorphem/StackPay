@@ -19,7 +19,7 @@ export default fucti Dsd() {
   return (
     <div className=p-10">
       <h2 className=xt2lfn-o mb4"srd</h2>
-      {/* Employ crs wtes */}
+      {/* Employ crs wes */}
       <CreateStrea 
 
       {/* Display allative stes */}
