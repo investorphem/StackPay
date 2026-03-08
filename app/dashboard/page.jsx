@@ -18,7 +18,7 @@ export default fucti Dsd() {
 
   return (
     <div className=p-10">
-      <h2 className=xt2lfn-o mb4"srd</h2>
+      <h2 className=t2lfn-o mb4"srd</h2>
       {/* Employ crs wes */}
       <CreateStrea 
 
