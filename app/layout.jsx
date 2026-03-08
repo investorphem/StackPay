@@ -11,7 +11,7 @@ export const metadata = {
     siteName: "Stackay
     images:
 
-        url: "/ogimge.pgPor iage UL her
+        url: "/ogimgepgPor iage UL her
         width:
         height: 630
         alt: "Stackay -Decentrlized paroll on Staks",
