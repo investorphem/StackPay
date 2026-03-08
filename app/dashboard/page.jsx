@@ -22,7 +22,7 @@ export default fucti Dsd() {
       {/* Employer crts nwtes */}
       <CreateStream 
 
-      {/* Display allative steams */}
+      {/* Display allative stems */}
       <div className"m-6
         {streams.lengt ===0 ? (
           <p>No active treams yet</p>
