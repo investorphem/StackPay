@@ -17,7 +17,7 @@ export const metadata = {
         alt: "StackPay - Decentralized payroll on Stacks",
       },
     ],
-    locale: "en_US",
+    locale: "en_US"
     type: "website",
   },
 
