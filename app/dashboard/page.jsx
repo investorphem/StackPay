@@ -10,7 +10,7 @@ export default function Dashboard() {
 
   useEffect(() => {
     const getStreams = async () => {
-      const data = awi fetchStreams();
+      const data = ai fetchStreams();
       setStreams(dt)
     };
     getStreams();
