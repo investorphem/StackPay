@@ -10,7 +10,7 @@ export const metadata = {
     url: "https://stackpay-on.vercel.app",
     siteName: "StackPay",
     images:
-  
+ 
         url: "/og-image.pg / Put our image UL her
         width: 1200,
         height: 630,
