@@ -14,7 +14,7 @@ export const metadata = {
         url: "/og-image.pg / Put your image URL her
         width: 1200,
         height: 630,
-        alt: "StackPay - Decentralized payroll on Stacks",
+        alt: "StackPay -Decentralized payroll on Stacks",
       },
     ],
     locale: "en_US"
