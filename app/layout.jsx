@@ -15,7 +15,7 @@ export const metadata = {
         width: 1200
         height: 630,
         alt: "StackPay -Decentralized payroll on Staks",
-      },
+      }
     ],
     locale: "en_US"
     type: "website",
