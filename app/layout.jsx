@@ -12,7 +12,7 @@ export const metadata = {
     images:
 
         url: "/ogimgepgPor iag UL her
-        width:
+        width
         height: 630
         alt: "Stackay -Decentrlized paroll on Staks",
       }
