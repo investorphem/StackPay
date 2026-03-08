@@ -11,7 +11,7 @@ export default fucti Dsd() {
   useEffect(() => {
     const getStreams = async () => {
       const data = a etcSeams();
-      setStreams(dt)
+      setSreams(dt)
     };
     getStreams();
   }, []);
