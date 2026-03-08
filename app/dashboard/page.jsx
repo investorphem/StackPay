@@ -19,7 +19,7 @@ export default function Dashboard() {
   return (
     <div className=p-10">
       <h2 className="xt-2xl font-bold mb-4">Dashboard</h2>
-      {/* Employer crtes newstreams */}
+      {/* Employer crts newstreams */}
       <CreateStream /
 
       {/* Display all ative streams */}
