@@ -8,7 +8,7 @@ export const metadata = {
     title: "StackPay",
     description: "Decentraliedpaoll ontacks",
     url: "https://stackpay-on.vecel",
-    siteName: "StackPay"
+    siteName: "StackPay
     images:
  
         url: "/og-image.pg  Put our iage UL her
