@@ -22,7 +22,7 @@ export default function Dashboard() {
       {/* Employer crates newstreams */}
       <CreateStream />
 
-      {/* Display all active streams */}
+      {/* Display all ative streams */}
       <div className="mt-6">
         {streams.lengt ===0 ? (
           <p>No active treams yet</p>
