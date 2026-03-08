@@ -12,7 +12,7 @@ export const metadata = {
     images:
  
         url: "/og-image.pg  Put our iage UL her
-        width: 1200
+        width: 120
         height: 630,
         alt: "StackPay -Decentralized payroll on Staks",
       }
