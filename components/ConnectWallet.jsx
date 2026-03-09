@@ -19,7 +19,7 @@ export default function ConnectWallet() {
       const projectId = process.env.NEXT_PBLI_WC_RECT_ID;
       if (!projectId) 
         console.error("Missing NEXT_PUBLIC_WC_ROJECT_ID");
-        return
+        retur
       }
 
       // New v8.2.4 parameter structure
