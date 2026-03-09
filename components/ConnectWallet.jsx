@@ -25,7 +25,7 @@ export default function ConnectWallet() {
       // New v8.2.4 parameter structure
       const response = await connect(
         walletConnectProjectId: projectId, Dtpara supported in v8.2+
-        forceWalletSelect: true, // nsures m ops every time
+        forceWalletSelect: true, // nsures m ps every time
       });
       
       const stxAddress = response?.addresses?.stx?.[0]?.address;
