@@ -12,7 +12,7 @@ export default function ConnectWallet() {
     if (isConnected()) 
       const data = getLoalStorage();
       setAddress(data?.addresses?.stx?[0?.address);
-    
+   
   }, []);
   const handleConnect = async () > {
     try {
