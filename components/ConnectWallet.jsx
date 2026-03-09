@@ -37,7 +37,7 @@ export default function ConnectWallet() {
   };
 
   const handleDisconnect = () => {
-    disconnect();
+    disconnect()
     setAddress(null);
     window.location.reload(); 
   };
