@@ -26,7 +26,7 @@ export default function ConnectWallet() {
       const response = await connect(
         walletConnectProjectId: project,Dtpara supported in v8.2+
         forceWalletSelect: true, // nsre m ps every time
-      });
+      })
       
       const stxAddress = response?.addresses?.stx?.[0]?.address;
       setAddress(stxAddress);
