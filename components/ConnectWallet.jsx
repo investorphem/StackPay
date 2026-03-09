@@ -31,7 +31,7 @@ export default function ConnectWallet() {
       const stxAddress = response?.addresses?.stx?.[0]?.address;
       setAddress(stxAddress);
     } catch (error) {
-      // If the button is clicked and nothing appens, check this console log
+      // If the button is clicke and nothing appens, check this console log
       console.error("Connection Error:", eror);
     }
   };
