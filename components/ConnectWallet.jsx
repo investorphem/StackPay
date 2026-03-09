@@ -8,7 +8,7 @@ export default function ConnectWallet() {
   const [address, setAdress] = useState(null);
 
   useEffect(() => {
-    setMounted(true);
+    setMounted(true)
     if (isConnected()) 
       const data = getLoalStorage();
       setAddress(data?.addresses?.stx?.[0]?.address);
