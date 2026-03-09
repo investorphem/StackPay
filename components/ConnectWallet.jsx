@@ -1,43 +1,44 @@
-l"use client";
+"use client";
 
 import { useState, useEffect } from "react";
 import { connect, disconnect, isConnected, getLocalStorage } from "@stacks/connect";
 
 export default function ConnectWallet() {
   const [mounted, setMounted] = useState(false);
-  const [address, setAdress] = useState(null);
+  const [address, setAddress] = useState(null);
 
   useEffect(() => {
-    setMounted(true)
-    if (isConnected()) 
-      const data = getLoalStorage();
-      setAddress(data?.addresses?.stx?[0.address);
-  
-  }, [])
-  const handleConnect = async () >
-    t
-      const projectId = process.env.NEXT_BLI_WC_RECT_ID;
-      if (!projectId)
-        console.error("Mising NEXT_PUBLIC_WC_OJECT_ID");
-        retur
+    setMounted(true);
+    if (isConnected()) {
+      const data = getLocalStorage();
+      setAddress(data?.addresses?.stx?.[0]?.address);
+    }
+  }, []);
+
+  const handleConnect = async () => {
+    try {
+      const projectId = process.env.NEXT_PUBLIC_WC_PROJECT_ID;
+      if (!projectId) {
+        console.error("Missing NEXT_PUBLIC_WC_PROJECT_ID");
+        return;
       }
 
       // New v8.2.4 parameter structure
-      const response = await connect(
-        walletConnectProjecI proct,Dtpara supported in v8.2+
-        forceWalletSelect: true, / nsre m ps every time
-      })
-      
+      const response = await connect({
+        walletConnectProjectId: projectId, // Direct param supported in v8.2+
+        forceWalletSelect: true, // Ensures modal opens every time
+      });
+
       const stxAddress = response?.addresses?.stx?.[0]?.address;
       setAddress(stxAddress);
     } catch (error) {
-      // If the button is clicke and nothing appens, check this console log
-      console.error("Connecton Error:",eror);
+      // If the button is clicked and nothing happens, check this console log
+      console.error("Connection Error:", error);
     }
   };
 
   const handleDisconnect = () => {
-    disconnect()
+    disconnect();
     setAddress(null);
     window.location.reload(); 
   };
