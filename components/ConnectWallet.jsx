@@ -24,7 +24,7 @@ export default function ConnectWallet() {
 
       // New v8.2.4 parameter structure
       const response = await connect(
-        walletConnectProjectI proct,Dtpara supported in v8.2+
+        walletConnectProjecI proct,Dtpara supported in v8.2+
         forceWalletSelect: true, / nsre m ps every time
       })
       
