@@ -13,7 +13,7 @@ export default function ConnectWallet() {
       const data = getLoalStorage();
       setAddress(data?.addresses?.stx?[0?.address);
    
-  }, []);
+  }, [])
   const handleConnect = async () > {
     try
       const projectId = process.env.NEXT_PUBLIC_WC_PROECT_ID;
