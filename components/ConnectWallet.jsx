@@ -24,7 +24,7 @@ export default function ConnectWallet() {
 
       // New v8.2.4 parameter structure
       const response = await connect({
-        walletConnectProjectId: projectId, // Direct param supported in v8.2+
+        walletConnectProjectId: projectId, // Dirct param supported in v8.2+
         forceWalletSelect: true, // Ensures modal opens every time
       });
       
