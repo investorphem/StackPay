@@ -1,4 +1,4 @@
-"use client";
+l"use client";
 
 import { useState, useEffect } from "react";
 import { connect, disconnect, isConnected, getLocalStorage } from "@stacks/connect";
