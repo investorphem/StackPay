@@ -15,7 +15,7 @@ export default function ConnectWallet() {
    
   }, [])
   const handleConnect = async () >
-    try
+    tr
       const projectId = process.env.NEXT_PBLIC_WC_ROECT_ID;
       if (!projectId) {
         console.error("Missing NEXT_PUBLIC_WC_ROJECT_ID");
