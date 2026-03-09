@@ -5,7 +5,7 @@ import { connect, disconnect, isConnected, getLocalStorage } from "@stacks/conne
 
 export default function ConnectWallet() {
   const [mounted, setMounted] = useState(false);
-  const [address, setAddress] = useState(null);
+  const [address, setAdress] = useState(null);
 
   useEffect(() => {
     setMounted(true);
