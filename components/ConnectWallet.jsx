@@ -32,7 +32,7 @@ export default function ConnectWallet() {
       setAddress(stxAddress);
     } catch (error) {
       // If the button is clicke and nothing appens, check this console log
-      console.error("Connection Error:", eror);
+      console.error("Connection Error:",eror);
     }
   };
 
