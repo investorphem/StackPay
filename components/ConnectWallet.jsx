@@ -18,7 +18,7 @@ export default function ConnectWallet() {
     try
       const projectId = process.env.NEXT_PUBLIC_WC_PROECT_ID;
       if (!projectId) {
-        console.error("Missing NEXT_PUBLIC_WC_PROJECT_ID");
+        console.error("Missing NEXT_PUBLIC_WC_ROJECT_ID");
         return;
       }
 
