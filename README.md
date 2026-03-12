@@ -80,8 +80,8 @@ document.getElementById("payButton").addEventListener("click", () => {
 
 ### Links
 
-- npm Package: [Click here to view StackPay SDK](https://www.npmjs.com/package/stacks-pay-sdk)  
-- GitHub Repo: [Click here to view StackPay Repository](https://github.com/investorphem/StackPay)
+- npm Package: [NPM package](https://www.npmjs.com/package/stacks-pay-sdk)  
+- GitHub Repo: [REPO link](https://github.com/investorphem/StackPay)
 
 ---
 
