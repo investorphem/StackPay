@@ -33,7 +33,9 @@ Stacks does not support continuous time, so StackPay uses block height as a dete
 
 Salary accrual is calculated as:
 
+```
 (current block − last withdrawal block) × rate per block
+```
 
 Employees can withdraw their accumulated salary at any point while the stream remains active.
 
@@ -70,6 +72,64 @@ Protocol characteristics:
 - Styling: Tailwind CSS
 - Wallet SDK: @stacks/connect
 - Transactions: @stacks/transactions
+
+---
+
+## StackPay SDK (npm Package)
+
+Developers and merchants can integrate StackPay functionality directly using the **StackPay SDK**.
+
+### Install
+
+```bash
+npm install stacks-pay-sdk
+```
+
+### Usage Example
+
+```javascript
+const StackPay = require("stacks-pay-sdk");
+
+// Create an invoice
+const invoice = StackPay.createInvoice({
+  amount: 1000000,
+  merchantAddress: "SP1234567890",
+  memo: "Salary Payment"
+});
+
+// Trigger payment via wallet
+StackPay.payWithSTX({
+  amount: invoice.amount,
+  recipient: invoice.merchantAddress,
+  memo: invoice.memo
+});
+
+// Verify payment
+(async () => {
+  const success = await StackPay.verifyPayment("TXID_HERE");
+  console.log("Payment successful?", success);
+})();
+```
+
+### Quick 1-Line Pay Button
+
+```html
+<button id="payButton">Pay with STX</button>
+
+<script type="module">
+import { createInvoice, payWithSTX } from "https://cdn.jsdelivr.net/npm/stacks-pay-sdk/dist/index.js";
+
+document.getElementById("payButton").addEventListener("click", () => {
+  const invoice = createInvoice({ amount: 1000000, merchantAddress: "SP1234567890" });
+  payWithSTX({ amount: invoice.amount, recipient: invoice.merchantAddress });
+});
+</script>
+```
+
+### Links
+
+- npm Package: [https://www.npmjs.com/package/stacks-pay-sdk](https://www.npmjs.com/package/stacks-pay-sdk)  
+- GitHub Repo: [https://github.com/investorphem/StackPay](https://github.com/investorphem/StackPay)
 
 ---
 
@@ -118,16 +178,17 @@ stackpay/
 - lib/          Network and contract configuration
 - contracts/    Clarity smart contracts
 - public/       Static assets
+- sdk/          StackPay SDK
 - README.md
 
 ---
 
 ## Installation and Local Development
 
-Install dependencies and start the development server:
-
-npm install  
+```bash
+npm install
 npm run dev
+```
 
 The application will be available at http://localhost:3000
 
@@ -148,8 +209,6 @@ StackPay is designed to be easily observable through:
 - WalletConnect session events
 - On-chain contract calls
 - Stream creation and withdrawal transactions
-
-This enables reliable detection of wallet integrations and payroll activity.
 
 ---
 
