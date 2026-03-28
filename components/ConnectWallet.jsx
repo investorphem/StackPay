@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { connect, disconnect, isConnected, getLocalStorage } from "@stacks/connect";
+import { StacksMainnet } from "@stacks/network"; // Imported to fix the 'in' operator error
 import { motion, AnimatePresence } from "framer-motion";
 import { FiLogOut, FiLink, FiAlertCircle, FiLoader } from "react-icons/fi";
 
@@ -24,7 +25,7 @@ export default function ConnectWallet() {
     try {
       setIsLoading(true);
       setError(null);
-      
+
       const projectId = process.env.NEXT_PUBLIC_WC_PROJECT_ID;
       if (!projectId) {
         throw new Error("Missing WalletConnect Project ID in environment variables.");
@@ -33,20 +34,25 @@ export default function ConnectWallet() {
       // Using the latest v8.2+ connect wrapper
       const response = await connect({
         walletConnectProjectId: projectId,
-        forceWalletSelect: true, 
+        network: new StacksMainnet(), // Fixes: "Cannot use 'in' operator to search for 'network' in undefined"
       });
 
-      const stxAddress = response?.addresses?.stx?.[0]?.address;
+      // Mobile Web3 Fallback: Check response first, then immediately check local storage (Fixes: "No STX address returned")
+      const stxAddress = 
+        response?.addresses?.stx?.[0]?.address || 
+        getLocalStorage()?.addresses?.stx?.[0]?.address;
+
       if (stxAddress) {
         setAddress(stxAddress);
       } else {
-        throw new Error("No STX address returned from wallet.");
+        // If the wallet connected asynchronously but state hasn't caught up, force a clean sync
+        window.location.reload();
       }
     } catch (err) {
       console.error("Connection Error:", err);
       // Gracefully handle user rejections or configuration errors
       setError(err.message || "Failed to connect wallet. Please try again.");
-      
+
       // Auto-dismiss the error after 5 seconds
       setTimeout(() => setError(null), 5000);
     } finally {
