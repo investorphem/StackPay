@@ -1,7 +1,16 @@
-;; StackPay — Payroll & Salary Streaming
+;; StackPay Protocol — Mainnet v1.0
+;; Optimized for gas efficiency and security
 
+;; Constants & Error Codes
+(define-constant CONTRACT-OWNER tx-sender)
+(define-constant ERR-NOT-AUTHORIZED (err u101))
+(define-constant ERR-STREAM-NOT-FOUND (err u102))
+(define-constant ERR-INSUFFICIENT-BALANCE (err u103))
+(define-constant ERR-STREAM-INACTIVE (err u104))
+
+;; Data Maps
 (define-map streams
-  { id: uint }
+  uint 
   {
     employer: principal,
     employee: principal,
@@ -14,14 +23,19 @@
 
 (define-data-var stream-id-counter uint u0)
 
+;; --- Public Functions ---
+
 ;; Create a new salary stream
 (define-public (create-stream (employee principal) (rate-per-block uint) (fund uint))
-  (let ((id (+ (var-get stream-id-counter) u1)))
-    ;; Transfer STX from employer to contract
+  (let 
+    (
+      (id (+ (var-get stream-id-counter) u1))
+    )
+    ;; 1. Transfer STX to contract escrow
     (try! (stx-transfer? fund tx-sender (as-contract tx-sender)))
-    ;; Store stream data
-    (map-set streams
-      { id: id }
+    
+    ;; 2. Initialize the stream
+    (map-set streams id
       {
         employer: tx-sender,
         employee: employee,
@@ -31,79 +45,79 @@
         active: true
       }
     )
-    ;; Increment stream ID counter
+    
+    ;; 3. Update counter
     (var-set stream-id-counter id)
     (ok id)
   )
 )
 
-;; Withdraw accrued salary for a stream
+;; Withdraw accrued salary
 (define-public (withdraw (id uint))
-  (let ((s (map-get? streams { id: id })))
-    (match s stream
-      (begin
-        (asserts! (is-eq tx-sender (get employee stream)) (err u1))
-        (let (
-          (blocks (- block-height (get last-withdraw-block stream)))
-          (amount (* blocks (get rate-per-block stream)))
-          (payable (min amount (get balance stream)))
-        )
-          ;; Transfer accrued STX to employee
-          (try! (stx-transfer? payable (as-contract tx-sender) tx-sender))
-          ;; Update stream
-          (map-set streams
-            { id: id }
-            (merge stream {
-              last-withdraw-block: block-height,
-              balance: (- (get balance stream) payable)
-            })
-          )
-          (ok payable)
-        )
-      )
-      (err u2)
+  (let 
+    (
+      (stream (unwrap! (map-get? streams id) ERR-STREAM-NOT-FOUND))
+      (blocks-passed (- block-height (get last-withdraw-block stream)))
+      (accrued (* blocks-passed (get rate-per-block stream)))
+      ;; Manual 'min' logic: can't withdraw more than the remaining balance
+      (payable (if (>= accrued (get balance stream)) 
+                  (get balance stream) 
+                  accrued))
     )
+    ;; Access Control
+    (asserts! (is-eq tx-sender (get employee stream)) ERR-NOT-AUTHORIZED)
+    (asserts! (get active stream) ERR-STREAM-INACTIVE)
+    (asserts! (> payable u0) (ok u0)) ;; Return early if nothing to pay
+
+    ;; 1. Transfer from contract to employee
+    (try! (as-contract (stx-transfer? payable tx-sender (get employee stream))))
+    
+    ;; 2. Update state
+    (map-set streams id
+      (merge stream {
+        last-withdraw-block: block-height,
+        balance: (- (get balance stream) payable),
+        active: (if (>= payable (get balance stream)) false true) ;; Auto-close if empty
+      })
+    )
+    (ok payable)
   )
 )
 
-;; Cancel a stream (optional for employer)
+;; Cancel/Refund Stream (Employer only)
 (define-public (cancel-stream (id uint))
-  (let ((s (map-get? streams { id: id })))
-    (match s stream
-      (begin
-        (asserts! (is-eq tx-sender (get employer stream)) (err u3))
-        ;; Refund remaining balance to employer
-        (try! (stx-transfer? (get balance stream) (as-contract tx-sender) (get employer stream)))
-        ;; Mark stream inactive
-        (map-set streams
-          { id: id }
-          (merge stream { balance: u0, active: false })
-        )
-        (ok true)
-      )
-      (err u4)
+  (let 
+    (
+      (stream (unwrap! (map-get? streams id) ERR-STREAM-NOT-FOUND))
+      (remaining (get balance stream))
     )
+    (asserts! (is-eq tx-sender (get employer stream)) ERR-NOT-AUTHORIZED)
+    
+    ;; 1. Refund remaining balance
+    (if (> remaining u0)
+      (try! (as-contract (stx-transfer? remaining tx-sender (get employer stream))))
+      true
+    )
+    
+    ;; 2. Close stream
+    (map-set streams id (merge stream { balance: u0, active: false }))
+    (ok true)
   )
 )
 
-;; Read-only function to fetch all active streams
-(define-read-only (get-all-streams)
-  (begin
-    (define streams-list (list))
-    (define counter (var-get stream-id-counter))
+;; --- Read-Only Functions ---
 
-    (define (loop i acc)
-      (if (> i counter)
-          acc
-          (let ((s (map-get? streams { id: i })))
-            (if (and s (get active s))
-                (loop (+ i u1) (cons s acc))
-                (loop (+ i u1) acc)
-            )
-          )
-      )
-    )
+(define-read-only (get-stream (id uint))
+  (map-get? streams id)
+)
 
-    (loop u1 streams-list)
-  )
+;; Fetching Multiple Streams (Gas-Optimized)
+;; Note: Frontend should pass a list of IDs it wants to check
+(define-read-only (get-streams-batch (ids (list 50 uint)))
+  (map get-stream ids)
+)
+
+;; Get Global Stats
+(define-read-only (get-total-streams)
+  (var-get stream-id-counter)
 )
