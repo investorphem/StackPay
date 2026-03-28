@@ -2,7 +2,8 @@
 
 import { useState, useEffect } from "react";
 import { connect, disconnect, isConnected, getLocalStorage } from "@stacks/connect";
-import { StacksMainnet } from "@stacks/network"; // Imported to fix the 'in' operator error
+// 1. FIX: Import the static constant instead of the old class
+import { STACKS_MAINNET } from "@stacks/network"; 
 import { motion, AnimatePresence } from "framer-motion";
 import { FiLogOut, FiLink, FiAlertCircle, FiLoader } from "react-icons/fi";
 
@@ -34,10 +35,11 @@ export default function ConnectWallet() {
       // Using the latest v8.2+ connect wrapper
       const response = await connect({
         walletConnectProjectId: projectId,
-        network: new StacksMainnet(), // Fixes: "Cannot use 'in' operator to search for 'network' in undefined"
+        // 2. FIX: Pass the constant directly without the 'new' keyword
+        network: STACKS_MAINNET, 
       });
 
-      // Mobile Web3 Fallback: Check response first, then immediately check local storage (Fixes: "No STX address returned")
+      // Mobile Web3 Fallback: Check response first, then immediately check local storage
       const stxAddress = 
         response?.addresses?.stx?.[0]?.address || 
         getLocalStorage()?.addresses?.stx?.[0]?.address;
