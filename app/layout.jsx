@@ -1,6 +1,6 @@
 import "./globals.css";
 import ConnectWallet from "../components/ConnectWallet";
-import { Inter } from "next/font/google"; // Premium typography
+import { Inter } from "next/font/google";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -8,6 +8,20 @@ export const metadata = {
   title: "StackPay | Premium STX Payroll",
   description: "Real-time decentralized payroll and streaming on the Stacks blockchain.",
   metadataBase: new URL("https://stackpay-one.vercel.app"),
+  
+  // --- Upgraded Icon Configuration ---
+  icons: {
+    icon: [
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+    ],
+    apple: [
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+  },
+  manifest: "/site.webmanifest",
+  // ------------------------------------
+
   openGraph: {
     title: "StackPay",
     description: "Decentralized payroll on Stacks",
@@ -30,11 +44,12 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className="dark">
-      <body className={`${inter.className} antialiased`}>
-        {/* Premium Global Navigation */}
+      <body className={`${inter.className} antialiased selection:bg-purple-500/30`}>
+        {/* Global Navigation */}
         <nav className="fixed top-0 left-0 right-0 z-[100] border-b border-gray-800/50 bg-gray-950/70 backdrop-blur-xl">
           <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
             <div className="flex items-center gap-3">
+              {/* Logo Icon */}
               <div className="w-10 h-10 bg-gradient-to-br from-purple-600 to-indigo-600 rounded-xl flex items-center justify-center shadow-lg shadow-purple-500/20">
                 <span className="font-black text-white text-xl">S</span>
               </div>
@@ -54,12 +69,12 @@ export default function RootLayout({ children }) {
           </div>
         </nav>
 
-        {/* Content wrapper with padding for the fixed nav */}
+        {/* Main Content */}
         <main className="pt-24 min-h-screen">
           {children}
         </main>
 
-        {/* Subtle Footer for Mainnet Transparency */}
+        {/* Footer */}
         <footer className="py-12 border-t border-gray-900 bg-gray-950/50">
           <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4 text-gray-500 text-xs">
             <p>© 2026 StackPay Protocol. Secured by Bitcoin.</p>
