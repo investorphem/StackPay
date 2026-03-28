@@ -5,23 +5,22 @@ import { motion, AnimatePresence } from "framer-motion";
 import { FiDownload, FiClock, FiZap, FiAlertCircle } from "react-icons/fi";
 import { fetchStreams } from "../../lib/contract";
 import StreamCard from "../../components/StreamCard";
-// FIX 1: Import the official, SSR-safe auth tools instead of the buggy connect wrappers
-import { AppConfig, UserSession } from "@stacks/auth"; 
+// FIX 1: Completely removed @stacks/auth. Using v8 getLocalStorage instead.
+import { getLocalStorage } from "@stacks/connect"; 
 
-// FIX 2: Implement the same clean, SSR-safe hook we used in the Employer dashboard
+// FIX 2: V8 SSR-safe hook to check the user's session natively
 const useUserSession = () => {
   const [session, setSession] = useState({ isConnected: false, stxAddress: null });
 
   useEffect(() => {
-    const appConfig = new AppConfig(["store_write", "publish_data"]);
-    const userSession = new UserSession({ appConfig });
-
-    if (userSession.isUserSignedIn()) {
-      const userData = userSession.loadUserData();
-      setSession({
-        isConnected: true,
-        stxAddress: userData.profile.stxAddress.mainnet
-      });
+    try {
+      const data = getLocalStorage();
+      const address = data?.addresses?.stx?.[0]?.address;
+      if (address) {
+        setSession({ isConnected: true, stxAddress: address });
+      }
+    } catch (err) {
+      console.error("Employee dashboard session read error:", err);
     }
   }, []);
 
@@ -32,7 +31,7 @@ export default function EmployeeDashboard() {
   const [streams, setStreams] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  // FIX 3: Pulling the real Stacks address safely using our new hook
+  // Pulling the real Stacks address safely using our new hook
   const { isConnected, stxAddress: userAddress } = useUserSession();
 
   // Optimized Stream Fetching
@@ -41,7 +40,7 @@ export default function EmployeeDashboard() {
       setLoading(false);
       return;
     }
-    
+
     try {
       setLoading(true);
       // Fetches and filters for streams where user is the EMPLOYEE
