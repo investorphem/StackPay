@@ -3,27 +3,45 @@
 import { useEffect, useState, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FiDownload, FiClock, FiZap, FiAlertCircle } from "react-icons/fi";
-import { isConnected, getLocalStorage } from "@stacks/connect";
 import { fetchStreams } from "../../lib/contract";
 import StreamCard from "../../components/StreamCard";
+// FIX 1: Import the official, SSR-safe auth tools instead of the buggy connect wrappers
+import { AppConfig, UserSession } from "@stacks/auth"; 
+
+// FIX 2: Implement the same clean, SSR-safe hook we used in the Employer dashboard
+const useUserSession = () => {
+  const [session, setSession] = useState({ isConnected: false, stxAddress: null });
+
+  useEffect(() => {
+    const appConfig = new AppConfig(["store_write", "publish_data"]);
+    const userSession = new UserSession({ appConfig });
+
+    if (userSession.isUserSignedIn()) {
+      const userData = userSession.loadUserData();
+      setSession({
+        isConnected: true,
+        stxAddress: userData.profile.stxAddress.mainnet
+      });
+    }
+  }, []);
+
+  return session;
+};
 
 export default function EmployeeDashboard() {
   const [streams, setStreams] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [userAddress, setUserAddress] = useState(null);
 
-  // 1. Initial Identity Check
-  useEffect(() => {
-    if (isConnected()) {
-      const data = getLocalStorage();
-      setUserAddress(data?.addresses?.stx?.[0]?.address);
-    }
-    setLoading(false);
-  }, []);
+  // FIX 3: Pulling the real Stacks address safely using our new hook
+  const { isConnected, stxAddress: userAddress } = useUserSession();
 
-  // 2. Optimized Stream Fetching
+  // Optimized Stream Fetching
   const loadEmployeeStreams = useCallback(async () => {
-    if (!userAddress) return;
+    if (!isConnected || !userAddress) {
+      setLoading(false);
+      return;
+    }
+    
     try {
       setLoading(true);
       // Fetches and filters for streams where user is the EMPLOYEE
@@ -35,7 +53,7 @@ export default function EmployeeDashboard() {
     } finally {
       setLoading(false);
     }
-  }, [userAddress]);
+  }, [isConnected, userAddress]);
 
   useEffect(() => {
     loadEmployeeStreams();
