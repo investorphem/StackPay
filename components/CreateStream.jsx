@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { openContractCall } from "@stacks/connect";
 import { uintCV, standardPrincipalCV } from "@stacks/transactions";
+import { STACKS_MAINNET } from "@stacks/network"; // FIX: Added to enforce mainnet transactions
 import { motion } from "framer-motion";
 import { FiSend, FiUser, FiClock, FiDollarSign, FiLoader } from "react-icons/fi";
 import { contractAddress, contractName } from "../lib/contract";
@@ -47,13 +48,15 @@ export default function CreateStream({ onStreamCreated }) {
           uintCV(parseInt(duration)), // Assuming duration is in blocks
           uintCV(microStxAmount),
         ],
+        network: STACKS_MAINNET, // FIX: Explicitly tell the wallet this is a mainnet contract
         onFinish: (data) => {
           console.log("Transaction submitted:", data.txId);
           // Reset form on successful submission
           setRecipient("");
           setDuration("");
           setAmount("");
-          
+          setIsSubmitting(false);
+
           // Trigger the dashboard to refresh the active streams list
           if (onStreamCreated) onStreamCreated();
         },
@@ -72,25 +75,25 @@ export default function CreateStream({ onStreamCreated }) {
   return (
     <div className="w-full">
       <div className="mb-6">
-        <h3 className="text-2xl font-semibold tracking-wide text-gray-100">Initialize Stream</h3>
-        <p className="text-sm text-gray-400 mt-1">Deploy a new payment stream on the Stacks blockchain.</p>
+        <h3 className="text-2xl font-semibold tracking-wide text-gray-900 dark:text-gray-100 transition-colors duration-300">Initialize Stream</h3>
+        <p className="text-sm text-gray-500 dark:text-gray-400 mt-1 transition-colors duration-300">Deploy a new payment stream on the Stacks blockchain.</p>
       </div>
 
       <form onSubmit={handleCreate} className="space-y-5">
-        
+
         {/* Recipient Address Input */}
         <div className="space-y-1.5">
-          <label className="text-xs font-medium text-gray-400 uppercase tracking-wider pl-1">Recipient Address</label>
+          <label className="text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider pl-1 transition-colors duration-300">Recipient Address</label>
           <div className="relative">
             <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-              <FiUser className="text-gray-500" />
+              <FiUser className="text-gray-400 dark:text-gray-500 transition-colors duration-300" />
             </div>
             <input
               type="text"
               value={recipient}
               onChange={(e) => setRecipient(e.target.value)}
               placeholder="SP3FBR..."
-              className="w-full bg-gray-900/50 border border-gray-700/50 rounded-xl py-3 pl-11 pr-4 text-gray-200 placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-purple-500/50 focus:border-purple-500 transition-all"
+              className="w-full bg-gray-50 dark:bg-gray-900/50 border border-gray-300 dark:border-gray-700/50 rounded-xl py-3 pl-11 pr-4 text-gray-900 dark:text-gray-200 placeholder-gray-400 dark:placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-purple-500/50 focus:border-purple-500 transition-all duration-300"
               required
             />
           </div>
@@ -99,10 +102,10 @@ export default function CreateStream({ onStreamCreated }) {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
           {/* Duration Input */}
           <div className="space-y-1.5">
-            <label className="text-xs font-medium text-gray-400 uppercase tracking-wider pl-1">Duration (Blocks)</label>
+            <label className="text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider pl-1 transition-colors duration-300">Duration (Blocks)</label>
             <div className="relative">
               <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                <FiClock className="text-gray-500" />
+                <FiClock className="text-gray-400 dark:text-gray-500 transition-colors duration-300" />
               </div>
               <input
                 type="number"
@@ -110,7 +113,7 @@ export default function CreateStream({ onStreamCreated }) {
                 onChange={(e) => setDuration(e.target.value)}
                 placeholder="e.g. 144"
                 min="1"
-                className="w-full bg-gray-900/50 border border-gray-700/50 rounded-xl py-3 pl-11 pr-4 text-gray-200 placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-purple-500/50 focus:border-purple-500 transition-all"
+                className="w-full bg-gray-50 dark:bg-gray-900/50 border border-gray-300 dark:border-gray-700/50 rounded-xl py-3 pl-11 pr-4 text-gray-900 dark:text-gray-200 placeholder-gray-400 dark:placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-purple-500/50 focus:border-purple-500 transition-all duration-300"
                 required
               />
             </div>
@@ -118,10 +121,10 @@ export default function CreateStream({ onStreamCreated }) {
 
           {/* Amount Input */}
           <div className="space-y-1.5">
-            <label className="text-xs font-medium text-gray-400 uppercase tracking-wider pl-1">Total Amount (STX)</label>
+            <label className="text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider pl-1 transition-colors duration-300">Total Amount (STX)</label>
             <div className="relative">
               <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                <FiDollarSign className="text-gray-500" />
+                <FiDollarSign className="text-gray-400 dark:text-gray-500 transition-colors duration-300" />
               </div>
               <input
                 type="number"
@@ -130,7 +133,7 @@ export default function CreateStream({ onStreamCreated }) {
                 onChange={(e) => setAmount(e.target.value)}
                 placeholder="0.00"
                 min="0.000001"
-                className="w-full bg-gray-900/50 border border-gray-700/50 rounded-xl py-3 pl-11 pr-4 text-gray-200 placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-purple-500/50 focus:border-purple-500 transition-all"
+                className="w-full bg-gray-50 dark:bg-gray-900/50 border border-gray-300 dark:border-gray-700/50 rounded-xl py-3 pl-11 pr-4 text-gray-900 dark:text-gray-200 placeholder-gray-400 dark:placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-purple-500/50 focus:border-purple-500 transition-all duration-300"
                 required
               />
             </div>
@@ -139,7 +142,7 @@ export default function CreateStream({ onStreamCreated }) {
 
         {/* Error State */}
         {error && (
-          <p className="text-red-400 text-sm pl-1">{error}</p>
+          <p className="text-red-500 dark:text-red-400 text-sm pl-1 transition-colors duration-300">{error}</p>
         )}
 
         {/* Submit Button */}
