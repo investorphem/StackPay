@@ -2,12 +2,11 @@ import "./globals.css";
 import Link from "next/link";
 import Image from "next/image";
 import ConnectWallet from "../components/ConnectWallet";
-import ThemeToggle from "../components/ThemeToggle"; // We'll make this a separate small component to keep metadata working
+import ThemeToggle from "../components/ThemeToggle"; 
 import { Inter } from "next/font/google";
 
 const inter = Inter({ subsets: ["latin"] });
 
-// RESTORED: All your initial metadata exactly as requested
 export const metadata = {
   title: "StackPay | Premium STX Payroll",
   description: "Real-time decentralized payroll and streaming on the Stacks blockchain.",
@@ -45,16 +44,19 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className="dark">
-      <body className={`${inter.className} antialiased selection:bg-purple-500/30 transition-colors duration-300`}>
+    // FIX 1: Removed hardcoded className="dark" so the ThemeToggle can actually control it.
+    // Added suppressHydrationWarning to prevent React errors when injecting the theme client-side.
+    <html lang="en" suppressHydrationWarning>
+      {/* FIX 2: Added base light/dark colors to the body */}
+      <body className={`${inter.className} antialiased selection:bg-purple-500/30 bg-white dark:bg-gray-950 transition-colors duration-300`}>
+        
         {/* Global Navigation */}
-        <nav className="fixed top-0 left-0 right-0 z-[100] border-b border-gray-800/50 bg-gray-950/70 backdrop-blur-xl">
+        {/* FIX 3: Added light mode backgrounds and borders */}
+        <nav className="fixed top-0 left-0 right-0 z-[100] border-b border-gray-200 dark:border-gray-800/50 bg-white/80 dark:bg-gray-950/70 backdrop-blur-xl transition-colors duration-300">
           <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            
-            {/* Logo + Home Link (Fix 3 & 4) */}
+
             <Link href="/" className="flex items-center gap-3 group hover:opacity-80 transition-opacity">
               <div className="w-10 h-10 relative">
-                 {/* Replace 'S' with your Logo (Fix 4) */}
                  <Image 
                    src="/logo.png" 
                    alt="StackPay Logo" 
@@ -64,16 +66,16 @@ export default function RootLayout({ children }) {
                  />
               </div>
               <div className="hidden sm:block">
-                <h1 className="text-xl font-bold tracking-tight text-white leading-none">StackPay</h1>
-                <span className="text-[10px] uppercase tracking-[0.2em] text-purple-400 font-bold">Mainnet Protocol</span>
+                {/* FIX 4: Text flips to dark gray in light mode, white in dark mode */}
+                <h1 className="text-xl font-bold tracking-tight text-gray-900 dark:text-white leading-none transition-colors duration-300">StackPay</h1>
+                <span className="text-[10px] uppercase tracking-[0.2em] text-purple-600 dark:text-purple-400 font-bold transition-colors duration-300">Mainnet Protocol</span>
               </div>
             </Link>
 
             <div className="flex items-center gap-6">
-              <div className="hidden md:flex items-center gap-6 text-sm font-medium text-gray-400">
-                <Link href="/dashboard" className="hover:text-white transition-colors">Employer</Link>
-                {/* Updated to Link to prevent 404/Full Refresh (Fix 7) */}
-                <Link href="/withdraw" className="hover:text-white transition-colors">Employee</Link>
+              <div className="hidden md:flex items-center gap-6 text-sm font-medium text-gray-500 dark:text-gray-400">
+                <Link href="/dashboard" className="hover:text-purple-600 dark:hover:text-white transition-colors">Employer</Link>
+                <Link href="/withdraw" className="hover:text-purple-600 dark:hover:text-white transition-colors">Employee</Link>
               </div>
               <ConnectWallet />
             </div>
@@ -85,27 +87,25 @@ export default function RootLayout({ children }) {
           {children}
         </main>
 
-        {/* Updated Footer (Fix 9, 10, 11) */}
-        <footer className="py-12 border-t border-gray-900 bg-gray-950/50">
+        {/* Footer */}
+        {/* FIX 5: Added light mode backgrounds and borders to the footer */}
+        <footer className="py-12 border-t border-gray-200 dark:border-gray-900 bg-gray-50 dark:bg-gray-950/50 transition-colors duration-300">
           <div className="max-w-7xl mx-auto px-6">
             <div className="flex flex-col md:flex-row justify-between items-center gap-8 mb-8">
-              
-              {/* MASONODE Credit (Fix 9) */}
+
               <div className="text-center md:text-left">
-                <p className="text-gray-400 text-sm font-medium uppercase tracking-widest">© 2026 MASONODE Organisation</p>
-                <p className="text-gray-600 text-xs mt-1 italic">All rights reserved. Secured by Bitcoin.</p>
+                <p className="text-gray-900 dark:text-gray-400 text-sm font-medium uppercase tracking-widest transition-colors duration-300">© 2026 MASONODE Organisation</p>
+                <p className="text-gray-500 dark:text-gray-600 text-xs mt-1 italic transition-colors duration-300">All rights reserved. Secured by Bitcoin.</p>
               </div>
 
-              {/* Theme Toggle Component (Fix 11) */}
               <ThemeToggle />
             </div>
 
-            {/* Legal Links & Support (Fix 10) */}
-            <div className="flex flex-wrap justify-center md:justify-start gap-x-8 gap-y-4 text-gray-500 text-[11px] uppercase tracking-tighter pt-8 border-t border-gray-900">
-              <Link href="/terms" className="hover:text-purple-400 transition-colors">Terms of Service</Link>
-              <Link href="/privacy" className="hover:text-purple-400 transition-colors">Privacy Policy</Link>
-              <a href="https://github.com/investorphem" target="_blank" rel="noreferrer" className="hover:text-purple-400 transition-colors">Documentation</a>
-              <Link href="/support" className="hover:text-purple-400 transition-colors">Support</Link>
+            <div className="flex flex-wrap justify-center md:justify-start gap-x-8 gap-y-4 text-gray-500 text-[11px] uppercase tracking-tighter pt-8 border-t border-gray-200 dark:border-gray-900 transition-colors duration-300">
+              <Link href="/terms" className="hover:text-purple-600 dark:hover:text-purple-400 transition-colors">Terms of Service</Link>
+              <Link href="/privacy" className="hover:text-purple-600 dark:hover:text-purple-400 transition-colors">Privacy Policy</Link>
+              <a href="https://github.com/investorphem" target="_blank" rel="noreferrer" className="hover:text-purple-600 dark:hover:text-purple-400 transition-colors">Documentation</a>
+              <Link href="/support" className="hover:text-purple-600 dark:hover:text-purple-400 transition-colors">Support</Link>
             </div>
           </div>
         </footer>
