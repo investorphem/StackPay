@@ -8,7 +8,7 @@ import ConnectWallet from "../components/ConnectWallet";
 export default function Home() {
   return (
     <div className="relative overflow-hidden bg-gray-950 min-h-[calc(100vh-80px)] flex flex-col items-center justify-center px-6">
-      
+
       {/* Background Decorative Element */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-purple-600/10 rounded-full blur-[120px] pointer-events-none" />
 
@@ -59,10 +59,11 @@ export default function Home() {
           transition={{ delay: 0.3 }}
           className="flex flex-col sm:flex-row items-center justify-center gap-4"
         >
+          {/* scale-110 makes the connect button pop on the landing page */}
           <div className="scale-110">
             <ConnectWallet />
           </div>
-          
+
           <Link href="/dashboard">
             <button className="flex items-center gap-2 px-8 py-3.5 bg-gray-900 border border-gray-700/50 hover:bg-gray-800 text-white font-semibold rounded-full transition-all duration-300">
               Enter Dashboard <FiArrowRight />
