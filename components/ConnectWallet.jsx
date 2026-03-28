@@ -1,8 +1,8 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { showConnect } from "@stacks/connect"; 
-import { AppConfig, UserSession } from "@stacks/auth"; 
+// FIX 1: We use the v8 `connect` and `getLocalStorage` tools directly. No more showConnect!
+import { connect, disconnect, getLocalStorage } from "@stacks/connect"; 
 import { motion, AnimatePresence } from "framer-motion";
 import { FiLogOut, FiLink, FiAlertCircle, FiLoader } from "react-icons/fi";
 
@@ -11,70 +11,66 @@ export default function ConnectWallet() {
   const [address, setAddress] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
-  
-  // FIX 1: Hold the userSession in state instead of a global export
-  const [userSession, setUserSession] = useState(null);
 
   useEffect(() => {
     setMounted(true);
-    
-    // FIX 2: Initialize UserSession ONLY inside useEffect. 
-    // This completely eliminates the "Application Error" crash during Next.js SSR.
-    const appConfig = new AppConfig(["store_write", "publish_data"]);
-    const session = new UserSession({ appConfig });
-    setUserSession(session);
-
-    if (session.isSignInPending()) {
-      session.handlePendingSignIn().then((userData) => {
-        setAddress(userData.profile.stxAddress.mainnet);
-      });
-    } else if (session.isUserSignedIn()) {
-      const userData = session.loadUserData();
-      setAddress(userData.profile.stxAddress.mainnet);
+    // FIX 2: SSR Safe LocalStorage Check for v8
+    try {
+      const data = getLocalStorage();
+      const savedAddress = data?.addresses?.stx?.[0]?.address;
+      if (savedAddress) setAddress(savedAddress);
+    } catch (err) {
+      console.error("Storage error:", err);
     }
   }, []);
 
-  const handleConnect = () => {
+  const handleConnect = async () => {
     setIsLoading(true);
     setError(null);
 
-    // Safety check: ensure session is ready
-    if (!userSession) {
-      setError("Wallet system initializing. Please refresh and try again.");
-      setIsLoading(false);
-      return;
-    }
-
-    // FIX 3: Detect if Leather/Xverse is actually installed to prevent infinite spinning
+    // Extension Check: Prevents infinite spinning if the wallet isn't detected
     if (typeof window !== "undefined" && !window.StacksProvider && !window.LeatherProvider) {
-      setError("No Stacks wallet detected. Please install Leather or Xverse extension.");
+      setError("No Stacks wallet detected. Please install Leather or Xverse.");
       setIsLoading(false);
       return;
     }
 
-    // Trigger the classic, crash-free Leather auth flow (Avoids Zod Error)
-    showConnect({
-      appDetails: {
-        name: "StackPay Protocol",
-        icon: "https://stackpay-one.vercel.app/apple-touch-icon.png",
-      },
-      userSession,
-      onFinish: () => {
-        setIsLoading(false);
-        window.location.reload(); // Clean sync once connected
-      },
-      onCancel: () => {
-        setIsLoading(false);
-        setError("Connection request cancelled.");
-        setTimeout(() => setError(null), 5000);
+    try {
+      const projectId = process.env.NEXT_PUBLIC_WC_PROJECT_ID || "default_project_id";
+
+      // FIX 3: V8 Native Connect
+      const response = await connect({
+        appDetails: {
+          name: "StackPay Protocol",
+          icon: "https://stackpay-one.vercel.app/apple-touch-icon.png",
+        },
+        // Correct v8 WalletConnect syntax
+        walletConnect: { 
+          projectId: projectId 
+        }
+        // Notice we REMOVED the `network` object completely. 
+        // Passing the network object here is what triggers Leather's ZodError!
+      });
+
+      const stxAddress = response?.addresses?.stx?.[0]?.address || getLocalStorage()?.addresses?.stx?.[0]?.address;
+
+      if (stxAddress) {
+        setAddress(stxAddress);
+        window.location.reload(); 
+      } else {
+        throw new Error("No address returned from wallet.");
       }
-    });
+    } catch (err) {
+      console.error("Connection Error:", err);
+      setError(err.message || "Failed to connect wallet.");
+      setTimeout(() => setError(null), 5000);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const handleDisconnect = () => {
-    if (userSession) {
-      userSession.signUserOut(); 
-    }
+    disconnect();
     setAddress(null);
     window.location.reload(); 
   };
