@@ -34,6 +34,11 @@ export default function ConnectWallet() {
 
       // Using the latest v8.2+ connect wrapper
       const response = await connect({
+        // 3. FIX: Add appDetails to prevent Leather Wallet Zod validation crash
+        appDetails: {
+          name: "StackPay Protocol",
+          icon: typeof window !== "undefined" ? `${window.location.origin}/logo.png` : "",
+        },
         walletConnectProjectId: projectId,
         // 2. FIX: Pass the constant directly without the 'new' keyword
         network: STACKS_MAINNET, 
