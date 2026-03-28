@@ -6,31 +6,42 @@ import { FiActivity, FiAlertCircle, FiPlus } from "react-icons/fi";
 import CreateStream from "../../components/CreateStream";
 import StreamCard from "../../components/StreamCard";
 import { fetchStreams } from "../../lib/contract";
+import { isConnected as checkIsConnected, getLocalStorage } from "@stacks/connect"; // Added real Stacks connection
 
-// Assuming you are using a standard Stacks connect hook here, or pulling from local storage
-// like we did in the ConnectWallet component. Mocking the state for the layout:
+// Real Wallet Session Hook (Replaces the hardcoded mock)
 const useUserSession = () => {
-  return {
-    isConnected: true, // Replace with actual connection check
-    stxAddress: "SP3FBR2AGK5H9QBDH3EEN6DF8EK8JY7RX8QJ5SVTE" // Replace with actual user address
-  };
+  const [session, setSession] = useState({ isConnected: false, stxAddress: null });
+  
+  useEffect(() => {
+    if (checkIsConnected()) {
+      const data = getLocalStorage();
+      setSession({
+        isConnected: true,
+        stxAddress: data?.addresses?.stx?.[0]?.address
+      });
+    }
+  }, []);
+
+  return session;
 };
 
 export default function Dashboard() {
   const [streams, setStreams] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  
-  // Pulling the user's Stacks address to filter their specific streams
+
+  // Pulling the real Stacks address
   const { isConnected, stxAddress } = useUserSession(); 
 
   const getStreams = useCallback(async () => {
-    if (!isConnected) return; 
-    
+    if (!isConnected || !stxAddress) {
+      setLoading(false);
+      return;
+    }
+
     try {
       setLoading(true);
       setError(null);
-      // Fetching streams specifically for this Stacks Principal using our upgraded lib function
       const data = await fetchStreams(stxAddress); 
       setStreams(data || []);
     } catch (err) {
@@ -46,34 +57,34 @@ export default function Dashboard() {
   }, [getStreams]);
 
   const SkeletonLoader = () => (
-    <div className="animate-pulse flex space-x-4 bg-gray-800/50 p-6 rounded-3xl border border-gray-700/50 shadow-sm">
+    <div className="animate-pulse flex space-x-4 bg-white dark:bg-gray-800/50 p-6 rounded-3xl border border-gray-200 dark:border-gray-700/50 shadow-sm transition-colors duration-300">
        <div className="flex-1 space-y-4 py-2">
-         <div className="h-5 bg-gray-700 rounded w-1/3"></div>
+         <div className="h-5 bg-gray-200 dark:bg-gray-700 rounded w-1/3 transition-colors duration-300"></div>
          <div className="space-y-3 mt-6">
-           <div className="h-4 bg-gray-700 rounded"></div>
-           <div className="h-4 bg-gray-700 rounded w-5/6"></div>
+           <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded transition-colors duration-300"></div>
+           <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded w-5/6 transition-colors duration-300"></div>
          </div>
        </div>
     </div>
   );
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-950 to-gray-900 text-white p-6 md:p-12 font-sans">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-white p-6 md:p-12 font-sans transition-colors duration-300">
       <div className="max-w-5xl mx-auto space-y-8">
-        
+
         {/* Header Section */}
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-center pb-6 border-b border-gray-800 gap-4">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-center pb-6 border-b border-gray-200 dark:border-gray-800 gap-4 transition-colors duration-300">
           <div>
-            <h2 className="text-4xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 to-purple-600">
-              Stackpay
+            <h2 className="text-4xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-indigo-600 dark:from-indigo-400 dark:to-purple-600">
+              Employer Dashboard
             </h2>
-            <p className="text-gray-400 mt-2">Manage your STX payroll streams securely.</p>
+            <p className="text-gray-600 dark:text-gray-400 mt-2 transition-colors duration-300">Manage your STX payroll streams securely.</p>
           </div>
-          
+
           {/* Stacks Wallet Status Indicator */}
-          <div className="flex items-center space-x-3 bg-gray-900/80 px-4 py-2 rounded-full border border-gray-700 shadow-inner">
+          <div className="flex items-center space-x-3 bg-white dark:bg-gray-900/80 px-4 py-2 rounded-full border border-gray-200 dark:border-gray-700 shadow-sm dark:shadow-inner transition-colors duration-300">
             <div className={`w-3 h-3 rounded-full ${isConnected ? 'bg-purple-500 shadow-[0_0_10px_rgba(168,85,247,0.8)]' : 'bg-red-500'}`}></div>
-            <span className="text-sm font-medium text-gray-300 tracking-wide">
+            <span className="text-sm font-medium text-gray-700 dark:text-gray-300 tracking-wide transition-colors duration-300">
               {isConnected && stxAddress 
                 ? `${stxAddress.slice(0,5)}...${stxAddress.slice(-4)}` 
                 : "Wallet Disconnected"}
@@ -84,26 +95,26 @@ export default function Dashboard() {
         {!isConnected ? (
             <motion.div 
               initial={{ opacity: 0 }} animate={{ opacity: 1 }}
-              className="text-center py-20 bg-gray-800/30 rounded-3xl border border-gray-700/50 backdrop-blur-md"
+              className="text-center py-20 bg-white dark:bg-gray-800/30 rounded-3xl border border-gray-200 dark:border-gray-700/50 shadow-sm dark:shadow-none transition-colors duration-300"
             >
-                <p className="text-xl text-gray-400">Please connect your Stacks wallet to view your dashboard.</p>
+                <p className="text-xl text-gray-600 dark:text-gray-400">Please connect your Stacks wallet to view your dashboard.</p>
             </motion.div>
         ) : (
             <>
                 {/* Create Stream Section */}
-                <div className="bg-gray-800/40 rounded-3xl p-6 md:p-8 border border-gray-700/50 backdrop-blur-md shadow-2xl">
+                <div className="bg-white dark:bg-gray-800/40 rounded-3xl p-6 md:p-8 border border-gray-200 dark:border-gray-700/50 shadow-xl dark:shadow-2xl transition-colors duration-300">
                   <CreateStream onStreamCreated={getStreams} />
                 </div>
 
                 {/* Active Streams Section */}
                 <div className="space-y-6 mt-12">
                   <div className="flex items-center space-x-3">
-                    <FiActivity className="text-purple-500 text-2xl" />
-                    <h3 className="text-2xl font-semibold tracking-wide">Active STX Streams</h3>
+                    <FiActivity className="text-purple-600 dark:text-purple-500 text-2xl" />
+                    <h3 className="text-2xl font-semibold tracking-wide text-gray-900 dark:text-white transition-colors duration-300">Active STX Streams</h3>
                   </div>
-                  
+
                   {error && (
-                     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="flex items-center space-x-3 bg-red-500/10 text-red-400 p-4 rounded-xl border border-red-500/20">
+                     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="flex items-center space-x-3 bg-red-50 dark:bg-red-500/10 text-red-600 dark:text-red-400 p-4 rounded-xl border border-red-200 dark:border-red-500/20 transition-colors duration-300">
                         <FiAlertCircle className="flex-shrink-0" />
                         <p className="text-sm">{error}</p>
                      </motion.div>
@@ -118,12 +129,12 @@ export default function Dashboard() {
                     <motion.div 
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
-                      className="flex flex-col items-center justify-center py-24 bg-gray-800/20 rounded-3xl border border-dashed border-gray-700 transition-colors hover:bg-gray-800/40"
+                      className="flex flex-col items-center justify-center py-24 bg-gray-50 dark:bg-gray-800/20 rounded-3xl border border-dashed border-gray-300 dark:border-gray-700 transition-colors duration-300 hover:bg-gray-100 dark:hover:bg-gray-800/40"
                     >
-                      <div className="bg-gray-900 p-4 rounded-full mb-4 shadow-inner">
+                      <div className="bg-white dark:bg-gray-900 p-4 rounded-full mb-4 shadow-sm dark:shadow-inner transition-colors duration-300">
                         <FiPlus className="text-gray-400 text-3xl" />
                       </div>
-                      <p className="text-gray-300 text-lg font-medium">No active streams yet</p>
+                      <p className="text-gray-900 dark:text-gray-300 text-lg font-medium transition-colors duration-300">No active streams yet</p>
                       <p className="text-gray-500 text-sm mt-1">Deploy your first Clarity contract stream above.</p>
                     </motion.div>
                   ) : (
@@ -137,6 +148,7 @@ export default function Dashboard() {
                             exit={{ opacity: 0, scale: 0.95 }}
                             transition={{ duration: 0.2 }}
                           >
+                            {/* Assuming StreamCard handles its own dark mode classes internally */}
                             <StreamCard stream={stream} />
                           </motion.div>
                         ))}
