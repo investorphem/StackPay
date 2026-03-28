@@ -1,10 +1,15 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { connect, disconnect, isConnected, getLocalStorage } from "@stacks/connect";
-import { STACKS_MAINNET } from "@stacks/network"; 
+import { showConnect } from "@stacks/connect"; // FIX: Swapped to the stable UI prompt
+import { AppConfig, UserSession } from "@stacks/auth"; // FIX: Official session handling
 import { motion, AnimatePresence } from "framer-motion";
 import { FiLogOut, FiLink, FiAlertCircle, FiLoader } from "react-icons/fi";
+
+// Initialize the official Stacks UserSession
+// This completely bypasses the buggy local storage checks and WalletConnect wrappers
+const appConfig = new AppConfig(["store_write", "publish_data"]);
+export const userSession = new UserSession({ appConfig });
 
 export default function ConnectWallet() {
   const [mounted, setMounted] = useState(false);
@@ -14,52 +19,42 @@ export default function ConnectWallet() {
 
   useEffect(() => {
     setMounted(true);
-    if (isConnected()) {
-      const data = getLocalStorage();
-      setAddress(data?.addresses?.stx?.[0]?.address);
+    
+    // Safely check for existing sessions to prevent refresh bugs
+    if (userSession.isSignInPending()) {
+      userSession.handlePendingSignIn().then((userData) => {
+        setAddress(userData.profile.stxAddress.mainnet);
+      });
+    } else if (userSession.isUserSignedIn()) {
+      const userData = userSession.loadUserData();
+      setAddress(userData.profile.stxAddress.mainnet);
     }
   }, []);
 
-  const handleConnect = async () => {
-    try {
-      setIsLoading(true);
-      setError(null);
+  const handleConnect = () => {
+    setIsLoading(true);
+    setError(null);
 
-      const projectId = process.env.NEXT_PUBLIC_WC_PROJECT_ID;
-      if (!projectId) {
-        throw new Error("Missing WalletConnect Project ID in environment variables.");
+    // Use showConnect to trigger the classic, crash-free Leather auth flow
+    showConnect({
+      appDetails: {
+        name: "StackPay Protocol",
+        icon: "https://stackpay-one.vercel.app/apple-touch-icon.png",
+      },
+      userSession,
+      onFinish: () => {
+        setIsLoading(false);
+        window.location.reload(); // Clean sync once connected
+      },
+      onCancel: () => {
+        setIsLoading(false);
+        console.log("Connection cancelled by user.");
       }
-
-      const response = await connect({
-        // FIX 1: Hardcode the absolute HTTPS URL to pass Leather's strict Zod URL validation
-        appDetails: {
-          name: "StackPay Protocol",
-          icon: "https://stackpay-one.vercel.app/apple-touch-icon.png", 
-        },
-        walletConnectProjectId: projectId,
-        network: STACKS_MAINNET, 
-      });
-
-      const stxAddress = 
-        response?.addresses?.stx?.[0]?.address || 
-        getLocalStorage()?.addresses?.stx?.[0]?.address;
-
-      if (stxAddress) {
-        setAddress(stxAddress);
-      } else {
-        window.location.reload();
-      }
-    } catch (err) {
-      console.error("Connection Error:", err);
-      setError(err.message || "Failed to connect wallet. Please try again.");
-      setTimeout(() => setError(null), 5000);
-    } finally {
-      setIsLoading(false);
-    }
+    });
   };
 
   const handleDisconnect = () => {
-    disconnect();
+    userSession.signUserOut(); // Proper cryptographic sign out
     setAddress(null);
     window.location.reload(); 
   };
@@ -75,15 +70,14 @@ export default function ConnectWallet() {
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 10 }}
-            // FIX 2: Added light/dark mode classes for Option 2
-            className="flex items-center gap-3 bg-white dark:bg-gray-900/80 p-1.5 pl-4 rounded-full border border-gray-200 dark:border-gray-700/50 shadow-lg backdrop-blur-md"
+            className="flex items-center gap-3 bg-white dark:bg-gray-900/80 p-1.5 pl-4 rounded-full border border-gray-200 dark:border-gray-700/50 shadow-lg backdrop-blur-md transition-colors duration-300"
           >
             <div className="flex items-center gap-2">
               <div className="relative flex h-3 w-3">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-3 w-3 bg-purple-500 shadow-[0_0_8px_rgba(168,85,247,0.8)]"></span>
               </div>
-              <span className="text-sm font-medium tracking-wide text-gray-900 dark:text-gray-200">
+              <span className="text-sm font-medium tracking-wide text-gray-900 dark:text-gray-200 transition-colors duration-300">
                 {address.slice(0, 5)}...{address.slice(-4)}
               </span>
             </div>
@@ -130,7 +124,7 @@ export default function ConnectWallet() {
             initial={{ opacity: 0, y: 10, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, scale: 0.95 }}
-            className="absolute top-full mt-4 right-0 w-max max-w-xs flex items-start gap-2 p-3 bg-red-50 dark:bg-red-950/90 border border-red-200 dark:border-red-500/30 text-red-600 dark:text-red-400 text-xs rounded-lg shadow-2xl"
+            className="absolute top-full mt-4 right-0 w-max max-w-xs flex items-start gap-2 p-3 bg-red-50 dark:bg-red-950/90 border border-red-200 dark:border-red-500/30 text-red-600 dark:text-red-400 text-xs rounded-lg shadow-2xl transition-colors duration-300"
           >
             <FiAlertCircle className="shrink-0 mt-0.5" size={14} />
             <p className="leading-relaxed">{error}</p>
