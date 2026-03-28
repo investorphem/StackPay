@@ -1,15 +1,18 @@
 import "./globals.css";
+import Link from "next/link";
+import Image from "next/image";
 import ConnectWallet from "../components/ConnectWallet";
+import ThemeToggle from "../components/ThemeToggle"; // We'll make this a separate small component to keep metadata working
 import { Inter } from "next/font/google";
 
 const inter = Inter({ subsets: ["latin"] });
 
+// RESTORED: All your initial metadata exactly as requested
 export const metadata = {
   title: "StackPay | Premium STX Payroll",
   description: "Real-time decentralized payroll and streaming on the Stacks blockchain.",
   metadataBase: new URL("https://stackpay-one.vercel.app"),
-  
-  // --- Upgraded Icon Configuration ---
+
   icons: {
     icon: [
       { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
@@ -20,7 +23,6 @@ export const metadata = {
     ],
   },
   manifest: "/site.webmanifest",
-  // ------------------------------------
 
   openGraph: {
     title: "StackPay",
@@ -44,25 +46,34 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className="dark">
-      <body className={`${inter.className} antialiased selection:bg-purple-500/30`}>
+      <body className={`${inter.className} antialiased selection:bg-purple-500/30 transition-colors duration-300`}>
         {/* Global Navigation */}
         <nav className="fixed top-0 left-0 right-0 z-[100] border-b border-gray-800/50 bg-gray-950/70 backdrop-blur-xl">
           <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              {/* Logo Icon */}
-              <div className="w-10 h-10 bg-gradient-to-br from-purple-600 to-indigo-600 rounded-xl flex items-center justify-center shadow-lg shadow-purple-500/20">
-                <span className="font-black text-white text-xl">S</span>
+            
+            {/* Logo + Home Link (Fix 3 & 4) */}
+            <Link href="/" className="flex items-center gap-3 group hover:opacity-80 transition-opacity">
+              <div className="w-10 h-10 relative">
+                 {/* Replace 'S' with your Logo (Fix 4) */}
+                 <Image 
+                   src="/logo.png" 
+                   alt="StackPay Logo" 
+                   fill 
+                   className="object-contain"
+                   priority
+                 />
               </div>
               <div className="hidden sm:block">
                 <h1 className="text-xl font-bold tracking-tight text-white leading-none">StackPay</h1>
                 <span className="text-[10px] uppercase tracking-[0.2em] text-purple-400 font-bold">Mainnet Protocol</span>
               </div>
-            </div>
+            </Link>
 
             <div className="flex items-center gap-6">
               <div className="hidden md:flex items-center gap-6 text-sm font-medium text-gray-400">
-                <a href="/dashboard" className="hover:text-white transition-colors">Employer</a>
-                <a href="/withdraw" className="hover:text-white transition-colors">Employee</a>
+                <Link href="/dashboard" className="hover:text-white transition-colors">Employer</Link>
+                {/* Updated to Link to prevent 404/Full Refresh (Fix 7) */}
+                <Link href="/withdraw" className="hover:text-white transition-colors">Employee</Link>
               </div>
               <ConnectWallet />
             </div>
@@ -74,14 +85,27 @@ export default function RootLayout({ children }) {
           {children}
         </main>
 
-        {/* Footer */}
+        {/* Updated Footer (Fix 9, 10, 11) */}
         <footer className="py-12 border-t border-gray-900 bg-gray-950/50">
-          <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4 text-gray-500 text-xs">
-            <p>© 2026 StackPay Protocol. Secured by Bitcoin.</p>
-            <div className="flex gap-6">
-              <a href="#" className="hover:text-purple-400 transition-colors">Documentation</a>
-              <a href="#" className="hover:text-purple-400 transition-colors">Smart Contract</a>
-              <a href="#" className="hover:text-purple-400 transition-colors">Support</a>
+          <div className="max-w-7xl mx-auto px-6">
+            <div className="flex flex-col md:flex-row justify-between items-center gap-8 mb-8">
+              
+              {/* MASONODE Credit (Fix 9) */}
+              <div className="text-center md:text-left">
+                <p className="text-gray-400 text-sm font-medium uppercase tracking-widest">© 2026 MASONODE Organisation</p>
+                <p className="text-gray-600 text-xs mt-1 italic">All rights reserved. Secured by Bitcoin.</p>
+              </div>
+
+              {/* Theme Toggle Component (Fix 11) */}
+              <ThemeToggle />
+            </div>
+
+            {/* Legal Links & Support (Fix 10) */}
+            <div className="flex flex-wrap justify-center md:justify-start gap-x-8 gap-y-4 text-gray-500 text-[11px] uppercase tracking-tighter pt-8 border-t border-gray-900">
+              <Link href="/terms" className="hover:text-purple-400 transition-colors">Terms of Service</Link>
+              <Link href="/privacy" className="hover:text-purple-400 transition-colors">Privacy Policy</Link>
+              <a href="https://github.com/investorphem" target="_blank" rel="noreferrer" className="hover:text-purple-400 transition-colors">Documentation</a>
+              <Link href="/support" className="hover:text-purple-400 transition-colors">Support</Link>
             </div>
           </div>
         </footer>
