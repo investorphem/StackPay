@@ -6,18 +6,23 @@ import { FiActivity, FiAlertCircle, FiPlus } from "react-icons/fi";
 import CreateStream from "../../components/CreateStream";
 import StreamCard from "../../components/StreamCard";
 import { fetchStreams } from "../../lib/contract";
-import { isConnected as checkIsConnected, getLocalStorage } from "@stacks/connect"; // Added real Stacks connection
+// FIX 1: Import the official, SSR-safe auth tools instead of the buggy connect wrappers
+import { AppConfig, UserSession } from "@stacks/auth"; 
 
-// Real Wallet Session Hook (Replaces the hardcoded mock)
+// FIX 2: Create a clean, SSR-safe hook to check the user's session
 const useUserSession = () => {
   const [session, setSession] = useState({ isConnected: false, stxAddress: null });
-  
+
   useEffect(() => {
-    if (checkIsConnected()) {
-      const data = getLocalStorage();
+    const appConfig = new AppConfig(["store_write", "publish_data"]);
+    const userSession = new UserSession({ appConfig });
+
+    // Only run this check in the browser, safely
+    if (userSession.isUserSignedIn()) {
+      const userData = userSession.loadUserData();
       setSession({
         isConnected: true,
-        stxAddress: data?.addresses?.stx?.[0]?.address
+        stxAddress: userData.profile.stxAddress.mainnet
       });
     }
   }, []);
@@ -30,10 +35,11 @@ export default function Dashboard() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // Pulling the real Stacks address
+  // Pulling the real Stacks address safely
   const { isConnected, stxAddress } = useUserSession(); 
 
   const getStreams = useCallback(async () => {
+    // If they aren't connected yet, don't try to fetch streams
     if (!isConnected || !stxAddress) {
       setLoading(false);
       return;
@@ -69,7 +75,7 @@ export default function Dashboard() {
   );
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-white p-6 md:p-12 font-sans transition-colors duration-300">
+    <div className="min-h-[calc(100vh-80px)] bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-white p-6 md:p-12 font-sans transition-colors duration-300">
       <div className="max-w-5xl mx-auto space-y-8">
 
         {/* Header Section */}
@@ -148,7 +154,6 @@ export default function Dashboard() {
                             exit={{ opacity: 0, scale: 0.95 }}
                             transition={{ duration: 0.2 }}
                           >
-                            {/* Assuming StreamCard handles its own dark mode classes internally */}
                             <StreamCard stream={stream} />
                           </motion.div>
                         ))}
