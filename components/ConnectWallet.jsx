@@ -1,32 +1,35 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { showConnect } from "@stacks/connect"; // FIX: Swapped to the stable UI prompt
-import { AppConfig, UserSession } from "@stacks/auth"; // FIX: Official session handling
+import { showConnect } from "@stacks/connect"; 
+import { AppConfig, UserSession } from "@stacks/auth"; 
 import { motion, AnimatePresence } from "framer-motion";
 import { FiLogOut, FiLink, FiAlertCircle, FiLoader } from "react-icons/fi";
-
-// Initialize the official Stacks UserSession
-// This completely bypasses the buggy local storage checks and WalletConnect wrappers
-const appConfig = new AppConfig(["store_write", "publish_data"]);
-export const userSession = new UserSession({ appConfig });
 
 export default function ConnectWallet() {
   const [mounted, setMounted] = useState(false);
   const [address, setAddress] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
+  
+  // FIX 1: Hold the userSession in state instead of a global export
+  const [userSession, setUserSession] = useState(null);
 
   useEffect(() => {
     setMounted(true);
     
-    // Safely check for existing sessions to prevent refresh bugs
-    if (userSession.isSignInPending()) {
-      userSession.handlePendingSignIn().then((userData) => {
+    // FIX 2: Initialize UserSession ONLY inside useEffect. 
+    // This completely eliminates the "Application Error" crash during Next.js SSR.
+    const appConfig = new AppConfig(["store_write", "publish_data"]);
+    const session = new UserSession({ appConfig });
+    setUserSession(session);
+
+    if (session.isSignInPending()) {
+      session.handlePendingSignIn().then((userData) => {
         setAddress(userData.profile.stxAddress.mainnet);
       });
-    } else if (userSession.isUserSignedIn()) {
-      const userData = userSession.loadUserData();
+    } else if (session.isUserSignedIn()) {
+      const userData = session.loadUserData();
       setAddress(userData.profile.stxAddress.mainnet);
     }
   }, []);
@@ -35,7 +38,21 @@ export default function ConnectWallet() {
     setIsLoading(true);
     setError(null);
 
-    // Use showConnect to trigger the classic, crash-free Leather auth flow
+    // Safety check: ensure session is ready
+    if (!userSession) {
+      setError("Wallet system initializing. Please refresh and try again.");
+      setIsLoading(false);
+      return;
+    }
+
+    // FIX 3: Detect if Leather/Xverse is actually installed to prevent infinite spinning
+    if (typeof window !== "undefined" && !window.StacksProvider && !window.LeatherProvider) {
+      setError("No Stacks wallet detected. Please install Leather or Xverse extension.");
+      setIsLoading(false);
+      return;
+    }
+
+    // Trigger the classic, crash-free Leather auth flow (Avoids Zod Error)
     showConnect({
       appDetails: {
         name: "StackPay Protocol",
@@ -48,13 +65,16 @@ export default function ConnectWallet() {
       },
       onCancel: () => {
         setIsLoading(false);
-        console.log("Connection cancelled by user.");
+        setError("Connection request cancelled.");
+        setTimeout(() => setError(null), 5000);
       }
     });
   };
 
   const handleDisconnect = () => {
-    userSession.signUserOut(); // Proper cryptographic sign out
+    if (userSession) {
+      userSession.signUserOut(); 
+    }
     setAddress(null);
     window.location.reload(); 
   };
