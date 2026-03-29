@@ -10,7 +10,7 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata = {
   title: "StackPay | Premium STX Payroll",
   description: "Real-time decentralized payroll and streaming on the Stacks blockchain.",
-  metadataBase: new URL("https://stackpay-one.vercel.app"),
+  metadataBase: new URL("https://stackpay-one.vercel.app/"),
 
   icons: {
     icon: [
