@@ -10,7 +10,7 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata = {
   title: "StackPay | Premium STX Payroll",
   description: "Real-time decentralized payroll and streaming on the Stacks blockchain.",
-  metadataBase: new URL("https://stackpay-one.vercel.app/"),
+  metadataBase: new URL("https://stackpay-one.vercel.app"),
 
   icons: {
     icon: [
@@ -26,7 +26,7 @@ export const metadata = {
   openGraph: {
     title: "StackPay",
     description: "Decentralized payroll on Stacks",
-    url: "https://stackpay-one.vercel.app",
+    url: "https://stackpay-one.vercel.app/",
     siteName: "StackPay",
     images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "StackPay" }],
     locale: "en_US",
