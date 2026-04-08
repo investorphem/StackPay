@@ -2,7 +2,7 @@
   "name": "stackpay",
   "version": "1.1.0",
   "private": true,
-  "description": "Premium real-time payroll streaming protocol on Stacks",
+  "description": "Premium real-time payroll streaming protocol o Stacks",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
