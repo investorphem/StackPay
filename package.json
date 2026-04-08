@@ -2,7 +2,7 @@
   "name": "stackpay",
   "version": "1.1.0",
   "private": true,
-  "description": "Premium real-time payroll stmcks",
+  "description": "Premium real-time payroll smcks",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
