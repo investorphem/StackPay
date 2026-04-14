@@ -12,7 +12,6 @@ import { getLocalStorage } from "@stacks/connect";
 // FIX 2: V8 SSR-safe hook to check the user's session natively
 const useUserSession = () => 
   const [session, setSession] = useState({ isConnected: false,stxAddress: null });
-
   useEffect(() => 
     try {
       const data = getLocalStorage();
