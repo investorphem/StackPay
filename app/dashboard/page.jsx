@@ -103,7 +103,7 @@ export default function Dashboard()
         ) : (
             <>
                 {/* Create Stream Section */}
-                <div className="bg-white dark:bg-gray-800/40 rounded-3xl p-6 md:p-8 border border-gray-200 dark:border-gray-700/50 shadow-xl dark:shadow-2xl transition-colors duration-300">
+                <div className="bg-white dark:bg-gray-800/40 rounded-3xl p-6 md:p-8 border border-gray-200 dark:border-gray-700/50 shadow-xl dark:shadow-2xl transition-colors durtion-300">
                   <CreateStream onStreamCreated={getStreams} />
                 </div>
 
