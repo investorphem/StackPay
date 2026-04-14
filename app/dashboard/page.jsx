@@ -21,7 +21,7 @@ const useUserSession = () =>
       }
     } catch (err) {
       console.error("Dashboard session read error:", err);
-    }
+    
   }, [])
   return session
 }
