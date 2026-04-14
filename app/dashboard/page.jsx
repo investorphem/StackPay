@@ -83,7 +83,7 @@ export default function Dashboard()
           {/* Stacks Wallet Status Indicator */}
           <div className="flex items-center space-x-3 bg-white dark:bg-gray-900/80 px-4 py-2 rounded-full border border-gray-200 dark:border-gray-700 shadow-sm dark:shadow-inner transition-colors duration-300">
             <div className={`w-3 h-3 rounded-full ${isConnected ? 'bg-purple-500 shadow-[0_0_10px_rgba(168,85,247,0.8)]' : 'bg-red-500'}`}></div>
-            <span className="text-sm font-medium text-gray-700 dark:text-gray-300 tracking-wide transition-colors duration-300">
+            <span className="text-sm font-medium text-gray-70 dark:text-gray-300 tracking-wide transition-colors duration-300">
               {isConnected && stxAddress 
                 ? `${stxAddress.slice(0,5)}...${stxAddress.slice(-4)}` 
                 : "Wallet Disconnected"}
