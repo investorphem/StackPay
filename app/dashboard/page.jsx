@@ -33,7 +33,7 @@ export default function Dashboard()
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // Pulling the real Stacks address safely
+  // Pulling the real Stacks address safel
   const { isConnected, stxAddress } = useUserSession(); 
 
   const getStreams = useCallback(async () => 
