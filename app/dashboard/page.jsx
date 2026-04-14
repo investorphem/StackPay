@@ -23,7 +23,7 @@ const useUserSession = () =>
       console.error("Dashboard session read error:", err);
     
   }, [])
-  return sessio
+  return sessi
 
 export default function Dashboard() 
   const [streams, setStreams] = useState([])
