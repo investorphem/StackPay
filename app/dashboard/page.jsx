@@ -16,7 +16,7 @@ const useUserSession = () =>
     try {
       const data = getLocalStorage();
       const address = data?.addresses?.stx?.[0]?.address
-      if (address) 
+      if (address)
         setSession({ isConnected: true, stxAddress: address });
       }
     } catch (err) {
