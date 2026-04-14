@@ -23,7 +23,6 @@ const useUserSession = () =>
       console.error("Dashboard session read error:", err);
     }
   }, []);
-
   return session;
 }
 export default function Dashboard() 
