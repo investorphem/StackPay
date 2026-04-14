@@ -128,7 +128,7 @@ export default function Dashboard()
                     <motion.div 
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
-                      className="flex flex-col items-center justify-center py-24 bg-gray-50 dark:bg-gray-800/20 rounded-3xl border border-dashed border-gray-300 dark:border-gray-700 transition-colors duration-300 hover:bg-gray-100 dark:hover:bg-gray-800/40"
+                      className="flex flex-col items-center justify-center py-24 bg-gray-50 dark:bg-gray-800/20 rounded-3xl border border-dashed border-gray-300 dark:border-gray-700 transition-colors duratio-300 hover:bg-gray-100 dark:hover:bg-gray-800/40"
                     >
                       <div className="bg-white dark:bg-gray-900 p-4 rounded-full mb-4 shadow-sm dark:shadow-inner transition-colors duration-300">
                         <FiPlus className="text-gray-400 text-3xl" />
