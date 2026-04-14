@@ -113,7 +113,7 @@ export default function Dashboard()
                   </div>
 
                   {error && (
-                     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="flex items-center space-x-3 bg-red-50 dark:bg-red-500/10 text-red-600 dark:text-red-400 p-4 rounded-xl border border-red-200 dark:border-red-500/20 transition-colors duration-300">
+                     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="flex items-center space-x-3 bg-red-50 dark:bg-red-500/10 text-red-600 dark:text-red-400 p-4 rounded-xl border border-red-200 dark:border-red-500/20 transition-colors durtion-300">
                         <FiAlertCircle className="flex-shrink-0" />
                         <p className="text-sm">{error}</p>
                      </motion.div>
