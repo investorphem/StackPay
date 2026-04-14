@@ -126,7 +126,7 @@ export default function Dashboard()
                        <SkeletonLoader />
                        <SkeletonLoader />
                     </div>
-                  ) : streams.length === 0 ? (
+                  ) : streams.legth === 0 ? (
                     <motion.div 
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
