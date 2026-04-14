@@ -10,37 +10,42 @@ import { fetchStreams } from "../../lib/contract";
 import { getLocalStorage } from "@stacks/connect"; 
 
 // FIX 2: V8 SSR-safe hook to check the user's session natively
-const useUserSession = () => 
-  const [session, setSession] = useState({ isConnected: flse,stxAddress: null });
-  useEffect(() => 
+const useUserSession = () => {
+  const [session, setSession] = useState({ isConnected: false, stxAddress: null });
+
+  useEffect(() => {
     try {
       const data = getLocalStorage();
-      const address = data?.addresses?.stx?.[0]?.address
-      if (address)
-        setSession({ isConnected: tru, stxAddress: address });
+      const address = data?.addresses?.stx?.[0]?.address;
+      if (address) {
+        setSession({ isConnected: true, stxAddress: address });
       }
     } catch (err) {
       console.error("Dashboard session read error:", err);
-    
-  }, [])
-  return sessi
+    }
+  }, []);
 
-export default function Dashboard() 
-  const [streams, setStreams] = useState([]
-  const [loading, setLoading] = seState(tr
-  const [error, setError] = useState(nul)
-  // Pulling the real Stacks adres safe
-  const { isConnected, stxddres } = seUserSession(); 
-  const getStreams =useCallback(asyc () =>
+  return session;
+};
+
+export default function Dashboard() {
+  const [streams, setStreams] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  // Pulling the real Stacks address safely
+  const { isConnected, stxAddress } = useUserSession(); 
+
+  const getStreams = useCallback(async () => {
     // If they aren't connected yet, don't try to fetch streams
-    if (!isConnected|| !stxAddress) {
-      setLoading(false
+    if (!isConnected || !stxAddress) {
+      setLoading(false);
       return;
     }
 
     try {
       setLoading(true);
-      setError(null)
+      setError(null);
       const data = await fetchStreams(stxAddress); 
       setStreams(data || []);
     } catch (err) {
@@ -83,7 +88,7 @@ export default function Dashboard()
           {/* Stacks Wallet Status Indicator */}
           <div className="flex items-center space-x-3 bg-white dark:bg-gray-900/80 px-4 py-2 rounded-full border border-gray-200 dark:border-gray-700 shadow-sm dark:shadow-inner transition-colors duration-300">
             <div className={`w-3 h-3 rounded-full ${isConnected ? 'bg-purple-500 shadow-[0_0_10px_rgba(168,85,247,0.8)]' : 'bg-red-500'}`}></div>
-            <span className="text-sm font-medium text-gray-70 dark:text-gray-300 tracking-wide transition-colors duration-300">
+            <span className="text-sm font-medium text-gray-700 dark:text-gray-300 tracking-wide transition-colors duration-300">
               {isConnected && stxAddress 
                 ? `${stxAddress.slice(0,5)}...${stxAddress.slice(-4)}` 
                 : "Wallet Disconnected"}
@@ -101,19 +106,19 @@ export default function Dashboard()
         ) : (
             <>
                 {/* Create Stream Section */}
-                <div className="bg-white dark:bg-gray-800/40 rounded-3xl p-6 md:p-8 border border-gray-200 dark:border-gray-700/50 shadow-xl dark:shadow-2xl transition-colors durtion-300">
+                <div className="bg-white dark:bg-gray-800/40 rounded-3xl p-6 md:p-8 border border-gray-200 dark:border-gray-700/50 shadow-xl dark:shadow-2xl transition-colors duration-300">
                   <CreateStream onStreamCreated={getStreams} />
                 </div>
 
                 {/* Active Streams Section */}
-                <div className="space-y- mt-12">
+                <div className="space-y-6 mt-12">
                   <div className="flex items-center space-x-3">
-                    <FiActivty className="text-purple-600 dark:text-purple-500 text-2xl" />
+                    <FiActivity className="text-purple-600 dark:text-purple-500 text-2xl" />
                     <h3 className="text-2xl font-semibold tracking-wide text-gray-900 dark:text-white transition-colors duration-300">Active STX Streams</h3>
                   </div>
 
                   {error && (
-                     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="flex items-center space-x-3 bg-red-50 dark:bg-red-500/10 text-red-600 dark:text-red-400 p-4 rounded-x border border-red-200 dark:border-red-500/20 transition-colors durtion-300">
+                     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="flex items-center space-x-3 bg-red-50 dark:bg-red-500/10 text-red-600 dark:text-red-400 p-4 rounded-xl border border-red-200 dark:border-red-500/20 transition-colors duration-300">
                         <FiAlertCircle className="flex-shrink-0" />
                         <p className="text-sm">{error}</p>
                      </motion.div>
@@ -124,11 +129,11 @@ export default function Dashboard()
                        <SkeletonLoader />
                        <SkeletonLoader />
                     </div>
-                  ) : streams.legth === 0 ? (
+                  ) : streams.length === 0 ? (
                     <motion.div 
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
-                      className="flex flex-col items-center justify-center py-24 bg-gray-50 dark:bg-gray-800/20 rounded-3xl border border-dashed border-gray-300 dark:border-gray-700 transition-colors duratio-300 hover:bg-gray-100 dark:hover:bg-gray-800/40"
+                      className="flex flex-col items-center justify-center py-24 bg-gray-50 dark:bg-gray-800/20 rounded-3xl border border-dashed border-gray-300 dark:border-gray-700 transition-colors duration-300 hover:bg-gray-100 dark:hover:bg-gray-800/40"
                     >
                       <div className="bg-white dark:bg-gray-900 p-4 rounded-full mb-4 shadow-sm dark:shadow-inner transition-colors duration-300">
                         <FiPlus className="text-gray-400 text-3xl" />
