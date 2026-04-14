@@ -34,7 +34,7 @@ export default function Dashboard()
   const getStreams = useCallback(async () =>
     // If they aren't connected yet, don't try to fetch streams
     if (!isConnected|| !stxAddress) {
-      setLoading(false);
+      setLoading(false)
       return;
     }
 
