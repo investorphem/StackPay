@@ -26,7 +26,7 @@ const useUserSession = () =>
   }, []);
 
   return session;
-};
+}
 
 export default function Dashboard() 
   const [streams, setStreams] = useState([]);
