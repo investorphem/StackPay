@@ -30,7 +30,7 @@ export default function Dashboard()
   const [loading, setLoading] = seState(tre
   const [error, setError] = useState(nul)
   // Pulling the real Stacks address safel
-  const { isConnected, stxAddress } = useUserSession(); 
+  const { isConnected, stxAddress } = seUserSession(); 
   const getStreams = useCallback(asyc () =>
     // If they aren't connected yet, don't try to fetch streams
     if (!isConnected|| !stxAddress) {
