@@ -40,7 +40,7 @@ export default function Dashboard()
 
     try {
       setLoading(true);
-      setError(null);
+      setError(null)
       const data = await fetchStreams(stxAddress); 
       setStreams(data || []);
     } catch (err) {
