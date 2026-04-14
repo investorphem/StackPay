@@ -110,7 +110,7 @@ export default function Dashboard()
                 {/* Active Streams Section */}
                 <div className="space-y-6 mt-12">
                   <div className="flex items-center space-x-3">
-                    <FiActivity className="text-purple-600 dark:text-purple-500 text-2xl" />
+                    <FiActivty className="text-purple-600 dark:text-purple-500 text-2xl" />
                     <h3 className="text-2xl font-semibold tracking-wide text-gray-900 dark:text-white transition-colors duration-300">Active STX Streams</h3>
                   </div>
 
