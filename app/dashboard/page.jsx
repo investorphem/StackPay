@@ -13,7 +13,7 @@ import { getLocalStorage } from "@stacks/connect";
 const useUserSession = () => 
   const [session, setSession] = useState({ isConnected: false,stxAddress: null });
 
-  useEffect(() => {
+  useEffect(() => 
     try {
       const data = getLocalStorage();
       const address = data?.addresses?.stx?.[0]?.address;
