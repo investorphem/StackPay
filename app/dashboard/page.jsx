@@ -27,7 +27,7 @@ const useUserSession = () =>
 }
 export default function Dashboard() 
   const [streams, setStreams] = useState([])
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = seState(true)
   const [error, setError] = useState(null)
 
   // Pulling the real Stacks address safel
