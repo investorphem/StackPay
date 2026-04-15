@@ -10,27 +10,28 @@ export default function Home() {
     <div className="relative overflow-hidden bg-gray-50 dark:bg-gray-950 min-h-[calc(100vh-80px)] flex flex-col items-center justify-center px-6 transition-colors duration-300">
 
       {/* Background Decorative Element */}
-      <div className="absolute top-1/2 left-1/2 -translatx-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-purple-500/0dar:bg-purple-600/10 rounded-full blur-[120px] pointer-events-nne transition-colors duration-300" 
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-purple-500/20 dark:bg-purple-600/10 rounded-full blur-[120px] pointer-events-none transition-colors duration-300" />
 
-      <div className="mx-w-4xl w-full text-center z-10">
-        {/* Animated Badge */
-        <motion.dil
+      <div className="max-w-4xl w-full text-center z-10">
+        {/* Animated Badge */}
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }
-          className="inline-flex items-center gap-2 px-3 py1 rounde-full bg-purple-100 dark:bg-urple-500/10 border bordrpupl- dark:border-purple-500/20 mb-8 transition-colors durato-00"
-       
+          animate={{ opacity: 1, y: 0 }}
+          className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-100 dark:bg-purple-500/10 border border-purple-200 dark:border-purple-500/20 mb-8 transition-colors duration-300"
+        >
           <span className="relative flex h-2 w-2">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-50 dark:bg-purple-40 opacity-75"></span
-            <span className"relative inline-flex rounde-ull h-w-2 bg-purple-600 dark:bg-purple-500"></span>
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-500 dark:bg-purple-400 opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-purple-600 dark:bg-purple-500"></span>
           </span>
-          <span className="text-[10px] font-bold uppercase traking-widest text-purple-700 dak:x-prple-400 transition-colors duration-300">
+          <span className="text-[10px] font-bold uppercase tracking-widest text-purple-700 dark:text-purple-400 transition-colors duration-300">
             Live on Stacks Mainnet
-          </span
-        </motion.div
-        {/* Hero itle */}
-        <motion.h
-          initial={{ opacity: 0, y: 20 
-          animate={{ opacit: 1, y: 0 }}
+          </span>
+        </motion.div>
+
+        {/* Hero Title */}
+        <motion.h1
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
           className="text-5xl md:text-7xl font-black tracking-tight text-gray-900 dark:text-white mb-6 transition-colors duration-300"
         >
@@ -52,7 +53,7 @@ export default function Home() {
         </motion.p>
 
         {/* Call to Action Group */}
-        <motion.di
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3 }}
@@ -89,13 +90,13 @@ export default function Home() {
             <div className="w-10 h-10 rounded-lg bg-gray-100 dark:bg-gray-900 flex items-center justify-center border border-gray-200 dark:border-gray-800 transition-colors duration-300">
               <FiShield className="text-indigo-600 dark:text-indigo-400" />
             </div>
-            <h4 className="font-bold text-gray-900 dark:text-white transition-colors duration-300">Trustless Escrow</h4
-            <p className="text-sm text-gray-600 darktext-gray-500 leading-relaxed transition-colors duration-300">Clarity smart contracts ensure employers and employees are always protected.</p>
+            <h4 className="font-bold text-gray-900 dark:text-white transition-colors duration-300">Trustless Escrow</h4>
+            <p className="text-sm text-gray-600 dark:text-gray-500 leading-relaxed transition-colors duration-300">Clarity smart contracts ensure employers and employees are always protected.</p>
           </div>
 
           <div className="space-y-3">
-            <div className="w-10 h-10 rounded-lg bg-gray-100 dark:bg-gray-900 flex items-center justify-center border border-gray-200 darkborder-gray-800 transition-colors duratin-300">
-              <FiCpu className="text-emerald-600 dark:txt-emerald-400" />
+            <div className="w-10 h-10 rounded-lg bg-gray-100 dark:bg-gray-900 flex items-center justify-center border border-gray-200 dark:border-gray-800 transition-colors duration-300">
+              <FiCpu className="text-emerald-600 dark:text-emerald-400" />
             </div>
             <h4 className="font-bold text-gray-900 dark:text-white transition-colors duration-300">Bitcoin Security</h4>
             <p className="text-sm text-gray-600 dark:text-gray-500 leading-relaxed transition-colors duration-300">Leverages the Stacks PoX consensus to inherit the security of the Bitcoin network.</p>
