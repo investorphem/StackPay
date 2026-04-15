@@ -21,7 +21,7 @@ export default function Home() {
         
           <span className="relative flex h-2 w-2">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-500 dark:bg-purple-400 opacity-75"></span
-            <span className="relative inline-flex rounded-full h-2w-2 bg-purple-600 dark:bg-purple-500"></span>
+            <span className="relative inline-flex rounded-full h-w-2 bg-purple-600 dark:bg-purple-500"></span>
           </span>
           <span className="text-[10px] font-bold uppercase tracking-widest text-purple-700 dark:text-purple-400 transition-colors duration-300">
             Live on Stacks Mainnet
