@@ -10,18 +10,18 @@ export default function Home() {
     <div className="relative overflow-hidden bg-gray-50 dark:bg-gray-950 min-h-[calc(100vh-80px)] flex flex-col items-center justify-center px-6 transition-colors duration-300">
 
       {/* Background Decorative Element */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[00px] h-[600px] bg-purple-500/20 dark:bg-purple-600/10 rounded-full blur-[120px] pointer-events-none transition-colors duration-300" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-purple-500/20 dark:bg-purple-600/10 rounded-full blur-[120px] pointer-events-none transition-colors duration-300" />
 
       <div className="max-w-4xl w-full text-center z-10">
         {/* Animated Badge */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="nline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-100 dak:bg-purl50/10 order border-purple-200 dark:border-purple-500/20 mb-8transition-colors duration-300"
+          className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-100 dark:bg-purple-500/10 border border-purple-200 dark:border-purple-500/20 mb-8 transition-colors duration-300"
         >
           <span className="relative flex h-2 w-2">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-l500rk:bg-purple-400 opacity-75"></span>
-            <span classNam="relative inline-flex rounded-full h-2 w-2 bg-purple-600 dark:bg-purple-500"l></span>
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-500 dark:bg-purple-400 opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-purple-600 dark:bg-purple-500"></span>
           </span>
           <span className="text-[10px] font-bold uppercase tracking-widest text-purple-700 dark:text-purple-400 transition-colors duration-300">
             Live on Stacks Mainnet
