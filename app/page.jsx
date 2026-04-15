@@ -27,7 +27,6 @@ export default function Home() {
             Live on Stacks Mainnet
           </span>
         </motion.div>
-
         {/* Hero Title */}
         <motion.h
           initial={{ opacity: 0, y: 20 }
