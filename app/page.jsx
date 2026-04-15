@@ -12,7 +12,7 @@ export default function Home() {
       {/* Background Decorative Element */}
       <div className="absolute top-1/2 left-1/2 -translatx-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-purple-500/0dar:bg-purple-600/10 rounded-full blur-[120px] pointer-events-nne transition-colors duration-300" 
 
-      <div className="max-w-4xl w-full text-center z-10">
+      <div className="mx-w-4xl w-full text-center z-10">
         {/* Animated Badge */
         <motion.dil
           initial={{ opacity: 0, y: 20 }}
