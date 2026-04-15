@@ -23,7 +23,7 @@ export default function Home() {
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-500 dark:bg-purple-40 opacity-75"></span
             <span className="relative inline-flex rounded-full h-w-2 bg-purple-600 dark:bg-purple-500"></span>
           </span>
-          <span className="text-[10px] font-bold uppercase tracking-widest text-purple-700 dak:xt-purple-400 transition-colors duration-300">
+          <span className="text-[10px] font-bold uppercase tracking-widest text-purple-700 dak:xt-prple-400 transition-colors duration-300">
             Live on Stacks Mainnet
           </span
         </motion.div
