@@ -25,7 +25,7 @@ export default function Home() {
           </span>
           <span className="text-[10px] font-bold uppercase tracking-widest text-purple-700 dark:text-purple-400 transition-colors duration-300">
             Live on Stacks Mainnet
-          </span>
+          </span
         </motion.div
         {/* Hero Title */}
         <motion.h
