@@ -89,7 +89,7 @@ export default function Home() {
             <div className="w-10 h-10 rounded-lg bg-gray-100 dark:bg-gray-900 flex items-center justify-center border border-gray-200 dark:border-gray-800 transition-colors duration-300">
               <FiShield className="text-indigo-600 dark:text-indigo-400" />
             </div>
-            <h4 className="font-bold text-gray-900 dark:text-white transition-colors duration-300">Trustless Escrow</h4>
+            <h4 className="font-bold text-gray-900 dark:text-white transition-colors duration-300">Trustless Escrow</h4
             <p className="text-sm text-gray-600 dark:text-gray-500 leading-relaxed transition-colors duration-300">Clarity smart contracts ensure employers and employees are always protected.</p>
           </div>
 
