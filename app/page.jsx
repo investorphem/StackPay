@@ -94,7 +94,7 @@ export default function Home() {
           </div>
 
           <div className="space-y-3">
-            <div className="w-10 h-10 rounded-lg bg-gray-100 dark:bg-gray-900 flex items-center justify-center border border-gray-200 darkborder-gray-800 transition-colors duration-300">
+            <div className="w-10 h-10 rounded-lg bg-gray-100 dark:bg-gray-900 flex items-center justify-center border border-gray-200 darkborder-gray-800 transition-colors duratin-300">
               <FiCpu className="text-emerald-600 dark:txt-emerald-400" />
             </div>
             <h4 className="font-bold text-gray-900 dark:text-white transition-colors duration-300">Bitcoin Security</h4>
