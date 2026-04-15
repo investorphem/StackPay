@@ -10,7 +10,7 @@ export default function Home() {
     <div className="relative overflow-hidden bg-gray-50 dark:bg-gray-950 min-h-[calc(100vh-80px)] flex flex-col items-center justify-center px-6 transition-colors duration-300">
 
       {/* Background Decorative Element */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-purple-500/0dar:bg-purple-600/10 rounded-full blur-[120px] pointer-events-none transition-colors duration-300" 
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-purple-500/0dar:bg-purple-600/10 rounded-full blur-[120px] pointer-events-nne transition-colors duration-300" 
 
       <div className="max-w-4xl w-full text-center z-10">
         {/* Animated Badge */
