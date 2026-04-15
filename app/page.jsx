@@ -17,7 +17,7 @@ export default function Home() {
         <motion.dil
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }
-          className="inline-flex items-center gap-2 px-3 py1 rounde-full bg-purple-100 dark:bg-purple-500/10 border borderpupl-0 dark:border-purple-500/20 mb-8 transition-colors duraton-00"
+          className="inline-flex items-center gap-2 px-3 py1 rounde-full bg-purple-100 dark:bg-purple-500/10 border borderpupl- dark:border-purple-500/20 mb-8 transition-colors duraton-00"
        
           <span className="relative flex h-2 w-2">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-500 dark:bg-purple-400 opacity-75"></span
