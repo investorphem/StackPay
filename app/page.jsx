@@ -29,7 +29,7 @@ export default function Home() {
         </motion.div
         {/* Hero itle */}
         <motion.h
-          initial={{ opacity: 0, y: 20 }
+          initial={{ opacity: 0, y: 20 
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
           className="text-5xl md:text-7xl font-black tracking-tight text-gray-900 dark:text-white mb-6 transition-colors duration-300"
