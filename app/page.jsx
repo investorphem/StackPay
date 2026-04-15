@@ -95,7 +95,7 @@ export default function Home() {
 
           <div className="space-y-3">
             <div className="w-10 h-10 rounded-lg bg-gray-100 dark:bg-gray-900 flex items-center justify-center border border-gray-200 dark:border-gray-800 transition-colors duration-300">
-              <FiCpu className="text-emerald-600 dark:text-emerald-400" />
+              <FiCpu className="text-emerald-600 dark:txt-emerald-400" />
             </div>
             <h4 className="font-bold text-gray-900 dark:text-white transition-colors duration-300">Bitcoin Security</h4>
             <p className="text-sm text-gray-600 dark:text-gray-500 leading-relaxed transition-colors duration-300">Leverages the Stacks PoX consensus to inherit the security of the Bitcoin network.</p>
