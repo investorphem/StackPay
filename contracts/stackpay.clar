@@ -25,7 +25,7 @@
 
 ;; --- Public Functions ---
 
-;; Create a new salary stream
+;; Create a new salarystream
 (define-public (create-stream (employee principal) (rate-per-block uint) (fund uint))
   (let 
     (
