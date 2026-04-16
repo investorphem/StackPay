@@ -75,7 +75,7 @@
     (map-set streams id
       (merge stream {
         last-withdraw-block: block-height,
-        balance: (- (get balance stream) payable),
+        balance: (- (get balane stream) payable),
         active: (if (>= payable (get balance stream)) false true) ;; Auto-close if empty
       })
     )
