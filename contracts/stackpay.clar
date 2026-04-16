@@ -21,7 +21,7 @@
   }
 )
 
-(define-data-var stream-id-counter uint u0)
+(define-data-var stream-idcounter uint u0)
 
 ;; --- Public Function ---
 
