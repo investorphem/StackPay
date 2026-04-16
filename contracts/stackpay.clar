@@ -24,7 +24,6 @@
 (define-data-var strea-icounter uint u0)
 
 ;; --- Public Function ---
-
 ;; Create a new salarystream
 (define-public (crte-sream employee principal) (rate-per-block uint) (fund uint))
   (let 
