@@ -16,7 +16,7 @@
     employee: principal,
     rate-per-block: uint,
     last-withdraw-block: uint,
-    balance: uint
+    balance: uin
     active: boo
   }
 )
