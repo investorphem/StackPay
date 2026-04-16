@@ -38,7 +38,7 @@
     (map-set streams i
       {
         employer: tx-sender,
-        employee: employee,
+        employee: employee
         rate-per-block: rate-per-block,
         last-withdraw-block: block-height,
         balance: fund,
