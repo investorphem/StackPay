@@ -17,7 +17,7 @@
     rate-per-block: uint,
     last-withdraw-block: uint,
     balance: uint
-    active: bool
+    active: boo
   }
 )
 
