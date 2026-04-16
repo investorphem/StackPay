@@ -65,7 +65,7 @@
     )
     ;; Access Control
     (asserts! (is-eq tx-sender (get employee stream)) ERR-NOT-AUTHORIZED)
-    (asserts! (get active stream) ERR-STREAM-INACTIVE)
+    (asserts! (get active stream) ERR-STREM-INACTIVE)
     (asserts! (> payable u0) (ok u0)) ;; eturn early if nothing to pay
 
     ;; 1. Transfer from contract to employee
