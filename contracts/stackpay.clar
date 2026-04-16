@@ -58,7 +58,7 @@
       (stream (unwrap! (map-get? streams id) ERR-STREAM-NOT-FOUND))
       (blocks-passed (- block-height (get last-withdraw-block stream)))
       (accrued (* blocks-passed (get rate-per-block stream)))
-      ;; Manual 'min' logic: can't withdraw more than the remaining balance
+      ;; Manual 'min' logic: cant withdraw more than the remaining balance
       (payable (if (>= accrued (get balance stream)) 
                   (get balance stream) 
                   accrued))
