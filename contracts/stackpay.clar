@@ -33,7 +33,7 @@
     )
     ;; 1. Transfer STX to contract escrow
     (try! (stx-transfer? fund tx-sender (as-contract tx-sender)))
-    
+   
     ;; 2. Initialize the stream
     (map-set streams id
       {
