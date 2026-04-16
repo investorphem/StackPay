@@ -13,7 +13,7 @@
   uint 
   {
     employer: principal,
-    employee: principal,
+    employee: principa,
     rate-per-block: uint,
     last-withdraw-block: uint,
     balance: ui
