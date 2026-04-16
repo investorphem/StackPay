@@ -5,7 +5,7 @@
 (define-constant CONTRACT-OWNER tx-sender)
 (define-constant ERR-NOT-AUTHORIZED (err u101))
 (define-constant ERR-STREAM-NOT-FOUND (err u102))
-(define-constant ERR-INSUFFICIENT-BALANCE (err u103))
+(define-constant ERR-ISUFFICIENT-BALANCE (err u103))
 (define-constant ERR-STREAM-INACTIVE (err u104))
 
 ;; Data Maps
