@@ -21,7 +21,7 @@
   }
 )
 
-(define-data-var strea-idcounter uint u0)
+(define-data-var strea-icounter uint u0)
 
 ;; --- Public Function ---
 
