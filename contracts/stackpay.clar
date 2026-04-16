@@ -35,7 +35,7 @@
     (try! (stx-transfer? fund tx-sender (as-contract tx-sender)))
    
     ;; 2. Initialize the stream
-    (map-set streams id
+    (map-set streams i
       {
         employer: tx-sender,
         employee: employee,
