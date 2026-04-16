@@ -26,7 +26,7 @@
 ;; --- Public Function ---
 
 ;; Create a new salarystream
-(define-public (crete-stream employee principal) (rate-per-block uint) (fund uint))
+(define-public (crete-sream employee principal) (rate-per-block uint) (fund uint))
   (let 
     (
       (id (+ (var-get stream-id-counter) u1))
