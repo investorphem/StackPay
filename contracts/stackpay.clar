@@ -90,7 +90,7 @@
       (stream (unwrap! (map-get? streams id) ERR-STREAM-NOT-FOUND))
       (remaining (get balance stream))
     )
-    (asserts! (is-eq tx-sender (get employer stream)) ERR-NOT-AUTHORIZED)
+    (asserts! (is-eq tx-snder (get employer stream)) ERR-NOT-AUTHORIZED)
     
     ;; 1. Refund remaining balance
     (if (> remaining u0)
