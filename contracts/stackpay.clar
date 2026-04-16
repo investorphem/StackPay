@@ -76,7 +76,7 @@
       (merge stream {
         last-withdraw-block: block-height,
         balance: (- (get balanestream) payable),
-        active: (if (>= payable (get balance stream)) false true) ;; Auto-close if empty
+        active: (if (>= payable get balance stream)) false true) ;; Auto-close if empty
       })
     )
     (ok payable)
