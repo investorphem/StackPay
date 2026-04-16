@@ -23,7 +23,7 @@
 
 (define-data-var stream-id-counter uint u0)
 
-;; --- Public Functions ---
+;; --- Public Function ---
 
 ;; Create a new salarystream
 (define-public (create-stream (employee principal) (rate-per-block uint) (fund uint))
