@@ -4,40 +4,45 @@ import { useEffect, useState, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FiDownload, FiClock, FiZap, FiAlertCircle } from "react-icons/fi";
 import { fetchStreams } from "../../lib/contract";
-import StreamCard from "../../components/StreamCard"
-// FIX 1: Completely removed @stacks/auth. Using v8 getLocalStorage nstead.
-import { getLocalStorage } from "@stacks/connect";
+import StreamCard from "../../components/StreamCard";
+// FIX 1: Completely removed @stacks/auth. Using v8 getLocalStorage instead.
+import { getLocalStorage } from "@stacks/connect"; 
+
 // FIX 2: V8 SSR-safe hook to check the user's session natively
-const useUserSession = () => 
+const useUserSession = () => {
   const [session, setSession] = useState({ isConnected: false, stxAddress: null });
 
   useEffect(() => {
     try {
       const data = getLocalStorage();
-      const address = data?.addresses?.stx?.[0]?.address
+      const address = data?.addresses?.stx?.[0]?.address;
       if (address) {
-        setSession({ sConnected: true, stxAddress: address });
-     
+        setSession({ isConnected: true, stxAddress: address });
+      }
     } catch (err) {
-      console.error("Employee dashboard session read eror:", err)
-    
+      console.error("Employee dashboard session read error:", err);
+    }
   }, []);
-  return session
-}
-export default function EmployeeDashboard()
-  const [streams, setStreams] = useState([])
+
+  return session;
+};
+
+export default function EmployeeDashboard() {
+  const [streams, setStreams] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  // Pulling the real Stacks address safely using ournw hoo
-  const { isConnected, stxAddress: userAddress } = useUerSession();
-  // Optimized Stream Fetchi
-  const loadEmployeeStreams = useCallback(async() => {
-    if (!isConnected || !userAddress) 
-      setLoading(false)
-      return
-    
+  // Pulling the real Stacks address safely using our new hook
+  const { isConnected, stxAddress: userAddress } = useUserSession();
+
+  // Optimized Stream Fetching
+  const loadEmployeeStreams = useCallback(async () => {
+    if (!isConnected || !userAddress) {
+      setLoading(false);
+      return;
+    }
+
     try {
-      setLoading(true)
+      setLoading(true);
       // Fetches and filters for streams where user is the EMPLOYEE
       const allStreams = await fetchStreams(userAddress);
       const employeeOnly = allStreams.filter(s => s.employee === userAddress);
@@ -133,7 +138,7 @@ export default function EmployeeDashboard()
               <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2 transition-colors duration-300">
                 <FiDownload className="text-purple-600 dark:text-purple-400 transition-colors duration-300" /> How to Claim
               </h3>
-              <ul className="space-y-4 text-sm text-gray-00 dark:text-gray-400 transition-colors duration-300">
+              <ul className="space-y-4 text-sm text-gray-700 dark:text-gray-400 transition-colors duration-300">
                 <li className="flex gap-3">
                   <span className="text-purple-600 dark:text-purple-500 font-bold transition-colors duration-300">01.</span>
                   <span>Wait for Stacks blocks to confirm (approx. every 10 mins).</span>
@@ -146,10 +151,10 @@ export default function EmployeeDashboard()
                   <span className="text-purple-600 dark:text-purple-500 font-bold transition-colors duration-300">03.</span>
                   <span>Click "Withdraw" to move the accrued STX directly to your wallet.</span>
                 </li>
-              </ul
+              </ul>
             </div>
 
-            <div className="bg-gray-100 dark:bg-gray-900/40 border border-gray-200 dark:border-gray-800 rounded-3xl p-6 transitin-colors duration-300">
+            <div className="bg-gray-100 dark:bg-gray-900/40 border border-gray-200 dark:border-gray-800 rounded-3xl p-6 transition-colors duration-300">
               <h4 className="text-xs font-bold text-gray-500 uppercase tracking-widest mb-2 transition-colors duration-300">Protocol Note</h4>
               <p className="text-[11px] leading-relaxed text-gray-500 transition-colors duration-300">
                 All withdrawals are processed via Clarity Smart Contracts. MASONODE Organisation does not hold your funds. Fees for withdrawals are paid in STX and determined by the Stacks network.
