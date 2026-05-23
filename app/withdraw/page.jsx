@@ -31,7 +31,7 @@ export default function EmployeeDashboard() {
   const [streams, setStreams] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  // Pulling the real Stacks address safely using our new hook
+  // Pulling the real Stacks address safely using our new hoo
   const { isConnected, stxAddress: userAddress } = useUserSession();
 
   // Optimized Stream Fetching
