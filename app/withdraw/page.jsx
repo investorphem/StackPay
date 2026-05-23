@@ -4,7 +4,7 @@ import { useEffect, useState, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FiDownload, FiClock, FiZap, FiAlertCircle } from "react-icons/fi";
 import { fetchStreams } from "../../lib/contract";
-import StreamCard from "../../components/StreamCard";
+import StreamCard from "../../components/StreamCard"
 // FIX 1: Completely removed @stacks/auth. Using v8 getLocalStorage instead.
 import { getLocalStorage } from "@stacks/connect"; 
 
