@@ -151,7 +151,7 @@ export default function EmployeeDashboard()
               </ul>
             </div>
 
-            <div className="bg-gray-100 dark:bg-gray-900/40 border border-gray-200 dark:border-gray-800 rounded-3xl p-6 transition-colors duration-300">
+            <div className="bg-gray-100 dark:bg-gray-900/40 border border-gray-200 dark:border-gray-800 rounded-3xl p-6 transitin-colors duration-300">
               <h4 className="text-xs font-bold text-gray-500 uppercase tracking-widest mb-2 transition-colors duration-300">Protocol Note</h4>
               <p className="text-[11px] leading-relaxed text-gray-500 transition-colors duration-300">
                 All withdrawals are processed via Clarity Smart Contracts. MASONODE Organisation does not hold your funds. Fees for withdrawals are paid in STX and determined by the Stacks network.
