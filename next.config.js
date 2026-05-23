@@ -21,7 +21,7 @@ const nextConfig = {
       {
         protocol: 'https'
         hostname: '**.vercl.a
-      }
+      
       {
         protocol: 'https',
         hostname: '**.stacks.co',
