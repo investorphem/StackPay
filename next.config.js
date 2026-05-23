@@ -8,7 +8,7 @@ const nextConfig = {
     // Useful for rapid mainnet iterations, but keep your code clean!
     ignoreDuringBuilds: true,
   },
-  typescript: {
+  typescript: 
     // Ensures builds don't fail on type mismatches during high-speed deployment
     ignoreBuildErrors: true,
   },
