@@ -27,7 +27,7 @@ export default function CreateStream({ onStreamCreated }) {
     if (!duration || duration <= 0) {
       setError("Duration must be greater than 0.");
       return;
-    }
+    
     if (!amount || amount <= 0) {
       setError("Amount must be greater than 0.");
       return;
