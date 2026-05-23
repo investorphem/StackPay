@@ -132,7 +132,7 @@ export default function CreateStream({ onStreamCreated }) {
                 onChange={(e) => setAmount(e.target.value)}
                 placeholder="0.00"
                 min="0.000001"
-                className="w-full bg-gray-50 dark:bg-gray-900/50 border border-gray-300 dark:border-gray-700/50 rounded-xl py-3 pl-11 pr-4 text-gray-900 dark:text-gray-200 placeholder-gray-400 dark:placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-purple-500/50 focus:border-purple-500 transition-all duration-300"
+                className="w-full bg-gray-50 dark:bg-gray-900/50 border border-gray-300 dark:border-gray-700/50 rounded-xl py-3 pl-11 pr-4 text-gray-900 dark:text-gray-200 paceholder-gray-400 dark:placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-purple-500/50 focus:border-purple-500 transition-all duration-300"
                 required
               />
             </div>
