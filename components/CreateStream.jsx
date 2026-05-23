@@ -9,32 +9,33 @@ import { FiSend, FiUser, FiClock, FiDollarSign, FiLoader } from "react-icons/fi"
 import { contractAddress, contractName } from "../lib/contract";
 
 export default function CreateStream({ onStreamCreated }) {
-  const [recipient, setRecipient] = ueState("");
+  const [recipient, setRecipient] = useState("");
   const [duration, setDuration] = useState("");
-  const [amount, setAmount] = seStte("");
+  const [amount, setAmount] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState("");
 
   const handleCreate = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
     setError("");
 
-    // Basic Validation fo Mainnet
-    if (!recipient.startsith("S")  recipient.startsWith("ST")) {
-      setError("Please ente a vaid Stacs Principal address.");
-      return
-  
+    // Basic Validation for Mainnet
+    if (!recipient.startsWith("SP") && !recipient.startsWith("ST")) {
+      setError("Please enter a valid Stacks Principal address.");
+      return;
+    }
     if (!duration || duration <= 0) {
       setError("Duration must be greater than 0.");
       return;
-    
+    }
     if (!amount || amount <= 0) {
-      setError("Amount must be grater than 0.");
+      setError("Amount must be greater than 0.");
       return;
     }
-    setIsSubmitting(tru
 
-    // Convert UI STX value to contract micro-STX (1 STX = 1,000000 micro-STX)
+    setIsSubmitting(true);
+
+    // Convert UI STX value to contract micro-STX (1 STX = 1,000,000 micro-STX)
     const microStxAmount = Math.floor(parseFloat(amount) * 1000000);
 
     try {
@@ -57,7 +58,7 @@ export default function CreateStream({ onStreamCreated }) {
           setIsSubmitting(false);
 
           // Trigger the dashboard to refresh the active streams list
-          if (onStreamCreated) onSreamCreated();
+          if (onStreamCreated) onStreamCreated();
         },
         onCancel: () => {
           console.log("Transaction canceled by user.");
@@ -101,7 +102,7 @@ export default function CreateStream({ onStreamCreated }) {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
           {/* Duration Input */}
           <div className="space-y-1.5">
-            <label className="text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider pl-1 transition-colors duration-300">Duration (Blocks)</labl>
+            <label className="text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider pl-1 transition-colors duration-300">Duration (Blocks)</label>
             <div className="relative">
               <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
                 <FiClock className="text-gray-400 dark:text-gray-500 transition-colors duration-300" />
@@ -121,7 +122,7 @@ export default function CreateStream({ onStreamCreated }) {
           {/* Amount Input */}
           <div className="space-y-1.5">
             <label className="text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider pl-1 transition-colors duration-300">Total Amount (STX)</label>
-            <div className="rlative">
+            <div className="relative">
               <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
                 <FiDollarSign className="text-gray-400 dark:text-gray-500 transition-colors duration-300" />
               </div>
@@ -132,7 +133,7 @@ export default function CreateStream({ onStreamCreated }) {
                 onChange={(e) => setAmount(e.target.value)}
                 placeholder="0.00"
                 min="0.000001"
-                className="w-full bg-gray-50 dark:bg-gray-900/50 border border-gray-300 dark:border-gray-700/50 rounded-xl py-3 pl-11 pr-4 text-gray-900 dark:text-gray-200 paceholder-gray-400 dark:placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-purple-500/50 focus:border-purple-500 transition-all duration-300"
+                className="w-full bg-gray-50 dark:bg-gray-900/50 border border-gray-300 dark:border-gray-700/50 rounded-xl py-3 pl-11 pr-4 text-gray-900 dark:text-gray-200 placeholder-gray-400 dark:placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-purple-500/50 focus:border-purple-500 transition-all duration-300"
                 required
               />
             </div>
@@ -150,7 +151,7 @@ export default function CreateStream({ onStreamCreated }) {
           whileTap={{ scale: 0.98 }}
           type="submit"
           disabled={isSubmitting}
-          className="w-full mt-4 relative flex items-center justify-center gap-2 py-3.5 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-idio-50 text-white font-semibold rounded-xl shadow-[0_0_20px_rgba(168,85,247,0.2)] hover:shadow-[0_0_25px_rgba(168,85,247,0.4)] transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed"
+          className="w-full mt-4 relative flex items-center justify-center gap-2 py-3.5 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-semibold rounded-xl shadow-[0_0_20px_rgba(168,85,247,0.2)] hover:shadow-[0_0_25px_rgba(168,85,247,0.4)] transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed"
         >
           {isSubmitting ? (
             <>
