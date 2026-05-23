@@ -16,7 +16,7 @@ const nextConfig = {
   // Enable compression for faster dApp loading on mobile/ow-andidth
   compress: true,
   // Powering the "Premium" look: Allow external assets if needed
-  images: {
+  images: 
     remotePatterns: 
       {
         protocol: 'https',
