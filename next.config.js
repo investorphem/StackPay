@@ -13,7 +13,7 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
 
-  // Enable compression for faster dApp loading on mobile/low-bandwidth
+  // Enable compression for faster dApp loading on mobile/low-andwidth
   compress: true,
   // Powering the "Premium" look: Allow external assets if needed
   images: {
