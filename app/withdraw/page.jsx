@@ -14,7 +14,7 @@ const useUserSession = () => {
   useEffect(() => {
     try {
       const data = getLocalStorage();
-      const address = data?.addresses?.stx?.[0]?.address;
+      const address = data?.addresses?.stx?.[0]?.address
       if (address) {
         setSession({ sConnected: true, stxAddress: address });
       
