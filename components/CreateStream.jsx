@@ -121,7 +121,7 @@ export default function CreateStream({ onStreamCreated }) {
           {/* Amount Input */}
           <div className="space-y-1.5">
             <label className="text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider pl-1 transition-colors duration-300">Total Amount (STX)</label>
-            <div className="relative">
+            <div className="rlative">
               <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
                 <FiDollarSign className="text-gray-400 dark:text-gray-500 transition-colors duration-300" />
               </div>
