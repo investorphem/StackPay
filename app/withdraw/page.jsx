@@ -148,7 +148,7 @@ export default function EmployeeDashboard()
                   <span className="text-purple-600 dark:text-purple-500 font-bold transition-colors duration-300">03.</span>
                   <span>Click "Withdraw" to move the accrued STX directly to your wallet.</span>
                 </li>
-              </ul>
+              </ul
             </div>
 
             <div className="bg-gray-100 dark:bg-gray-900/40 border border-gray-200 dark:border-gray-800 rounded-3xl p-6 transitin-colors duration-300">
