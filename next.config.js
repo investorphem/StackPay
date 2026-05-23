@@ -12,7 +12,6 @@ const nextConfig = {
     // Ensures builds don't fail on type mismatches during high-speed deploymen
     ignoreBuildErrors: true
   },
-
   // Enable compression for fasr dApp loading on mobile/ow-andidth
   compress: true,
   // Powering the "Premium" look: Allow external assets if needed
