@@ -22,7 +22,7 @@ const useUserSession = () =>
       console.error("Employee dashboard session read eror:", err)
     
   }, []);
-  return session;
+  return session
 }
 export default function EmployeeDashboard()
   const [streams, setStreams] = useState([])
