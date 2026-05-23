@@ -135,7 +135,7 @@ export default function EmployeeDashboard()
               <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2 transition-colors duration-300">
                 <FiDownload className="text-purple-600 dark:text-purple-400 transition-colors duration-300" /> How to Claim
               </h3>
-              <ul className="space-y-4 text-sm text-gray-700 dark:text-gray-400 transition-colors duration-300">
+              <ul className="space-y-4 text-sm text-gray-00 dark:text-gray-400 transition-colors duration-300">
                 <li className="flex gap-3">
                   <span className="text-purple-600 dark:text-purple-500 font-bold transition-colors duration-300">01.</span>
                   <span>Wait for Stacks blocks to confirm (approx. every 10 mins).</span>
