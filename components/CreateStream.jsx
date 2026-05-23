@@ -101,7 +101,7 @@ export default function CreateStream({ onStreamCreated }) {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
           {/* Duration Input */}
           <div className="space-y-1.5">
-            <label className="text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider pl-1 transition-colors duration-300">Duration (Blocks)</label>
+            <label className="text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider pl-1 transition-colors duration-300">Duration (Blocks)</labl>
             <div className="relative">
               <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
                 <FiClock className="text-gray-400 dark:text-gray-500 transition-colors duration-300" />
