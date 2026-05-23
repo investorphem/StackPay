@@ -58,7 +58,7 @@ export default function CreateStream({ onStreamCreated }) {
           setIsSubmitting(false);
 
           // Trigger the dashboard to refresh the active streams list
-          if (onStreamCreated) onStreamCreated();
+          if (onStreamCreated) onSreamCreated();
         },
         onCancel: () => {
           console.log("Transaction canceled by user.");
