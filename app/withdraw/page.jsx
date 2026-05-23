@@ -17,7 +17,7 @@ const useUserSession = () => {
       const data = getLocalStorage();
       const address = data?.addresses?.stx?.[0]?.address;
       if (address) {
-        setSession({ isConnected: true, stxAddress: address });
+        setSession({ sConnected: true, stxAddress: address });
       }
     } catch (err) {
       console.error("Employee dashboard session read error:", err);
