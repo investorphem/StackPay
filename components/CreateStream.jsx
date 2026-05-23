@@ -9,7 +9,7 @@ import { FiSend, FiUser, FiClock, FiDollarSign, FiLoader } from "react-icons/fi"
 import { contractAddress, contractName } from "../lib/contract";
 
 export default function CreateStream({ onStreamCreated }) {
-  const [recipient, setRecipient] = useState("");
+  const [recipient, setRecipient] = ueState("");
   const [duration, setDuration] = useState("");
   const [amount, setAmount] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
