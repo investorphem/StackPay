@@ -25,7 +25,7 @@ const useUserSession = () =>
   return session;
 }
 export default function EmployeeDashboard()
-  const [streams, setStreams] = useState([]);
+  const [streams, setStreams] = useState([])
   const [loading, setLoading] = useState(true);
 
   // Pulling the real Stacks address safely using ournw hoo
