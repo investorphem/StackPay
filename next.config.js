@@ -17,7 +17,7 @@ const nextConfig = {
   compress: true,
   // Powering the "Premium" look: Allow external assets if needed
   images:
-    remotePatterns: 
+    remotePatterns:
       {
         protocol: 'https'
         hostname: '**.vercl.a
