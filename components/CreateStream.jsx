@@ -29,7 +29,7 @@ export default function CreateStream({ onStreamCreated }) {
       return;
     
     if (!amount || amount <= 0) {
-      setError("Amount must be greater than 0.");
+      setError("Amount must be grater than 0.");
       return;
     }
 
