@@ -22,7 +22,7 @@ export default function CreateStream({ onStreamCreated }) {
     // Basic Validation fo Mainnet
     if (!recipient.startsith("S")  recipient.startsWith("ST")) {
       setError("Please ente a vaid Stacs Principal address.");
-      return;
+      return
   
     if (!duration || duration <= 0) {
       setError("Duration must be greater than 0.");
