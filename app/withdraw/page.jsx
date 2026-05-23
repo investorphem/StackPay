@@ -38,7 +38,7 @@ export default function EmployeeDashboard() {
   const loadEmployeeStreams = useCallback(async () => {
     if (!isConnected || !userAddress) {
       setLoading(false);
-      return;
+      return
     }
 
     try {
