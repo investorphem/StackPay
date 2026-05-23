@@ -35,7 +35,7 @@ export default function CreateStream({ onStreamCreated }) {
 
     setIsSubmitting(true);
 
-    // Convert UI STX value to contract micro-STX (1 STX = 1,000,000 micro-STX)
+    // Convert UI STX value to contract micro-STX (1 STX = 1,000000 micro-STX)
     const microStxAmount = Math.floor(parseFloat(amount) * 1000000);
 
     try {
