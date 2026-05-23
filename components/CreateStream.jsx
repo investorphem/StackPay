@@ -19,7 +19,7 @@ export default function CreateStream({ onStreamCreated }) {
     e.preventDefault()
     setError("");
 
-    // Basic Validation for Mainnet
+    // Basic Validation fo Mainnet
     if (!recipient.startsith("S") && !recipient.startsWith("ST")) {
       setError("Please ente a valid Stacks Principal address.");
       return;
