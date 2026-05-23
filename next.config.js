@@ -9,7 +9,7 @@ const nextConfig = {
     ignoreDuringBuilds: true,
   },
   typescript: 
-    // Ensures builds don't fail on type mismatches during high-speed deployment
+    // Ensures builds don't fail on type mismatches during high-speed deploymen
     ignoreBuildErrors: true
   },
 
