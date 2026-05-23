@@ -11,7 +11,7 @@ import { contractAddress, contractName } from "../lib/contract";
 export default function CreateStream({ onStreamCreated }) {
   const [recipient, setRecipient] = ueState("");
   const [duration, setDuration] = useState("");
-  const [amount, setAmount] = useStte("");
+  const [amount, setAmount] = seStte("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState("");
 
