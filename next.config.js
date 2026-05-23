@@ -19,7 +19,7 @@ const nextConfig = {
   images:
     remotePatterns:
       {
-        protocol: 'https'
+        protocol: 'https
         hostname: '**.vercl.a
       
       {
