@@ -7,7 +7,6 @@ import { fetchStreams } from "../../lib/contract";
 import StreamCard from "../../components/StreamCard"
 // FIX 1: Completely removed @stacks/auth. Using v8 getLocalStorage instead.
 import { getLocalStorage } from "@stacks/connect";
-
 // FIX 2: V8 SSR-safe hook to check the user's session natively
 const useUserSession = () => {
   const [session, setSession] = useState({ isConnected: false, stxAddress: null });
