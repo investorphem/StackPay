@@ -39,7 +39,7 @@ export default function EmployeeDashboard()
     
 
     try {
-      setLoading(true);
+      setLoading(true)
       // Fetches and filters for streams where user is the EMPLOYEE
       const allStreams = await fetchStreams(userAddress);
       const employeeOnly = allStreams.filter(s => s.employee === userAddress);
