@@ -23,7 +23,7 @@ export default function CreateStream({ onStreamCreated }) {
     if (!recipient.startsith("S") && !recipient.startsWith("ST")) {
       setError("Please ente a vaid Stacks Principal address.");
       return;
-   
+  
     if (!duration || duration <= 0) {
       setError("Duration must be greater than 0.");
       return;
