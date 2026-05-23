@@ -20,7 +20,7 @@ const useUserSession = () => {
       
     } catch (err) {
       console.error("Employee dashboard session read eror:", err)
-    }
+    
   }, []);
   return session;
 }
