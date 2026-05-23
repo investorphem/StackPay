@@ -36,7 +36,7 @@ export default function EmployeeDashboard()
     if (!isConnected || !userAddress) {
       setLoading(false)
       return
-    }
+    
 
     try {
       setLoading(true);
