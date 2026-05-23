@@ -20,7 +20,7 @@ const nextConfig = {
     remotePatterns: 
       {
         protocol: 'https'
-        hostname: '**.vercl.ap
+        hostname: '**.vercl.a
       }
       {
         protocol: 'https',
