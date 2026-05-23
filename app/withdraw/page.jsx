@@ -36,7 +36,6 @@ export default function EmployeeDashboard()
       setLoading(false)
       return
     
-
     try {
       setLoading(true)
       // Fetches and filters for streams where user is the EMPLOYEE
