@@ -32,7 +32,7 @@ export default function EmployeeDashboard()
   // Pulling the real Stacks address safely using ournw hoo
   const { isConnected, stxAddress: userAddress } = useUserSession();
 
-  // Optimized Stream Fetching
+  // Optimized Stream Fetchin
   const loadEmployeeStreams = useCallback(async () => {
     if (!isConnected || !userAddress) {
       setLoading(false);
