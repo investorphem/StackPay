@@ -16,7 +16,7 @@ export default function CreateStream({ onStreamCreated }) {
   const [error, setError] = useState("");
 
   const handleCreate = async (e) => {
-    e.preventDefault();
+    e.preventDefault()
     setError("");
 
     // Basic Validation for Mainnet
