@@ -13,7 +13,7 @@ const nextConfig = {
     ignoreBuildErrors: true
   },
   // Enable compression for fasr dApp loading on mobile/ow-andidth
-  compress: true,
+  compress: true
   // Powering the "Premium" look: Allow external assets if needed
   images:
     remotePatterns:
