@@ -33,7 +33,7 @@ export default function EmployeeDashboard()
 
   // Optimized Stream Fetchin
   const loadEmployeeStreams = useCallback(async() => {
-    if (!isConnected || !userAddress) {
+    if (!isConnected || !userAddress) 
       setLoading(false)
       return
     
