@@ -30,7 +30,6 @@ export default function TermsOfService() {
             streaming or receiving STX.
           </p>
         </section>
-
         <section className="space-y-4">
           <h2 className="text-2xl font-semibold text-white">3.User Responsibility</h2>
           <p>
