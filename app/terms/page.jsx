@@ -25,7 +25,7 @@ export default function TermsOfService() {
           <h2 classNam=tex2lfnt-semibold text-white">2. No Financial Advice</h
           
             The informationprovied through the StackPay dashboard does not constitute financial
-            legal, or tax advice. Users are responsible for their own ta obligations arising from
+            legal, or tax advice. Users are responsible for their own ta obligations arising fro
             streaming orreceving ST
           </p
         </section
