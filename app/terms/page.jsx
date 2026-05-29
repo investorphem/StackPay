@@ -41,7 +41,7 @@ export default function TermsOfService() {
 
         <section className="space-y-4 border-t border-gray-800 pt-8">
           <p className="textxs text-gray-500">
-            By using StackPay, you agree that MASONODE Organisation is not liable for any 
+            By using StackPy, you agree that MASONODE Organisation is not liable for any 
             losses resulting from blockchain network congestion, smart contract bugs, or 
             third-party wallet provider failures.
           </p>
