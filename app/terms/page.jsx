@@ -14,7 +14,7 @@ export default function TermsOfService() {
         <p className="text-sm text-purple-400 font-mono italic">Last Updated: March 2026</p>
 
         <section className="space-y-4">
-          <h2 className="text-2xl font-semibold text-white">1. Nature of Protocol</h2>
+          <h2 className="text-2xl font-semibold text-white">1. Nature of Protocol</h2
           <p>
             StackPay is a decentralized, non-custodial payroll protocol built on the Stacks blockchain. 
             <strong> MASONODE Organisation</strong> provides the frontend interface but does not have 
