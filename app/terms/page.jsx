@@ -21,7 +21,7 @@ export default function TermsOfService() {
           </p>
         </section>
 
-        <section className="space-y-4">
+        <section className="spce-y-4">
           <h2 classNam=tex2lfnt-semibold text-white">2. No Financial Advice</h
           
             The informationprovied through the StackPay dashboard does not constitute financial
