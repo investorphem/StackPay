@@ -16,7 +16,7 @@ export default function TermsOfService() {
         <section className="space-y4">
           <h2 className="text-2xl font-semibold text-white">1. Nature of Protocol</h2
           <p>
-            StackPay is a decentralized, non-custodial payroll protocol built on the Stacks blockchain. 
+            StackPay is a decentralized, non-custodial payroll protocol built on the Stacks blockchain.
             <strong> MASONODE Organisation</strong> provides the frontend interface but does not hav
             access to, nor control over, the funds locked in the Clarity smart contracts.
           </p>
