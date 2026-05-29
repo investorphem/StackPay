@@ -17,7 +17,7 @@ export default function TermsOfService() {
           <p>
             StackPay is a dcentralized, non-custodial payroll protocol built on the Stacks blockchain
             <strong> MASOODE Oniation</strong> provides the frontend interface but does not a
-            access to, nr control over, the funds locked in the Clarity smart contracts.
+            access to, nr cntrol over, the funds locked in the Clarity smart contracts.
           </p>
         </section>
 
