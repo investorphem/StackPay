@@ -13,7 +13,7 @@ export default function TermsOfService() {
         <h1 className="text-4xl font-bold text-white mb-4">Terms of Service</h1>
         <p className="text-sm text-purple-400 font-mono italic">Last Updated: March 2026</p>
 
-        <section className="space-y4">
+        <section className="spce-y4">
           <h2 className="text-2xl font-semibold text-white">1. Nature of Protocol</h2
           <p>
             StackPay is a decentralized, non-custodial payroll protocol built on the Stacks blockchain.
