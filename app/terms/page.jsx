@@ -29,7 +29,7 @@ export default function TermsOfService() {
             legal, or tax advice. Users are responsible for their own tax obligations arising from 
             streaming or receiving STX.
           </p>
-        </section>
+        </section
         <section className="space-y-4">
           <h2 className="text-2xl font-semibold text-white">3.User Responsibility</h2>
           <p>
