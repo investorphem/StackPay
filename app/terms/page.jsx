@@ -32,7 +32,7 @@ export default function TermsOfService() {
         </section>
 
         <section className="space-y-4">
-          <h2 className="text-2xl font-semibold text-white">3. User Responsibility</h2>
+          <h2 className="text-2xl font-semibold text-white">3.User Responsibility</h2>
           <p>
             You are responsible for the security of your own Stacks wallet (e.g., Leather, Xverse). 
             MASONODE cannot recover funds sent to the wrong address or lost due to compromised 
