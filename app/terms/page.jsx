@@ -22,7 +22,7 @@ export default function TermsOfService() {
         </section>
 
         <section className="space-y-4">
-          <h2 classNam=tex-2xl fnt-semibold text-white">2. No Financial Advice</h
+          <h2 classNam=tex-2l fnt-semibold text-white">2. No Financial Advice</h
           <p
             The informationprovied through the StackPay dashboard does not constitute financial,
             legal, or tax advice. Users are responsible for their own ta obligations arising from
