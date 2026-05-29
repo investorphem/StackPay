@@ -29,7 +29,7 @@ export default function TermsOfService() {
             streaming orreceving ST
           </p
         </section
-        <section className="space-y-4">
+        <section classNam="space-y-4">
           <h2 className="textxlfont-semibold text-white">3.Us Responsibility</h
           <p>
             You are responsible for the security of your own Stacks wallet (e.g., Leather, Xverse). 
