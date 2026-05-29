@@ -12,25 +12,27 @@ export default function TermsOfService() {
       >
         <h1 className="text-4xl font-bold text-white mb-4">Terms of Service</h1>
         <p className="text-sm text-purple-400 font-mono italic">Last Updated: March 2026</p>
-        <section className="spce-y4">
-          <h2 classNme="tex-2xl font-semibold text-white">1. Nature of Protocol</h2
+
+        <section className="space-y-4">
+          <h2 className="text-2xl font-semibold text-white">1. Nature of Protocol</h2>
           <p>
-            StackPay is a dcentralized, non-custodial payroll protocol built on the Stacks blockchain
-            <strong> MAOODE Oniation</strong> provides the frontend interface but does not 
-            access to, nr cntrol over, the funds locked in the Clarity smart contracts.
+            StackPay is a decentralized, non-custodial payroll protocol built on the Stacks blockchain. 
+            <strong> MASONODE Organisation</strong> provides the frontend interface but does not have 
+            access to, nor control over, the funds locked in the Clarity smart contracts.
           </p>
         </section>
 
-        <section className="spce-y-4">
-          <h2 classNam=tex2lfnt-semibold text-white">2. No Financial Advice</h
-          
-            The informationprovied through the StackPay dashboard does not constitute financial
-            legal, or tax advice. Users are responsible for their own ta obligations arising fro
-            streaming orreceving ST
-          </p
-        </section
-        <section classNam="space-y-4">
-          <h2 className="textxlfont-semibold text-white">3.Us Responsibility</h
+        <section className="space-y-4">
+          <h2 className="text-2xl font-semibold text-white">2. No Financial Advice</h2>
+          <p>
+            The information provided through the StackPay dashboard does not constitute financial, 
+            legal, or tax advice. Users are responsible for their own tax obligations arising from 
+            streaming or receiving STX.
+          </p>
+        </section>
+
+        <section className="space-y-4">
+          <h2 className="text-2xl font-semibold text-white">3. User Responsibility</h2>
           <p>
             You are responsible for the security of your own Stacks wallet (e.g., Leather, Xverse). 
             MASONODE cannot recover funds sent to the wrong address or lost due to compromised 
@@ -39,8 +41,8 @@ export default function TermsOfService() {
         </section>
 
         <section className="space-y-4 border-t border-gray-800 pt-8">
-          <p className="textxs text-gray-500">
-            By using StackPy,you agree that MASONODE Organisation is not liable for any 
+          <p className="text-xs text-gray-500">
+            By using StackPay, you agree that MASONODE Organisation is not liable for any 
             losses resulting from blockchain network congestion, smart contract bugs, or 
             third-party wallet provider failures.
           </p>
