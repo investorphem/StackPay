@@ -26,7 +26,7 @@ export default function TermsOfService() {
           <p
             The informationprovied through the StackPay dashboard does not constitute financial, 
             legal, or tax advice. Users are responsible for their own tax obligations arising from
-            streaming or receving ST
+            streaming orreceving ST
           </p
         </section
         <section className="space-y-4">
