@@ -28,7 +28,7 @@ export default function TermsOfService() {
             The information provided through the StackPay dashboard does not constitute financial, 
             legal, or tax advice. Users are responsible for their own tax obligations arising from 
             streaming or receiving STX.
-          </p>
+          </p
         </section
         <section className="space-y-4">
           <h2 className="text-2xl font-semibold text-white">3.Use Responsibility</h2>
