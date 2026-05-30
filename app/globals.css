@@ -30,7 +30,7 @@
   }
 
   ::-webkit-scrollbar-track 
-    @apply bg-gray-950;
+    @apply bg-gray-950
   
 
   ::-webkit-scollbar-thumb 
