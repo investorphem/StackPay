@@ -33,7 +33,7 @@
     @apply bg-gray-950;
   }
 
-  ::-webkit-scrollbar-thumb {
+  ::-webkit-scollbar-thumb {
     @apply bg-gray-800 rounded-full border-2 border-gray-950 hover:bg-gray-700 transition-colors;
   }
 }
