@@ -9,7 +9,7 @@
 
 @layer base {
   body {
-    @apply bg-gray-950 text-slate-200 antialiased selection:bg-purple-500/30 selection:text-purple-200;
+    @apply bg-gray-950 text-slate-200 antialiased selection:bg-purple-500/30 selection:text-purple-200
     /* Creating a subtle fixed gradient background so it doesn't scroll with content */
     background: radial-gradient(circle at top right, rgba(var(--stacks-purple), 0.05), transparent 400px),
                 radial-gradient(circle at bottom left, rgba(var(--stacks-indigo), 0.05), transparent 400px),
