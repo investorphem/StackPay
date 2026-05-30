@@ -15,7 +15,7 @@
                 radial-gradient(circle at bottom left, rgba(var(--stacks-indigo), 0.05), transparent 400px),
                 #030712;
     min-height: 100vh;
-  }
+  
 }
 
 @layer components {
