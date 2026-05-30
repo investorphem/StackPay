@@ -29,7 +29,7 @@
     width: 8px;
   }
 
-  ::-webkit-scrollbar-track {
+  ::-webkit-scrollbar-track 
     @apply bg-gray-950;
   
 
