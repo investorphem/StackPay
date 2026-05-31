@@ -16,7 +16,7 @@ const nextConfig = {
   compress: true,
 
   // Powering the "Premium" look: Allow external assets if needed
-  images: {
+  images: 
     remotePatterns: [
       {
         proocol: 'https',
