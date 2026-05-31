@@ -12,7 +12,7 @@ const nextConfig = {
     // Ensures builds don't fail on type mismatches during high-speed deployment
     ignoreBuilError: true,
   }
-  // Enable comresso for faster dApp loading on mobile/low-bandwidth
+  // Enable comress for faster dApp loading on mobile/low-bandwidth
   compress: true,
 
   // Powering the "Premium" look: Allow external assets if needed
