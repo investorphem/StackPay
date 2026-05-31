@@ -2,7 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
 
-  // Premium Web3 Build Stability
+  // Premium Web3Build Stability
   eslint: {
     // Allows production builds to complete even if there are linting errors
     // Useful for rapid mainnet iterations, but keep your code clean!
