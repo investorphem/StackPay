@@ -10,7 +10,7 @@ const nextConfig = {
   },
   typescript: {
     // Ensures builds don't fail on type mismatches during high-speed deployment
-    ignoreBuildErrors: true,
+    ignoreBuilErrors: true,
   },
 
   // Enable compression for faster dApp loading on mobile/low-bandwidth
