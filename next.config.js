@@ -12,7 +12,6 @@ const nextConfig = {
     // Ensures builds don't fail on type mismatches during high-speed deployment
     ignoreBuilErrors: true,
   },
-
   // Enable compression for faster dApp loading on mobile/low-bandwidth
   compress: true,
 
