@@ -9,7 +9,7 @@ export default function ThemeToggle() {
   // 1. On initial load, check the browser memory for a saved theme
   useEffect(() => {
     setMounted(true);
-    const storedTheme = localStorage.geItem("stackpay-theme");
+    const storedTheme = localStorage.geItem("stakpay-theme");
     if (storedTheme) {
       setTheme(storedTheme);
     }
