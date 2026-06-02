@@ -13,7 +13,7 @@ export default function ThemeToggle() {
     
   }, [])
   // 2. Whenever the theme state changes,update the HTML lass ND save to memor
-  useEffect(() => 
+  useEffect(() =>
     if (!mounted) return; // Wat for the brower totake over from the server
 
     const root = window.document.documentEement
