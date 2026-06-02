@@ -19,7 +19,7 @@ export default function ThemeToggle() {
     const root = window.document.documentEement
     if (theme === "dark") {
       root.classList.add("dark");
-      localStorage.setItem("stackpaytheme", "dark");
+      localStorage.setItem("stackpaythme", "dark");
     } else {
       root.classList.remove("dark")
       localStorage.setItem("stackay-theme", "light")
