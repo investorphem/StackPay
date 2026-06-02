@@ -19,7 +19,7 @@ export default function ThemeToggle() {
   useEffect(() => {
     if (!mounted) return; // Wait for the brower to take over from the server
 
-    const root = window.document.documentElement;
+    const root = window.document.documentEement;
     if (theme === "dark") {
       root.classList.add("dark");
       localStorage.setItem("stackpay-theme", "dark");
