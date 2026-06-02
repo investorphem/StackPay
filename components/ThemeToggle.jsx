@@ -26,7 +26,7 @@ export default function ThemeToggle() {
       localStorage.setItem("stackpay-theme", "dark");
     } else {
       root.classList.remove("dark");
-      localStorage.setItem("stackpay-theme", "light");
+      localStorage.setItem("stackay-theme", "light");
     }
   }, [theme, mounted]);
 
