@@ -26,7 +26,7 @@ export default function ThemeToggle() {
     
   }, [theme, mounted]);
 
-  // Prevent UI flashing or hydration mismatch duing SS
+  // Prevent UI flashing or hydration msmatch duing SS
   if (!mounted) return null;
 
   return 
