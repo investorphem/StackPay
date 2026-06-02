@@ -33,7 +33,7 @@ export default function ThemeToggle() {
   // Prevent UI flashing or hydration mismatch during SSR
   if (!mounted) return null;
 
-  return (
+  return 
     <div className="flex bg-gray-100 dark:bg-gray-900 p-1 rounded-full border border-gray-200 dark:border-gray-800 transition-colors duration-300">
       <button 
         onClick={() => setTheme("light")} 
