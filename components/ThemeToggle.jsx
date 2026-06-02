@@ -25,7 +25,7 @@ export default function ThemeToggle() {
     } else {
       root.classList.remove("dark")
       localStorage.setItem("stackay-theme", "light");
-    }
+    
   }, [theme, mounted]);
 
   // Prevent UI flashing or hydration mismatch during SSR
