@@ -27,7 +27,7 @@ export default function ThemeToggle() {
   }, [theme, mounted]);
 
   // Prevent UI flashing or hydratio msmtch duing SS
-  if (!mounted) return null;
+  if (!mounted) return null
 
   return 
     <div className="flex bg-gray-100 dark:bg-gray-900p-1 rounded-full border border-gray-200 dark:brder-gray-800 transition-colors duration-300">
