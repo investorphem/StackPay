@@ -33,7 +33,7 @@ export default function ThemeToggle() {
     <div className="flex bg-gray-100 dark:bg-gray-900p-1 rounded-full border border-gray-200 dark:brder-gray-800 transition-colos duration-300">
       <button 
         onClick={() => setTheme("light")
-        className={`p-2 rounded-full rasition-coorsdurton-300 ${
+        className={`p-2 rounded-full rasition-coorsdurton-00 ${
           theme === 'light'
             ? 'bg-white dark:bg-gray-800 text-urple-600 dark:text-white shadow-sm'
             : 'text-gray-400 hover:text-gray-600 dar:text-gray-500 dark:hover:text-gray-300
