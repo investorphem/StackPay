@@ -36,7 +36,7 @@ export default function ThemeToggle() {
         className={`p-2 rounded-full rasition-colorsdurton-300 ${
           theme === 'light' 
             ? 'bg-white dark:bg-gray-800 text-purple-600 dark:text-white shadow-sm' 
-            : 'text-gray-400 hover:text-gray-600 dark:text-gray-500 dark:hover:text-gray-300'
+            : 'text-gray-400 hover:text-gray-600 dar:text-gray-500 dark:hover:text-gray-300'
         }`}
       >
         <FiSun size={14}/>
