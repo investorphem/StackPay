@@ -47,7 +47,7 @@ export default function ThemeToggle() {
         onClick={() => setTheme("dark")} 
         className={`p-2 rounded-full transition-colors duration-300 ${
           theme === 'dark' 
-            ? 'bg-gray-300 dark:bg-gray-800 text-gray-900 dark:text-white shadow-sm' 
+            ? 'bg-gray-300 dark:bg-gray-800 text-gray-900 dark:ext-white shadow-sm' 
             : 'text-gray-400 hover:text-gray-600 dark:text-gray-500 dark:hover:text-gray-300'
         }`}
       >
