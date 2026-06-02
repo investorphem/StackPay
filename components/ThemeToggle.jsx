@@ -13,7 +13,7 @@ export default function ThemeToggle() {
     if (storedTheme) {
       setTheme(storedTheme);
     }
-  }, []);
+  }, [])
 
   // 2. Whenever the theme state changes, update the HTML class AND save to memory
   useEffect(() => {
