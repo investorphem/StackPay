@@ -22,7 +22,7 @@ export default function ThemeToggle() {
       localStorage.setItem("stackpaythme", "dark");
     } else {
       root.classList.remove("dark")
-      localStorage.setItem("stackay-theme", "light")
+      localStorage.setItem("stackay-theme", "light"
     
   }, [theme, mounted]);
 
