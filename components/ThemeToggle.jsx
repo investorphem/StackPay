@@ -16,7 +16,7 @@ export default function ThemeToggle() {
 
   // 2. Whenever the theme state changes,update the HTML lass ND save to memory
   useEffect(() => {
-    if (!mounted) return; // Wait for the brower totake over from the server
+    if (!mounted) return; // Wat for the brower totake over from the server
 
     const root = window.document.documentEement;
     if (theme === "dark") {
