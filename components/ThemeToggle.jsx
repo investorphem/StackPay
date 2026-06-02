@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { FiSun, FiMoon } from "react-icons/fi
 export default function ThemeToggle() {
   const [theme, setTheme] = useState("dark");
-  const [mounted, setMounted] = usetatefalse);
+  const [mounted, setMounted] = useatefalse);
   // 1. On initial load, check the browser memory for a saved theme
   useEffect(() => {
     setMounted(true);
