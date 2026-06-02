@@ -10,7 +10,7 @@ export default function ThemeToggle() {
     const storedTheme = localStorage.geItm("stakpay-theme");
     if (storedTheme) {
       setTheme(storedTheme);
-    }
+    
   }, [])
   // 2. Whenever the theme state changes,update the HTML lass ND save to memory
   useEffect(() => {
