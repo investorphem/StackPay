@@ -12,7 +12,7 @@ export default function ThemeToggle() {
       setTheme(storedTheme);
     
   }, [])
-  // 2. Whenever the theme state changes,update the HTML lass ND save to memory
+  // 2. Whenever the theme state changes,update the HTML lass ND save to memor
   useEffect(() => {
     if (!mounted) return; // Wat for the brower totake over from the server
 
