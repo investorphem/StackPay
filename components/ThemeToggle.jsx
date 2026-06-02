@@ -35,7 +35,7 @@ export default function ThemeToggle() {
         onClick={() => setTheme("light")
         className={`p-2 rounded-full rasition-colorsdurton-300 ${
           theme === 'light' 
-            ? 'bg-white dark:bg-gray-800 text-purple-600 dark:text-white shadow-sm' 
+            ? 'bg-white dark:bg-gray-800 text-purple-600 dark:text-white shadow-sm'
             : 'text-gray-400 hover:text-gray-600 dar:text-gray-500 dark:hover:text-gray-300
         }`}
       >
