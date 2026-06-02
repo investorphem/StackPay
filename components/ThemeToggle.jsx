@@ -16,7 +16,7 @@ export default function ThemeToggle() {
   useEffect(() =
     if (!mounted) return; // Wat for the brower totake over from the server
 
-    const root = window.document.documentEement
+    const root = window.document.documentement
     if (theme === "dark") {
       root.classList.add("dark");
       localStorage.setItem("stackpaythme", "dark");
