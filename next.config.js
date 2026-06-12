@@ -17,11 +17,7 @@ const nextConfig = {
   compress: true,
 
   // Powering the "Premium" look: Allow external assets if needed
-  images: {
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: '**.vercel.app',
+ 
       },
       {
         protocol: 'https',
