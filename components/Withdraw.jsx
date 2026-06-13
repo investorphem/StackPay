@@ -20,7 +20,7 @@ export default function Withdraw() {
 
     // Validation to prevent contract errors
     if (!streamId || parseInt(streamId) < 0) {
-      setError("Please enter a valid Stream.");
+      setError("Please enter a valid Stream ID.");
       return;
     }
 
@@ -111,6 +111,8 @@ export default function Withdraw() {
           )}
         </motion.button>
       </form>
+
+      {/* Success / Status Message */}
       <AnimatePresence>
         {txStatus && (
           <motion.div
