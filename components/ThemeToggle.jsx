@@ -7,6 +7,7 @@ export default function ThemeToggle() {
   const [theme, setTheme] = useState("dark");
   const [mounted, setMounted] = useState(false);
 
+  // 1. On initial load, check the browser memory for a saved theme
   useEffect(() => {
     setMounted(true);
     const storedTheme = localStorage.getItem("stackpay-theme");
@@ -15,6 +16,7 @@ export default function ThemeToggle() {
     }
   }, []);
 
+  // 2. Whenever the theme state changes, update the HTML class AND save to memory
   useEffect(() => {
     if (!mounted) return; // Wait for the browser to take over from the server
 
