@@ -12,11 +12,6 @@ export default function StreamCard({ stream }) {
   const [isWithdrawing, setIsWithdrawing] = useState(false);
   const [txStatus, setTxStatus] = useState("");
 
-  const truncateAddress = (address) => {
-    if (!address) return "Unknown";
-    return `${address.slice(0, 5)}...${address.slice(-4)}`;
-  };
-
   const formatSTX = (microStx) => {
     return (Number(microStx) / 1000000).toLocaleString(undefined, {
       minimumFractionDigits: 2,
