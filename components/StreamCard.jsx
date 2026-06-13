@@ -12,6 +12,13 @@ export default function StreamCard({ stream }) {
   const [isWithdrawing, setIsWithdrawing] = useState(false);
   const [txStatus, setTxStatus] = useState("");
 
+  // Helper to neatly format Stacks addresses
+  const truncateAddress = (address) => {
+    if (!address) return "Unknown";
+    return `${address.slice(0, 5)}...${address.slice(-4)}`;
+  };
+
+  // Convert contract micro-STX back to readable STX for the UI
   const formatSTX = (microStx) => {
     return (Number(microStx) / 1000000).toLocaleString(undefined, {
       minimumFractionDigits: 2,
@@ -124,7 +131,7 @@ export default function StreamCard({ stream }) {
               <FiLoader className="animate-spin text-lg" />
               <span>Requesting Signature...</span>
             </>
-          ) : !stream.active ? (
+       
             "Stream Closed"
           ) : stream.balance <= 0 ? (
             "No Funds Available"
