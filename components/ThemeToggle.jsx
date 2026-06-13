@@ -30,6 +30,7 @@ export default function ThemeToggle() {
     }
   }, [theme, mounted]);
 
+  // Prevent UI flashing or hydration mismatch during SSR
   if (!mounted) return null;
 
   return (
