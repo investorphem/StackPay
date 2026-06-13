@@ -14,7 +14,6 @@ export default function ConnectWallet() {
 
   useEffect(() => {
     setMounted(true);
-    // FIX 2: SSR Safe LocalStorage Check for v8
     try {
       const data = getLocalStorage();
       const savedAddress = data?.addresses?.stx?.[0]?.address;
