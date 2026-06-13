@@ -16,7 +16,6 @@ export default function ThemeToggle() {
     }
   }, []);
 
-  // 2. Whenever the theme state changes, update the HTML class AND save to memory
   useEffect(() => {
     if (!mounted) return; // Wait for the browser to take over from the server
 
