@@ -111,8 +111,6 @@ export default function Withdraw() {
           )}
         </motion.button>
       </form>
-
-      {/* Success / Status Message */}
       <AnimatePresence>
         {txStatus && (
           <motion.div
