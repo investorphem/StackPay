@@ -14,6 +14,7 @@ export default function ConnectWallet() {
 
   useEffect(() => {
     setMounted(true);
+    // FIX 2: SSR Safe LocalStorage Check for v8
     try {
       const data = getLocalStorage();
       const savedAddress = data?.addresses?.stx?.[0]?.address;
@@ -23,11 +24,19 @@ export default function ConnectWallet() {
     }
   }, []);
 
+  const handleConnect = async () => {
+    setIsLoading(true);
+    setError(null);
+
     // Extension Check: Prevents infinite spinning if the wallet isn't detected
     if (typeof window !== "undefined" && !window.StacksProvider && !window.LeatherProvider) {
       setError("No Stacks wallet detected. Please install Leather or Xverse.");
       setIsLoading(false);
-      retu
+      return;
+    }
+
+    try {
+      const projectId = process.env.NEXT_PUBLIC_WC_PROJECT_ID || "default_project_id";
 
       // FIX 3: V8 Native Connect
       const response = await connect({
