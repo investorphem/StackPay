@@ -20,7 +20,7 @@ export default function Withdraw() {
 
     // Validation to prevent contract errors
     if (!streamId || parseInt(streamId) < 0) {
-      setError("Please enter a valid Stream ID.");
+      setError("Please enter a valid Stream.");
       return;
     }
 
