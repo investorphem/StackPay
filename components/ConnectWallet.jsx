@@ -27,11 +27,7 @@ export default function ConnectWallet() {
     if (typeof window !== "undefined" && !window.StacksProvider && !window.LeatherProvider) {
       setError("No Stacks wallet detected. Please install Leather or Xverse.");
       setIsLoading(false);
-      return;
-    }
-
-    try {
-      const projectId = process.env.NEXT_PUBLIC_WC_PROJECT_ID || "default_project_id";
+      retu
 
       // FIX 3: V8 Native Connect
       const response = await connect({
