@@ -23,10 +23,6 @@ export default function ConnectWallet() {
     }
   }, []);
 
-  const handleConnect = async () => {
-    setIsLoading(true);
-    setError(null);
-
     // Extension Check: Prevents infinite spinning if the wallet isn't detected
     if (typeof window !== "undefined" && !window.StacksProvider && !window.LeatherProvider) {
       setError("No Stacks wallet detected. Please install Leather or Xverse.");
