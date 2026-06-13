@@ -17,7 +17,6 @@ export default function StreamCard({ stream }) {
     return `${address.slice(0, 5)}...${address.slice(-4)}`;
   };
 
-  // Convert contract micro-STX back to readable STX for the UI
   const formatSTX = (microStx) => {
     return (Number(microStx) / 1000000).toLocaleString(undefined, {
       minimumFractionDigits: 2,
