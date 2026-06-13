@@ -18,7 +18,6 @@ export default function Withdraw() {
     setError("");
     setTxStatus("");
 
-    // FIXED: Using callbacks instead of async/await for wallet interaction
     openContractCall({
       contractAddress,
       contractName,
