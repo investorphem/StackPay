@@ -131,7 +131,7 @@ export default function StreamCard({ stream }) {
               <FiLoader className="animate-spin text-lg" />
               <span>Requesting Signature...</span>
             </>
-       
+          ) : !stream.active ? (
             "Stream Closed"
           ) : stream.balance <= 0 ? (
             "No Funds Available"
