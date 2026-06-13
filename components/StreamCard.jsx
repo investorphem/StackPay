@@ -12,7 +12,6 @@ export default function StreamCard({ stream }) {
   const [isWithdrawing, setIsWithdrawing] = useState(false);
   const [txStatus, setTxStatus] = useState("");
 
-  // Helper to neatly format Stacks addresses
   const truncateAddress = (address) => {
     if (!address) return "Unknown";
     return `${address.slice(0, 5)}...${address.slice(-4)}`;
