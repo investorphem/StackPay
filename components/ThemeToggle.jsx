@@ -20,16 +20,6 @@ export default function ThemeToggle() {
   useEffect(() => {
     if (!mounted) return; // Wait for the browser to take over from the server
 
-    const root = window.document.documentElement;
-    if (theme === "dark") {
-      root.classList.add("dark");
-      localStorage.setItem("stackpay-theme", "dark");
-    } else {
-      root.classList.remove("dark");
-      localStorage.setItem("stackpay-theme", "light");
-    }
-  }, [theme, mounted]);
-
   // Prevent UI flashing or hydration mismatch during SSR
   if (!mounted) return null;
 
