@@ -17,7 +17,6 @@ export default function ThemeToggle() {
   useEffect(() => {
     if (!mounted) return; // Wait for the browser to take over from the server
 
-  // Prevent UI flashing or hydration mismatch during SSR
   if (!mounted) return null;
 
   return (
