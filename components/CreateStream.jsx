@@ -13,6 +13,11 @@ export default function CreateStream({ onStreamCreated }) {
   const [duration, setDuration] = useState("");
   const [amount, setAmount] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState("");
+
+  const handleCreate = async (e) => {
+    e.preventDefault();
+    setError("");
 
     // Basic Validation for Mainnet
     if (!recipient.startsWith("SP") && !recipient.startsWith("ST")) {
@@ -26,7 +31,13 @@ export default function CreateStream({ onStreamCreated }) {
     if (!amount || amount <= 0) {
       setError("Amount must be greater than 0.");
       return;
-  
+    }
+
+    setIsSubmitting(true);
+
+    // Convert UI STX value to contract micro-STX (1 STX = 1,000,000 micro-STX)
+    const microStxAmount = Math.floor(parseFloat(amount) * 1000000);
+
     try {
       await openContractCall({
         contractAddress,
