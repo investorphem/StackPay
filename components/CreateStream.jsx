@@ -13,7 +13,6 @@ export default function CreateStream({ onStreamCreated }) {
   const [duration, setDuration] = useState("");
   const [amount, setAmount] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [error, setError] = useState("
 
     // Basic Validation for Mainnet
     if (!recipient.startsWith("SP") && !recipient.startsWith("ST")) {
