@@ -13,6 +13,17 @@ export default function Withdraw() {
   const [txStatus, setTxStatus] = useState("");
   const [error, setError] = useState("");
 
+  const handleWithdraw = (e) => {
+    e.preventDefault();
+    setError("");
+    setTxStatus("");
+
+    // Validation to prevent contract errors
+    if (!streamId || parseInt(streamId) < 0) {
+      setError("Please enter a valid Stream ID.");
+      return;
+    }
+
     setIsSubmitting(true);
 
     // FIXED: Using callbacks instead of async/await for wallet interaction
