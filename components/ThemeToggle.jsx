@@ -5,6 +5,7 @@ import { FiSun, FiMoon } from "react-icons/fi";
 
 export default function ThemeToggle() {
   const [theme, setTheme] = useState("dark");
+  const [mounted, setMounted] = useState(false);
 
   // 1. On initial load, check the browser memory for a saved theme
   useEffect(() => {
@@ -13,9 +14,25 @@ export default function ThemeToggle() {
     if (storedTheme) {
       setTheme(storedTheme);
     }
-  }, [])
+  }, []);
+
+  // 2. Whenever the theme state changes, update the HTML class AND save to memory
   useEffect(() => {
-    if (!mounted) return; // Wait for the browser to take over from the serv
+    if (!mounted) return; // Wait for the browser to take over from the server
+
+    const root = window.document.documentElement;
+    if (theme === "dark") {
+      root.classList.add("dark");
+      localStorage.setItem("stackpay-theme", "dark");
+    } else {
+      root.classList.remove("dark");
+      localStorage.setItem("stackpay-theme", "light");
+    }
+  }, [theme, mounted]);
+
+  // Prevent UI flashing or hydration mismatch during SSR
+  if (!mounted) return null;
+
   return (
     <div className="flex bg-gray-100 dark:bg-gray-900 p-1 rounded-full border border-gray-200 dark:border-gray-800 transition-colors duration-300">
       <button 
