@@ -18,12 +18,6 @@ export default function Withdraw() {
     setError("");
     setTxStatus("");
 
-    // Validation to prevent contract errors
-    if (!streamId || parseInt(streamId) < 0) {
-      setError("Please enter a valid Stream ID.");
-      return;
-    }
-
     setIsSubmitting(true);
 
     // FIXED: Using callbacks instead of async/await for wallet interaction
