@@ -15,10 +15,7 @@ export default function ThemeToggle() {
     }
   }, [])
   useEffect(() => {
-    if (!mounted) return; // Wait for the browser to take over from the server
-
-  if (!mounted) return null;
-
+    if (!mounted) return; // Wait for the browser to take over from the serv
   return (
     <div className="flex bg-gray-100 dark:bg-gray-900 p-1 rounded-full border border-gray-200 dark:border-gray-800 transition-colors duration-300">
       <button 
