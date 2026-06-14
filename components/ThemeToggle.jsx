@@ -13,8 +13,6 @@ export default function ThemeToggle() {
     const storedTheme = localStorage.getItem("stackpay-theme");
     if (storedTheme) {
       setTheme(storedTheme);
-    }
-  }, []);
 
   // 2. Whenever the theme state changes, update the HTML class AND save to memory
   useEffect(() => {
