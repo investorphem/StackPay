@@ -26,11 +26,7 @@ export default function CreateStream({ onStreamCreated }) {
     if (!amount || amount <= 0) {
       setError("Amount must be greater than 0.");
       return;
-    }
-
-    // Convert UI STX value to contract micro-STX (1 STX = 1,000,000 micro-STX)
-    const microStxAmount = Math.floor(parseFloat(amount) * 1000000);
-
+  
     try {
       await openContractCall({
         contractAddress,
