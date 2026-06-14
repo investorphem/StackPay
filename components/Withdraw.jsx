@@ -13,11 +13,6 @@ export default function Withdraw() {
   const [txStatus, setTxStatus] = useState("");
   const [error, setError] = useState("");
 
-  const handleWithdraw = (e) => {
-    e.preventDefault();
-    setError("");
-    setTxStatus("");
-
     setIsSubmitting(true);
 
     // FIXED: Using callbacks instead of async/await for wallet interaction
