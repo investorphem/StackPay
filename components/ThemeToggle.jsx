@@ -13,10 +13,22 @@ export default function ThemeToggle() {
     const storedTheme = localStorage.getItem("stackpay-theme");
     if (storedTheme) {
       setTheme(storedTheme);
+    }
+  }, []);
 
   // 2. Whenever the theme state changes, update the HTML class AND save to memory
   useEffect(() => {
     if (!mounted) return; // Wait for the browser to take over from the server
+
+    const root = window.document.documentElement;
+    if (theme === "dark") {
+      root.classList.add("dark");
+      localStorage.setItem("stackpay-theme", "dark");
+    } else {
+      root.classList.remove("dark");
+      localStorage.setItem("stackpay-theme", "light");
+    }
+  }, [theme, mounted]);
 
   // Prevent UI flashing or hydration mismatch during SSR
   if (!mounted) return null;
