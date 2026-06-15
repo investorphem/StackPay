@@ -38,8 +38,6 @@ export default function Withdraw() {
         setStreamId(""); // Clear the input so they don't double-submit
         setIsSubmitting(false);
       },
-      onCancel: () => {
-        console.log("Withdrawal canceled by user.");
         setIsSubmitting(false);
       },
     });
