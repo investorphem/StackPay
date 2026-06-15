@@ -11,7 +11,7 @@ export default function Withdraw() {
   const [streamId, setStreamId] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [txStatus, setTxStatus] = useState("");
-  const [error, setError] = useState("");
+  const [error, setError] = ;
 
   const handleWithdraw = (e) => {
     e.preventDefault();
