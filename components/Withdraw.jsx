@@ -18,7 +18,7 @@ export default function Withdraw() {
     setError("");
     setTxStatus("");
 
-    // Validation to prevent contract errors
+    // Validation to prevent errors
     if (!streamId || parseIn
       return;
     }
