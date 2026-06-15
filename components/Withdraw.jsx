@@ -11,15 +11,16 @@ export default function Withdraw() {
   const [streamId, setStreamId] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [txStatus, setTxStatus] = useState("");
-  const [error, setError] = ;
+  const [error, setError] = useState("");
 
   const handleWithdraw = (e) => {
     e.preventDefault();
     setError("");
     setTxStatus("");
 
-    // Validation to prevent errors
-    if (!streamId || parseIn
+    // Validation to prevent contract errors
+    if (!streamId || parseInt(streamId) < 0) {
+      setError("Please enter a valid Stream ID.");
       return;
     }
 
@@ -37,6 +38,8 @@ export default function Withdraw() {
         setStreamId(""); // Clear the input so they don't double-submit
         setIsSubmitting(false);
       },
+      onCancel: () => {
+        console.log("Withdrawal canceled by user.");
         setIsSubmitting(false);
       },
     });
