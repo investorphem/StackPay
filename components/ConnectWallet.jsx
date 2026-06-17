@@ -1,152 +1,155 @@
 "use client";
 
-import { useState, useEffect } from "react";
-// FIX 1: We use the v8 `connect` and `getLocalStorage` tools directly. No more showConnect!
-import { connect, disconnect, getLocalStorage } from "@stacks/connect"; 
-import { motion, AnimatePresence } from "framer-motion";
-import { FiLogOut, FiLink, FiAlertCircle, FiLoader } from "react-icons/fi";
+import { useState } from "react";
+import { openContractCall } from "@stacks/connect";
+import { uintCV } from "@stacks/transactions";
+import { STACKS_MAINNET } from "@stacks/network"; // FIX: Added to enforce mainnet withdrawals
+import { motion } from "framer-motion";
+import { FiArrowDownRight, FiUser, FiClock, FiActivity, FiCheckCircle, FiLoader } from "react-icons/fi";
+import { contractAddress, contractName } from "../lib/contract";
 
-export default function ConnectWallet() {
-  const [mounted, setMounted] = useState(false);
-  const [address, setAddress] = useState(null);
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(null);
+export default function StreamCard({ stream }) {
+  const [isWithdrawing, setIsWithdrawing] = useState(false);
+  const [txStatus, setTxStatus] = useState("");
 
-  useEffect(() => {
-    setMounted(true);
-    // FIX 2: SSR Safe LocalStorage Check for v8
-    try {
-      const data = getLocalStorage();
-      const savedAddress = data?.addresses?.stx?.[0]?.address;
-      if (savedAddress) setAddress(savedAddress);
-    } catch (err) {
-      console.error("Storage error:", err);
-    }
-  }, []);
-
-  const handleConnect = async () => {
-    setIsLoading(true);
-    setError(null);
-
-    // Extension Check: Prevents infinite spinning if the wallet isn't detected
-    if (typeof window !== "undefined" && !window.StacksProvider && !window.LeatherProvider) {
-      setError("No Stacks wallet detected. Please install Leather or Xverse.");
-      setIsLoading(false);
-      return;
-    }
-
-    try {
-      const projectId = process.env.NEXT_PUBLIC_WC_PROJECT_ID || "default_project_id";
-
-      // FIX 3: V8 Native Connect
-      const response = await connect({
-        appDetails: {
-          name: "StackPay Protocol",
-          icon: "https://stackpay-one.vercel.app/apple-touch-icon.png",
-        },
-        // Correct v8 WalletConnect syntax
-        walletConnect: { 
-          projectId: projectId 
-        }
-        // Notice we REMOVED the `network` object completely. 
-        // Passing the network object here is what triggers Leather's ZodError!
-      });
-
-      const stxAddress = response?.addresses?.stx?.[0]?.address || getLocalStorage()?.addresses?.stx?.[0]?.address;
-
-      if (stxAddress) {
-        setAddress(stxAddress);
-        window.location.reload(); 
-      } else {
-        throw new Error("No address returned from wallet.");
-      }
-    } catch (err) {
-      console.error("Connection Error:", err);
-      setError(err.message || "Failed to connect wallet.");
-      setTimeout(() => setError(null), 5000);
-    } finally {
-      setIsLoading(false);
-    }
+  // Helper to neatly format Stacks addresses
+  const truncateAddress = (address) => {
+    if (!address) return "Unknown";
+    return `${address.slice(0, 5)}...${address.slice(-4)}`;
   };
 
-  const handleDisconnect = () => {
-    disconnect();
-    setAddress(null);
-    window.location.reload(); 
+  // Convert contract micro-STX back to readable STX for the UI
+  const formatSTX = (microStx) => {
+    return (Number(microStx) / 1000000).toLocaleString(undefined, {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 6,
+    });
   };
 
-  if (!mounted) return null;
+  const handleWithdraw = () => {
+    setIsWithdrawing(true);
+    setTxStatus("");
+
+    openContractCall({
+      contractAddress,
+      contractName,
+      functionName: "withdraw",
+      functionArgs: [uintCV(stream.id)],
+      network: STACKS_MAINNET, // FIX: Explicitly tell the wallet this is a mainnet contract
+      onFinish: (data) => {
+        console.log("Withdrawal transaction submitted:", data.txId);
+        setTxStatus("Transaction broadcasted! Awaiting block confirmation.");
+        setIsWithdrawing(false);
+      },
+      onCancel: () => {
+        console.log("Withdrawal canceled by user.");
+        setIsWithdrawing(false);
+      },
+    });
+  };
 
   return (
-    <div className="flex flex-col items-end justify-center relative z-50">
-      <AnimatePresence mode="wait">
-        {address ? (
-          <motion.div
-            key="connected"
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 10 }}
-            className="flex items-center gap-3 bg-white dark:bg-gray-900/80 p-1.5 pl-4 rounded-full border border-gray-200 dark:border-gray-700/50 shadow-lg backdrop-blur-md transition-colors duration-300"
-          >
-            <div className="flex items-center gap-2">
-              <div className="relative flex h-3 w-3">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-3 w-3 bg-purple-500 shadow-[0_0_8px_rgba(168,85,247,0.8)]"></span>
-              </div>
-              <span className="text-sm font-medium tracking-wide text-gray-900 dark:text-gray-200 transition-colors duration-300">
-                {address.slice(0, 5)}...{address.slice(-4)}
-              </span>
-            </div>
+    <div className="relative bg-white dark:bg-gray-800/40 border border-gray-200 dark:border-gray-700/50 backdrop-blur-md rounded-3xl p-6 shadow-lg dark:shadow-xl hover:shadow-xl dark:hover:shadow-2xl transition-all duration-300">
 
-            <button
-              onClick={handleDisconnect}
-              className="p-2 ml-1 text-gray-500 hover:text-red-500 hover:bg-red-50 dark:text-gray-400 dark:hover:text-red-400 dark:hover:bg-red-500/10 rounded-full transition-colors duration-200"
-              title="Disconnect Wallet"
-            >
-              <FiLogOut size={16} />
-            </button>
-          </motion.div>
-        ) : (
-          <motion.div
-            key="disconnected"
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.95 }}
-          >
-            <button
-              onClick={handleConnect}
-              disabled={isLoading}
-              className="relative flex items-center gap-2 px-6 py-2.5 bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-400 hover:to-purple-500 text-white text-sm font-semibold rounded-full shadow-lg shadow-indigo-500/30 transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed"
-            >
-              {isLoading ? (
-                <>
-                  <FiLoader className="animate-spin text-lg" />
-                  <span>Connecting...</span>
-                </>
-              ) : (
-                <>
-                  <FiLink className="text-lg" />
-                  <span>Connect Wallet</span>
-                </>
-              )}
-            </button>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {/* Header: Stream ID & Status Badge */}
+      <div className="flex justify-between items-start mb-6 border-b border-gray-100 dark:border-gray-700/50 pb-4 transition-colors duration-300">
+        <div>
+          <h3 className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-indigo-600 dark:from-purple-400 dark:to-indigo-400 transition-colors duration-300">
+            Stream #{stream.id}
+          </h3>
+          <p className="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wider mt-1 transition-colors duration-300">Smart Contract Data</p>
+        </div>
 
-      <AnimatePresence>
-        {error && (
-          <motion.div
-            initial={{ opacity: 0, y: 10, scale: 0.95 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.95 }}
-            className="absolute top-full mt-4 right-0 w-max max-w-xs flex items-start gap-2 p-3 bg-red-50 dark:bg-red-950/90 border border-red-200 dark:border-red-500/30 text-red-600 dark:text-red-400 text-xs rounded-lg shadow-2xl transition-colors duration-300"
-          >
-            <FiAlertCircle className="shrink-0 mt-0.5" size={14} />
-            <p className="leading-relaxed">{error}</p>
-          </motion.div>
+        <div className={`flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold shadow-inner transition-colors duration-300 ${
+          stream.active 
+            ? "bg-emerald-50 dark:bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-500/20" 
+            : "bg-gray-100 dark:bg-gray-500/10 text-gray-600 dark:text-gray-400 border border-gray-200 dark:border-gray-500/20"
+        }`}>
+          {stream.active ? <FiActivity className="animate-pulse" /> : <FiCheckCircle />}
+          <span>{stream.active ? "Active" : "Closed"}</span>
+        </div>
+      </div>
+
+      {/* Body: Stream Details Grid */}
+      <div className="grid grid-cols-2 gap-y-5 gap-x-4 mb-6">
+        <div className="space-y-1">
+          <div className="flex items-center gap-1.5 text-gray-500 dark:text-gray-400 text-xs uppercase tracking-wider transition-colors duration-300">
+            <FiUser size={12} />
+            <span>Employer</span>
+          </div>
+          <p className="text-sm font-medium text-gray-900 dark:text-gray-200 transition-colors duration-300" title={stream.employer}>
+            {truncateAddress(stream.employer)}
+          </p>
+        </div>
+
+        <div className="space-y-1">
+          <div className="flex items-center gap-1.5 text-gray-500 dark:text-gray-400 text-xs uppercase tracking-wider transition-colors duration-300">
+            <FiUser size={12} />
+            <span>Employee</span>
+          </div>
+          <p className="text-sm font-medium text-gray-900 dark:text-gray-200 transition-colors duration-300" title={stream.employee}>
+            {truncateAddress(stream.employee)}
+          </p>
+        </div>
+
+        <div className="space-y-1">
+          <div className="flex items-center gap-1.5 text-gray-500 dark:text-gray-400 text-xs uppercase tracking-wider transition-colors duration-300">
+            <FiClock size={12} />
+            <span>Rate / Block</span>
+          </div>
+          <p className="text-sm font-medium text-purple-600 dark:text-purple-300 transition-colors duration-300">
+            {formatSTX(stream.ratePerBlock)} <span className="text-xs text-gray-500">STX</span>
+          </p>
+        </div>
+
+        <div className="space-y-1">
+          <div className="flex items-center gap-1.5 text-gray-500 dark:text-gray-400 text-xs uppercase tracking-wider transition-colors duration-300">
+            <FiArrowDownRight size={12} />
+            <span>Available Balance</span>
+          </div>
+          <p className="text-lg font-bold text-emerald-600 dark:text-emerald-400 dark:drop-shadow-[0_0_8px_rgba(52,211,153,0.3)] transition-colors duration-300">
+            {formatSTX(stream.balance)} <span className="text-sm font-normal text-emerald-600">STX</span>
+          </p>
+        </div>
+      </div>
+
+      {/* Footer: Action Button & Status */}
+      <div className="flex flex-col gap-3 pt-2">
+        <motion.button
+          whileHover={!isWithdrawing && stream.active && stream.balance > 0 ? { scale: 1.02 } : {}}
+          whileTap={!isWithdrawing && stream.active && stream.balance > 0 ? { scale: 0.98 } : {}}
+          onClick={handleWithdraw}
+          disabled={isWithdrawing || !stream.active || stream.balance <= 0}
+          className={`w-full relative flex items-center justify-center gap-2 py-3 font-semibold rounded-xl transition-all duration-300 ${
+            !stream.active || stream.balance <= 0
+              ? "bg-gray-100 dark:bg-gray-800 text-gray-400 dark:text-gray-500 cursor-not-allowed border border-gray-200 dark:border-gray-700"
+              : "bg-gradient-to-r from-emerald-500 to-teal-500 dark:from-emerald-600 dark:to-teal-600 hover:from-emerald-400 hover:to-teal-400 dark:hover:from-emerald-500 dark:hover:to-teal-500 text-white shadow-lg shadow-emerald-500/20 dark:shadow-[0_0_15px_rgba(16,185,129,0.2)] dark:hover:shadow-[0_0_20px_rgba(16,185,129,0.4)]"
+          }`}
+        >
+          {isWithdrawing ? (
+            <>
+              <FiLoader className="animate-spin text-lg" />
+              <span>Requesting Signature...</span>
+            </>
+          ) : !stream.active ? (
+            "Stream Closed"
+          ) : stream.balance <= 0 ? (
+            "No Funds Available"
+          ) : (
+            <>
+              <FiArrowDownRight className="text-lg" />
+              <span>Withdraw STX</span>
+            </>
+          )}
+        </motion.button>
+
+        {/* Smooth Inline Transaction Status */}
+        {txStatus && (
+          <p className="text-xs text-center text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-500/10 py-2 rounded-lg border border-emerald-200 dark:border-emerald-500/20 transition-colors duration-300">
+            {txStatus}
+          </p>
         )}
-      </AnimatePresence>
+      </div>
     </div>
   );
 }
