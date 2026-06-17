@@ -29,13 +29,7 @@ export default function Withdraw() {
         setTxStatus("Transaction broadcasted! Awaiting block confirmation.");
         setStreamId(""); // Clear the input so they don't double-submit
         setIsSubmitting(false);
-      },
-      onCancel: () => {
-        console.log("Withdrawal canceled by user.");
-        setIsSubmitting(false);
-      },
-    });
-  };
+      }
 
   return (
     <div className="w-full max-w-md mx-auto bg-gray-800/40 border border-gray-700/50 backdrop-blur-md rounded-3xl p-6 shadow-2xl">
