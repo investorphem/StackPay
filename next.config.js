@@ -12,10 +12,6 @@ const nextConfig = {
     // Ensures builds don't fail on type mismatches during high-speed deployment
     ignoreBuildErrors: true,
   },
-
-  // Enable compression for faster dApp loading on mobile/low-bandwidth
-  compress: true,
-
   // Powering the "Premium" look: Allow external assets if needed
   images: {
     remotePatterns: [
