@@ -9,7 +9,6 @@ import { FiArrowDownRight, FiUser, FiClock, FiActivity, FiCheckCircle, FiLoader 
 import { contractAddress, contractName } from "../lib/contract";
 
 export default function StreamCard({ stream }) {
-  const [isWithdrawing, setIsWithdrawing] = useState(false);
   // Helper to neatly format Stacks addresses
   const truncateAddress = (address) => {
     if (!address) return "Unknown";
