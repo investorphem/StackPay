@@ -10,12 +10,6 @@ import { FiArrowDownRight, FiUser, FiClock, FiActivity, FiCheckCircle, FiLoader 
 export default function StreamCard({ stream }) {
   const [isWithdrawing, setIsWithdrawing] = useState(false);
 
-  // Helper to neatly format Stacks addresses
-  const truncateAddress = (address) => {
-    if (!address) return "Unknown";
-    return `${address.slice(0, 5)}...${address.slice(-4)}`;
-  };
-
   // Convert contract micro-STX back to readable STX for the UI
   const formatSTX = (microStx) => {
     return (Number(microStx) / 1000000).toLocaleString(undefined, {
