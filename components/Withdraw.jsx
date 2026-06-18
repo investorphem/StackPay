@@ -10,7 +10,6 @@ import { contractAddress, contractName } from "../lib/contract";
 export default function Withdraw() {
   const [streamId, setStreamId] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [txStatus, setTxStatus] = useState("");
     // Validation to prevent contract errors
     if (!streamId || parseInt(streamId) < 0) {
       return;
