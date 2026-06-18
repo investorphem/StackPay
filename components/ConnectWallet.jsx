@@ -6,9 +6,17 @@ import { uintCV } from "@stacks/transactions";
 import { STACKS_MAINNET } from "@stacks/network"; // FIX: Added to enforce mainnet withdrawals
 import { motion } from "framer-motion";
 import { FiArrowDownRight, FiUser, FiClock, FiActivity, FiCheckCircle, FiLoader } from "react-icons/fi";
+import { contractAddress, contractName } from "../lib/contract";
 
 export default function StreamCard({ stream }) {
   const [isWithdrawing, setIsWithdrawing] = useState(false);
+  const [txStatus, setTxStatus] = useState("");
+
+  // Helper to neatly format Stacks addresses
+  const truncateAddress = (address) => {
+    if (!address) return "Unknown";
+    return `${address.slice(0, 5)}...${address.slice(-4)}`;
+  };
 
   // Convert contract micro-STX back to readable STX for the UI
   const formatSTX = (microStx) => {
