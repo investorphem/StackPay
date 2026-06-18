@@ -11,8 +11,6 @@ export default function Withdraw() {
   const [streamId, setStreamId] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [txStatus, setTxStatus] = useState("");
-  const [error, setError] = useState("");
-
     // Validation to prevent contract errors
     if (!streamId || parseInt(streamId) < 0) {
       setError("Please enter a valid Stream ID.");
