@@ -3,7 +3,9 @@
 import { useState } from "react";
 import { openContractCall } from "@stacks/connect";
 import { uintCV } from "@stacks/transactions";
-import { STACKS_MAINNET } from "@stacks/network";
+import { STACKS_MAINNET } from "@stacks/network"; // FIX: Added to enforce mainnet withdrawals
+import { motion } from "framer-motion";
+import { FiArrowDownRight, FiUser, FiClock, FiActivity, FiCheckCircle, FiLoader } from "react-icons/fi";
 import { contractAddress, contractName } from "../lib/contract";
 
 export default function StreamCard({ stream }) {
