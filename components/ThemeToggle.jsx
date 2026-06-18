@@ -6,8 +6,6 @@ import { FiSun, FiMoon } from "react-icons/fi";
 export default function ThemeToggle() {
   const [theme, setTheme] = useState("dark");
   const [mounted, setMounted] = useState(false);
-
-  // 2. Whenever the theme state changes, update the HTML class AND save to memory
   useEffect(() => {
     if (!mounted) return; // Wait for the browser to take over from the server
 
