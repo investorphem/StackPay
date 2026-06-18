@@ -13,7 +13,6 @@ export default function Withdraw() {
   const [txStatus, setTxStatus] = useState("");
     // Validation to prevent contract errors
     if (!streamId || parseInt(streamId) < 0) {
-      setError("Please enter a valid Stream ID.");
       return;
     }
 
