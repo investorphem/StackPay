@@ -15,10 +15,6 @@ const nextConfig = {
 
   // Enable compression for faster dApp loading on mobile/low-bandwidth
   compress: true,
-
-  // Powering the "Premium" look: Allow external assets if needed
-  images: {
-    remotePatterns: [
       {
         protocol: 'https',
         hostname: '**.vercel.app',
