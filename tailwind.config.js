@@ -10,6 +10,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        // Custom Stacks Brand Palette
         stacks: {
           purple: "#a855f7",
           indigo: "#818cf8",
