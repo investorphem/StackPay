@@ -5,10 +5,8 @@ const nextConfig = {
   // Premium Web3 Build Stability
   eslint: {
     // Allows production builds to complete even if there are linting errors
-    // Useful for rapid mainnet iterations, but keep your code clean!
-    ignoreDuringBuilds: true,
-  },
-  typescript: {
+    // Useful for rapid mainnet iterations, but keep your code c
+ 
     // Ensures builds don't fail on type mismatches during high-speed deployment
     ignoreBuildErrors: true,
   },
