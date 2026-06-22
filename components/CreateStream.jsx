@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { openContractCall } from "@stacks/connect";
 import { uintCV, standardPrincipalCV } from "@stacks/transactions";
 import { STACKS_MAINNET } from "@stacks/network"; // FIX: Added to enforce mainnet transactions
 import { motion } from "framer-motion";
