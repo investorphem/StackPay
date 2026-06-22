@@ -6,7 +6,6 @@ import { uintCV, standardPrincipalCV } from "@stacks/transactions";
 import { STACKS_MAINNET } from "@stacks/network"; // FIX: Added to enforce mainnet transactions
 import { motion } from "framer-motion";
 import { FiSend, FiUser, FiClock, FiDollarSign, FiLoader } from "react-icons/fi";
-import { contractAddress, contractName } from "../lib/contract";
 
 export default function CreateStream({ onStreamCreated }) {
   const [recipient, setRecipient] = useState("");
