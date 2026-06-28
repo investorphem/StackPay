@@ -20,10 +20,7 @@ const useUserSession = () => {
         setSession({ isConnected: true, stxAddress: address });
       }
     } catch (err) {
-      console.error("Employee dashboard session read error:", err);
-    }
-  }, []);
-
+      console.error("Employee dashboard session read error:", e
   return session;
 };
 
